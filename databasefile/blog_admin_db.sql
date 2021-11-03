@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2018 at 04:07 AM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.0.29
+-- Generation Time: Nov 02, 2021 at 10:29 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -34,13 +33,6 @@ CREATE TABLE `banner_posts` (
   `status` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `banner_posts`
---
-
-INSERT INTO `banner_posts` (`id`, `title`, `status`) VALUES
-(1, 1, 'active');
-
 -- --------------------------------------------------------
 
 --
@@ -64,12 +56,9 @@ CREATE TABLE `blogs` (
 --
 
 INSERT INTO `blogs` (`id`, `title`, `tags`, `content`, `photo`, `posted`, `date`, `author`, `category`) VALUES
-(1, 'Newest Blog and content management', 'blog,php,bootstrap', '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</div><div>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</div><div>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</div><div>consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</div><div>cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</div><div>proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>', '63560400_1524778647.jpg', 'draft', NULL, NULL, '5'),
-(2, 'Benefits of livig in this world', 'life,life tips', '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</div><div>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</div><div>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</div><div>consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</div><div>cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</div><div>proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>', '19292400_1524780270.jpg', 'publish', '2018-04-27', 'admin', '2'),
-(3, 'The future of web developement on earth', 'web,development,earth', '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<span style=\"font-size: 0.857em;\">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</span><span style=\"font-size: 0.857em;\">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span><span style=\"font-size: 0.857em;\">consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</span><span style=\"font-size: 0.857em;\">cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</span><span style=\"font-size: 0.857em;\">proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></div>', '46981800_1524780339.jpg', 'publish', '2018-04-27', 'admin', '3'),
-(4, 'The subtle art of not giving a fuck-Mark Manson', 'books,reading,novels', '<span style=\"font-size: 12.855px;\">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span><span style=\"font-size: 0.857em;\">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</span><span style=\"font-size: 0.857em;\">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span><span style=\"font-size: 0.857em;\">consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</span><span style=\"font-size: 0.857em;\">cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</span><span style=\"font-size: 0.857em;\">proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span><span style=\"font-size: 12.855px;\">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span><span style=\"font-size: 0.857em;\">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</span><span style=\"font-size: 0.857em;\">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span><span style=\"font-size: 0.857em;\">consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</span><span style=\"font-size: 0.857em;\">cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</span><span style=\"font-size: 0.857em;\">proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span><br>', '98308700_1524790852.jpg', 'publish', '2018-04-27', 'admin', '2'),
-(5, 'The challanges of being a writter', 'witting,blogging', '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<span style=\"font-size: 0.857em;\">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</span><span style=\"font-size: 0.857em;\">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span><span style=\"font-size: 0.857em;\">consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</span><span style=\"font-size: 0.857em;\">cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</span><span style=\"font-size: 0.857em;\">proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></div>', '57894000_1524856026.jpg', 'publish', '2018-04-27', 'etemesi', '4'),
-(6, 'Why i ventured into writting as a proffesion', 'witting,blogging', '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<span style=\"font-size: 0.857em;\">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</span><span style=\"font-size: 0.857em;\">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span><span style=\"font-size: 0.857em;\">consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</span><span style=\"font-size: 0.857em;\">cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</span><span style=\"font-size: 0.857em;\">proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span><span style=\"font-size: 11.0167px;\">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span><span style=\"font-size: 11.0167px;\">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</span><span style=\"font-size: 11.0167px;\">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span><span style=\"font-size: 11.0167px;\">consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</span><span style=\"font-size: 11.0167px;\">cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</span><span style=\"font-size: 11.0167px;\">proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></div>', '30278600_1524856225.jpg', 'draft', '2018-04-27', 'etemesi', '4');
+(8, 'Computer Science and Engineering', 'CSE', '<span class=\"ILfuVd\"><span class=\"hgKElc\"><b>Computer Science</b> &amp; <b>Engineering</b> (CSE) is an academic program at many universities which comprises <b>scientific and engineering</b> aspects of <b>computing</b>. CSE is also a term often used in Europe to translate the name of <b>engineering</b> informatics academic programs.</span></span>', '24524200_1625304552.png', 'publish', '2021-07-03', 'admin', '7'),
+(9, 'Civil Engineering', 'CEN', '<p>Civil engineering is the application of physical and scientific \r\nprinciples for solving the problems of society, and its history is \r\nintricately linked to advances in the understanding of <a href=\"https://en.wikipedia.org/wiki/Physics\" title=\"Physics\">physics</a> and <a href=\"https://en.wikipedia.org/wiki/Mathematics\" title=\"Mathematics\">mathematics</a>\r\n throughout history. Because civil engineering is a broad profession, \r\nincluding several specialized sub-disciplines, its history is linked to \r\nknowledge of structures, materials science, geography, <a href=\"https://en.wikipedia.org/wiki/Geology\" title=\"Geology\">geology</a>, <a href=\"https://en.wikipedia.org/wiki/Soil\" title=\"Soil\">soils</a>, <a href=\"https://en.wikipedia.org/wiki/Hydrology\" title=\"Hydrology\">hydrology</a>, <a href=\"https://en.wikipedia.org/wiki/Environmental_science\" title=\"Environmental science\">environmental science</a>, <a href=\"https://en.wikipedia.org/wiki/Mechanics\" title=\"Mechanics\">mechanics</a>, <a href=\"https://en.wikipedia.org/wiki/Project_management\" title=\"Project management\">project management</a>, and other fields.<sup id=\"cite_ref-baveystock_6-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Civil_engineering#cite_note-baveystock-6\">[6]</a></sup>\r\n</p><p>Throughout ancient and medieval history most architectural design and construction was carried out by <a href=\"https://en.wikipedia.org/wiki/Artisan\" title=\"Artisan\">artisans</a>, such as <a href=\"https://en.wikipedia.org/wiki/Masonry\" title=\"Masonry\">stonemasons</a> and <a href=\"https://en.wikipedia.org/wiki/Carpenter\" class=\"mw-redirect\" title=\"Carpenter\">carpenters</a>, rising to the role of <a href=\"https://en.wikipedia.org/wiki/Architect\" title=\"Architect\">master builder</a>. Knowledge was retained in <a href=\"https://en.wikipedia.org/wiki/Guild\" title=\"Guild\">guilds</a>\r\n and seldom supplanted by advances. Structures, roads, and \r\ninfrastructure that existed were repetitive, and increases in scale were\r\n incremental.<sup id=\"cite_ref-Saouma_7-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Civil_engineering#cite_note-Saouma-7\">[7]</a></sup>\r\n</p><p>One of the earliest examples of a scientific approach to physical\r\n and mathematical problems applicable to civil engineering is the work \r\nof <a href=\"https://en.wikipedia.org/wiki/Archimedes\" title=\"Archimedes\">Archimedes</a> in the 3rd century BC, including Archimedes Principle, which underpins our understanding of <a href=\"https://en.wikipedia.org/wiki/Buoyancy\" title=\"Buoyancy\">buoyancy</a>, and practical solutions such as <a href=\"https://en.wikipedia.org/wiki/Archimedes%27_screw\" title=\"Archimedes\' screw\">Archimedes\' screw</a>. <a href=\"https://en.wikipedia.org/wiki/Brahmagupta\" title=\"Brahmagupta\">Brahmagupta</a>,\r\n an Indian mathematician, used arithmetic in the 7th century AD, based \r\non Hindu-Arabic numerals, for excavation (volume) computations.<sup id=\"cite_ref-8\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Civil_engineering#cite_note-8\">[8]</a></sup>\r\n</p>', '74309500_1625306479.png', 'publish', '2021-07-03', 'admin', '7'),
+(10, 'Electrical and Electronics Engineering', 'EEE', '<p><b>Electrical engineering</b> is an <a href=\"https://en.wikipedia.org/wiki/Engineering\" title=\"Engineering\">engineering</a> discipline concerned with the study, design and application of equipment, devices and systems which use <a href=\"https://en.wikipedia.org/wiki/Electricity\" title=\"Electricity\">electricity</a>, <a href=\"https://en.wikipedia.org/wiki/Electronics\" title=\"Electronics\">electronics</a>, and <a href=\"https://en.wikipedia.org/wiki/Electromagnetism\" title=\"Electromagnetism\">electromagnetism</a>. It emerged as an identifiable occupation in the latter half of the 19th century after <a href=\"https://en.wikipedia.org/wiki/Commercialization\" title=\"Commercialization\">commercialization</a> of the <a href=\"https://en.wikipedia.org/wiki/Electric_telegraph\" class=\"mw-redirect\" title=\"Electric telegraph\">electric telegraph</a>, the <a href=\"https://en.wikipedia.org/wiki/Telephone\" title=\"Telephone\">telephone</a>, and <a href=\"https://en.wikipedia.org/wiki/Electrical_power\" class=\"mw-redirect\" title=\"Electrical power\">electrical power</a> generation, distribution and use.\r\n</p><p>Electrical engineering is now divided into a wide range of different fields, including <a href=\"https://en.wikipedia.org/wiki/Computer_engineering\" title=\"Computer engineering\">computer engineering</a>, <a href=\"https://en.wikipedia.org/wiki/Systems_engineering\" title=\"Systems engineering\">systems engineering</a>, <a href=\"https://en.wikipedia.org/wiki/Power_engineering\" title=\"Power engineering\">power engineering</a>, <a href=\"https://en.wikipedia.org/wiki/Telecommunication\" title=\"Telecommunication\">telecommunications</a>, <a href=\"https://en.wikipedia.org/wiki/Radio-frequency_engineering\" title=\"Radio-frequency engineering\">radio-frequency engineering</a>, <a href=\"https://en.wikipedia.org/wiki/Signal_processing\" title=\"Signal processing\">signal processing</a>, <a href=\"https://en.wikipedia.org/wiki/Instrumentation\" title=\"Instrumentation\">instrumentation</a>, <a href=\"https://en.wikipedia.org/wiki/Electronics\" title=\"Electronics\">electronics</a>, and <a href=\"https://en.wikipedia.org/wiki/Optics\" title=\"Optics\">optics</a> and <a href=\"https://en.wikipedia.org/wiki/Photonics\" title=\"Photonics\">photonics</a>.\r\n Many of these disciplines overlap with other engineering branches, \r\nspanning a huge number of specializations including hardware \r\nengineering, <a href=\"https://en.wikipedia.org/wiki/Power_electronics\" title=\"Power electronics\">power electronics</a>, electromagnetics and waves, <a href=\"https://en.wikipedia.org/wiki/Microwave_engineering\" title=\"Microwave engineering\">microwave engineering</a>, <a href=\"https://en.wikipedia.org/wiki/Nanotechnology\" title=\"Nanotechnology\">nanotechnology</a>, <a href=\"https://en.wikipedia.org/wiki/Electrochemistry\" title=\"\">electrochemistry</a>, renewable energies, mechatronics, and electrical materials science.<sup id=\"cite_ref-1\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Electrical_engineering#cite_note-1\">[a]</a></sup>\r\n</p>', '37751800_1625306787.png', 'publish', '2021-07-03', 'admin', '7');
 
 -- --------------------------------------------------------
 
@@ -87,12 +76,7 @@ CREATE TABLE `blog_categories` (
 --
 
 INSERT INTO `blog_categories` (`id`, `name`) VALUES
-(1, 'tricks'),
-(2, 'hacks'),
-(3, 'offers'),
-(4, 'promotion'),
-(5, 'devices'),
-(6, 'entertainment');
+(7, 'Engineering');
 
 -- --------------------------------------------------------
 
@@ -104,14 +88,6 @@ CREATE TABLE `editors_choice` (
   `id` int(10) UNSIGNED NOT NULL,
   `blog` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `editors_choice`
---
-
-INSERT INTO `editors_choice` (`id`, `blog`) VALUES
-(2, 3),
-(1, 4);
 
 -- --------------------------------------------------------
 
@@ -126,17 +102,10 @@ CREATE TABLE `links` (
   `googleplus` varchar(40) DEFAULT NULL,
   `pinterest` varchar(40) DEFAULT NULL,
   `dribble` varchar(40) DEFAULT NULL,
-  `comments_script` text,
-  `sharing_script` text,
-  `javascript` text
+  `comments_script` text DEFAULT NULL,
+  `sharing_script` text DEFAULT NULL,
+  `javascript` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `links`
---
-
-INSERT INTO `links` (`id`, `facebook`, `twitter`, `googleplus`, `pinterest`, `dribble`, `comments_script`, `sharing_script`, `javascript`) VALUES
-(1, 'http://www.facebook.com', 'http://www.twitter.com', 'http://www.plus.google.com', 'http://www.pinterest.com', 'http://www.dribble.com', '<div class=\"fb-comments container\" data-href=\"http://www.uoecu.org/newsview.php?id=<?php echo $row[\'id\'];?>\" data-numposts=\"20\" width=\"100%\"></div>', '<div class=\"addthis_sharing_toolbox\"></div>', '<script>(function(d, s, id) {\r\n		var js, fjs = d.getElementsByTagName(s)[0];\r\n		if (d.getElementById(id)) return;\r\n		js = d.createElement(s); js.id = id;\r\n		js.src = \'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=298807240601869\';\r\n		fjs.parentNode.insertBefore(js, fjs);\r\n	}(document, \'script\', \'facebook-jssdk\'));</script>\r\n<script type=\"text/javascript\" src=\"//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57587edcb1479678\"></script>');
 
 -- --------------------------------------------------------
 
@@ -149,9 +118,9 @@ CREATE TABLE `membership_grouppermissions` (
   `groupID` int(11) DEFAULT NULL,
   `tableName` varchar(100) DEFAULT NULL,
   `allowInsert` tinyint(4) DEFAULT NULL,
-  `allowView` tinyint(4) NOT NULL DEFAULT '0',
-  `allowEdit` tinyint(4) NOT NULL DEFAULT '0',
-  `allowDelete` tinyint(4) NOT NULL DEFAULT '0'
+  `allowView` tinyint(4) NOT NULL DEFAULT 0,
+  `allowEdit` tinyint(4) NOT NULL DEFAULT 0,
+  `allowDelete` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -180,7 +149,7 @@ INSERT INTO `membership_grouppermissions` (`permissionID`, `groupID`, `tableName
 CREATE TABLE `membership_groups` (
   `groupID` int(10) UNSIGNED NOT NULL,
   `name` varchar(20) DEFAULT NULL,
-  `description` text,
+  `description` text DEFAULT NULL,
   `allowSignup` tinyint(4) DEFAULT NULL,
   `needsApproval` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -205,9 +174,9 @@ CREATE TABLE `membership_userpermissions` (
   `memberID` varchar(20) NOT NULL,
   `tableName` varchar(100) DEFAULT NULL,
   `allowInsert` tinyint(4) DEFAULT NULL,
-  `allowView` tinyint(4) NOT NULL DEFAULT '0',
-  `allowEdit` tinyint(4) NOT NULL DEFAULT '0',
-  `allowDelete` tinyint(4) NOT NULL DEFAULT '0'
+  `allowView` tinyint(4) NOT NULL DEFAULT 0,
+  `allowEdit` tinyint(4) NOT NULL DEFAULT 0,
+  `allowDelete` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -231,23 +200,10 @@ CREATE TABLE `membership_userrecords` (
 --
 
 INSERT INTO `membership_userrecords` (`recID`, `tableName`, `pkValue`, `memberID`, `dateAdded`, `dateUpdated`, `groupID`) VALUES
-(1, 'titles', '1', 'admin', 1524766759, 1524868561, 2),
-(2, 'links', '1', 'admin', 1524766827, 1524878963, 2),
-(3, 'blog_categories', '1', 'admin', 1524773915, 1524773915, 2),
-(4, 'blog_categories', '2', 'admin', 1524773923, 1524773923, 2),
-(5, 'blog_categories', '3', 'admin', 1524773931, 1524773931, 2),
-(6, 'blog_categories', '4', 'admin', 1524773941, 1524773941, 2),
-(7, 'blog_categories', '5', 'admin', 1524773974, 1524773974, 2),
-(8, 'blogs', '1', 'admin', 1524778647, 1524791344, 2),
-(9, 'banner_posts', '1', 'admin', 1524779492, 1524779492, 2),
-(10, 'blogs', '2', 'admin', 1524780270, 1524781513, 2),
-(11, 'blogs', '3', 'admin', 1524780339, 1524789616, 2),
-(12, 'blogs', '4', 'admin', 1524790853, 1524790853, 2),
-(13, 'editors_choice', '1', 'admin', 1524799889, 1524799889, 2),
-(14, 'editors_choice', '2', 'admin', 1524799903, 1524799903, 2),
-(15, 'blogs', '5', 'etemesi', 1524856026, 1524856026, 3),
-(16, 'blogs', '6', 'etemesi', 1524856225, 1524856225, 3),
-(17, 'blog_categories', '6', 'etemesi', 1524858044, 1524858044, 3);
+(19, 'blog_categories', '7', 'admin', 1625304414, 1625304414, 2),
+(20, 'blogs', '8', 'admin', 1625304552, 1625304552, 2),
+(21, 'blogs', '9', 'admin', 1625306479, 1625306479, 2),
+(22, 'blogs', '10', 'admin', 1625306787, 1625306787, 2);
 
 -- --------------------------------------------------------
 
@@ -263,11 +219,11 @@ CREATE TABLE `membership_users` (
   `groupID` int(10) UNSIGNED DEFAULT NULL,
   `isBanned` tinyint(4) DEFAULT NULL,
   `isApproved` tinyint(4) DEFAULT NULL,
-  `custom1` text,
-  `custom2` text,
-  `custom3` text,
-  `custom4` text,
-  `comments` text,
+  `custom1` text DEFAULT NULL,
+  `custom2` text DEFAULT NULL,
+  `custom3` text DEFAULT NULL,
+  `custom4` text DEFAULT NULL,
+  `comments` text DEFAULT NULL,
   `pass_reset_key` varchar(100) DEFAULT NULL,
   `pass_reset_expiry` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -277,9 +233,8 @@ CREATE TABLE `membership_users` (
 --
 
 INSERT INTO `membership_users` (`memberID`, `passMD5`, `email`, `signupDate`, `groupID`, `isBanned`, `isApproved`, `custom1`, `custom2`, `custom3`, `custom4`, `comments`, `pass_reset_key`, `pass_reset_expiry`) VALUES
-('admin', '21232f297a57a5a743894a0e4a801fc3', 'ronniengoda@gmail.com', '2018-04-26', 2, 0, 1, NULL, NULL, NULL, NULL, 'Admin member created automatically on 2018-04-26\nRecord updated automatically on 2018-04-27', NULL, NULL),
-('etemesi', '827ccb0eea8a706c4c34a16891f84e7b', 'etemesi@gmail.com', '2018-04-27', 3, 0, 1, 'philiiip etemesi', 'nairobi,kenya', 'nairobi', 'kenya', 'member signed up through the registration form.', NULL, NULL),
-('guest', NULL, NULL, '2018-04-26', 1, 0, 1, NULL, NULL, NULL, NULL, 'Anonymous member created automatically on 2018-04-26', NULL, NULL);
+('admin', '21232f297a57a5a743894a0e4a801fc3', 'khorshedalom3517@gmail.com', '2021-04-26', 2, 0, 1, 'Khorshed Alom', 'Dhaka', 'dhaka', '01303713906', 'Record updated automatically on 2021-07-03\r\nRecord updated automatically on 2021-07-03', NULL, NULL),
+('guest', NULL, NULL, '2021-04-26', 1, 0, 1, NULL, NULL, NULL, NULL, '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -297,11 +252,9 @@ CREATE TABLE `page_hits` (
 --
 
 INSERT INTO `page_hits` (`page`, `count`) VALUES
-('Benefits of livig in this world', 6),
-('The challanges of being a writter', 5),
-('The future of web developement on earth', 19),
-('The subtle art of not giving a fuck-Mark Manson', 22),
-('Why i ventured into writting as a proffesion', 2);
+('Civil Engineering', 4),
+('Computer Science and Engineering', 6),
+('Electrical and Electronics Engineering', 8);
 
 -- --------------------------------------------------------
 
@@ -320,19 +273,12 @@ CREATE TABLE `titles` (
   `bannertext2` varchar(150) DEFAULT NULL,
   `bannertext3` varchar(150) DEFAULT NULL,
   `bannertext4` varchar(150) DEFAULT NULL,
-  `detailed_description` text,
+  `detailed_description` text DEFAULT NULL,
   `address` varchar(40) DEFAULT NULL,
   `email` varchar(80) DEFAULT NULL,
   `phone` varchar(40) DEFAULT NULL,
   `googlemap` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `titles`
---
-
-INSERT INTO `titles` (`id`, `website_name`, `tagline`, `icon`, `keywords`, `short_description`, `bannertext1`, `bannertext2`, `bannertext3`, `bannertext4`, `detailed_description`, `address`, `email`, `phone`, `googlemap`) VALUES
-(1, 'Fatastic Blog', 'Blogging For Passion', '95401600_1524766758.jpg', 'blog,tech blog,tricks,hacks,technology news,fantastic blog', 'This is a blog and content management system,You can easily setup your blog and customize it according to your needs.This is a short description of your blog.You can change this', 'Create a lifestyle <span>you desire</span>', 'Engaging Purposeful <span>and Creative</span>', 'Create the lifestyle <span>you desire</span>', 'Engaging Purposeful <span>and Creative</span>', 'This is a blog and content management system,You can easily setup your blog and customize it according to your needs.It is easy to use and manage.Multiple users can signup and be able contribute content.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Nairobi,Kenya', 'info@fantasticblog.com', '0708344101', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100949.24429313939!2d-122.44206553967531!3d37.75102885910819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan+Francisco%2C+CA%2C+USA!5e0!3m2!1sen!2sin!4v1');
 
 -- --------------------------------------------------------
 
@@ -344,7 +290,7 @@ CREATE TABLE `visitor_info` (
   `id` int(11) NOT NULL,
   `ip_address` varchar(255) DEFAULT NULL,
   `user_agent` varchar(255) DEFAULT NULL,
-  `time_accessed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `time_accessed` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -405,7 +351,34 @@ INSERT INTO `visitor_info` (`id`, `ip_address`, `user_agent`, `time_accessed`) V
 (51, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36', '2018-04-27 22:22:28'),
 (52, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36', '2018-04-28 01:41:41'),
 (53, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36', '2018-04-28 01:43:58'),
-(54, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36', '2018-04-28 01:46:23');
+(54, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36', '2018-04-28 01:46:23'),
+(55, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-06-24 14:26:28'),
+(56, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-06-24 14:31:33'),
+(57, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-06-24 14:32:12'),
+(58, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-06-24 14:47:03'),
+(59, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-06-24 14:48:01'),
+(60, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-01 13:31:53'),
+(61, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-01 13:32:11'),
+(62, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-01 15:54:33'),
+(63, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-03 09:18:02'),
+(64, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-03 09:33:11'),
+(65, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-03 09:36:03'),
+(66, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-03 10:01:26'),
+(67, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-03 10:03:13'),
+(68, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-03 10:03:52'),
+(69, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-03 10:04:31'),
+(70, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-03 10:06:50'),
+(71, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-03 17:01:12'),
+(72, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-03 17:07:06'),
+(73, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-03 17:09:27'),
+(74, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-03 17:19:03'),
+(75, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-04 06:42:01'),
+(76, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-08 13:57:22'),
+(77, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-08 13:57:41'),
+(78, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-08 13:59:29'),
+(79, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-08 14:01:23'),
+(80, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0', '2021-07-15 03:39:22'),
+(81, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0', '2021-10-21 07:05:55');
 
 --
 -- Indexes for dumped tables
@@ -512,13 +485,13 @@ ALTER TABLE `banner_posts`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `blog_categories`
 --
 ALTER TABLE `blog_categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `editors_choice`
@@ -554,7 +527,7 @@ ALTER TABLE `membership_userpermissions`
 -- AUTO_INCREMENT for table `membership_userrecords`
 --
 ALTER TABLE `membership_userrecords`
-  MODIFY `recID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `recID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `titles`
@@ -566,7 +539,7 @@ ALTER TABLE `titles`
 -- AUTO_INCREMENT for table `visitor_info`
 --
 ALTER TABLE `visitor_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

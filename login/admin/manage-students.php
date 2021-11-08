@@ -1,18 +1,19 @@
 <?php
 session_start();
-error_reporting(0);
 include('../connect.php');
-if(strlen($_SESSION['admin-username'])=="")
+if(strlen($_SESSION['admin-username'])=="" || !isset($_SESSION['admin-username']))
     {   
-    header("Location: login.php"); 
-    }
-    else{
-	}
-	$username=$_SESSION['admin-username'];
-	 $sql = "select * from admin where username='$username'"; 
-$result = $conn->query($sql);
-$row= mysqli_fetch_array($result);
-      ?>
+header('location:login.php');
+}
+else{
+
+    if(isset($_GET['del']))
+      {
+              mysqli_query($conn,"delete from students where StudentRegno = '".$_GET['id']."'");
+                  $_SESSION['delmsg']="Student record deleted !!";
+      }
+
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,7 +114,7 @@ else {return false;
         <div class="image">
           <img src="../upload/no_image.jpg" alt="User Image" width="188" height="181" class="img-circle elevation-2">        </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $row['username'];  ?></a>
+          <a href="#" class="d-block">Admin</a>
         </div>
       </div>
 
@@ -148,125 +149,73 @@ else {return false;
     <!-- /.sidebar -->
   </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">&nbsp;</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Applications' Record</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <p>&nbsp;</p>
-          <table width="1161" border="0" align="center">
-            <tr>
-              <td width="1155"><div class="card">
-                <div class="card-header">
-                  <h2>Applications' Record</h2>
-                  <h3 class="card-title">&nbsp;</h3>
+  <!-- MENU SECTION END-->
+    <div class="content-wrapper">
+        <div class="container">
+              <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Course  </h1>
+                    </div>
                 </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <table width="85%" align="center" class="table table-bordered table-striped" id="example1">
-                    <thead>
-                      <tr> <th width="3%">#</th>
-                        <th width="13%">Fullname</th>
-                        <th width="7%">Gender</th>
-                        <th width="9%">Phone</th>
-                        <th width="7%">University</th>
-                        <th width="7%">Department</th>
-                        <th width="7%">Courses</th>
-						            <th width="8%">Year</th>
-                        <th width="8%">Photo</th>
-                        <th width="16%">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                							      <?php 
-                                          $sql = "SELECT * FROM admission order by date_admission ASC";
-                                           $result = $conn->query($sql);
-										$cnt=1;
-                                           while($row = $result->fetch_assoc()) { 
-										   ?>
-                      <tr class="gradeX">
-					  <td height="47"><div align="center"><?php echo $cnt; ?></div></td>
-                        <td><div align="center"><?php echo $row['name']; ?></div></td>
-                        <td><div align="center"><?php echo $row['gender']; ?></div></td>
-                        	<td><div align="center"><?php echo $row['phone']; ?></div></td>
-                        <td><div align="center"><?php echo $row['versity']; ?></div></td>
-                        <td><div align="center"><?php echo $row['dept']; ?></div></td>
-                        <td><div align="center"><?php echo $row['course']; ?></div></td>
-                        <td><div align="center"><?php echo $row['syear']; ?></div></td>
-						 
-                        <td><div align="center"><span class="controls"><img src="../<?php echo $row['ssce'];?>"  width="100" height="100" border="2"/></span></div></td>
-                        <td><?php if(($row['status'])==((1)))
-{ ?>
-                          <span class="badge badge-primary">Offered Admission</span>
-                          <?php } else {?>
-                          <span class="badge badge-danger">Admission Not Ready</span>
-                        <?php } ?></td>
-                        <td><span class="style6">
-                          <?php if(($row['status'])==((1)))
-{ ?>
-<a href="admit_exec.php?id=<?php echo $row['id'];?>" >Cancel Admission </a> 
-                          <?php } else {?>
-<a href="admit_exec.php?uid=<?php echo $row['id'];?>" >Admit </a> 
-                         <?php } ?>/
-					   <a href="delete-user.php?id=<?php echo $row['id'];?>" onClick="return deldata('<?php echo $row['name']; ?>');">Delete </a>
+                <div class="row" >
+                 
+                <font color="red" align="center"><?php echo htmlentities($_SESSION['delmsg']);?><?php echo htmlentities($_SESSION['delmsg']="");?></font>
+                <div class="col-md-12">
+                    <!--    Bordered Table  -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Manage Course
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Application ID </th>
+                                            <th>Student Name </th>
+                                            <th> Pincode</th>
+                                             <th>Reg Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+<?php
+$sql=mysqli_query($conn,"select * from students");
+$cnt=1;
+while($row=mysqli_fetch_array($sql))
+{
+?>
 
-                     </span></td>
-                      </tr>
-                      <?php $cnt=$cnt+1;} ?>
-                    </tbody>
-                    <tfoot>
-                    </tfoot>
-                  </table>
+
+                                        <tr>
+                                            <td><?php echo $cnt;?></td>
+                                            <td><?php echo htmlentities($row['applicationID']);?></td>
+                                            <td><?php echo htmlentities($row['studentName']);?></td>
+                                            <td><?php echo htmlentities($row['pincode']);?></td>
+                                            <td><?php echo htmlentities($row['creationdate']);?></td>
+                                           
+                                        </tr>
+<?php 
+$cnt++;
+} ?>
+
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                     <!--  End  Bordered Table  -->
                 </div>
-                <!-- /.card-body -->
-              </div></td>
-            </tr>
-          </table>
-          <p>
-            <!-- /.card -->
-          </p>
+            </div>
+
+
+
+
+
         </div>
-          <!-- /.col -->
     </div>
-        <!-- /.row -->
-  </div>
-      <!-- /.container-fluid --><!-- /.content -->
-</div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      
-    </div>
-  </footer>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
@@ -300,3 +249,4 @@ else {return false;
 </script>
 </body>
 </html>
+<?php } ?>

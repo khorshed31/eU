@@ -18,7 +18,7 @@ $string = (uniqid(rand(), true));
 return substr($string, 0,5);
 }
 	
-$applicationID = "ADM/".date("Y")."/".applicationID();		
+$applicationID = applicationID();		
 
 
 $name = mysqli_real_escape_string($conn,$_POST['txtname']);
@@ -26,11 +26,10 @@ $email = mysqli_real_escape_string($conn,$_POST['txtemail']);
 $phone = mysqli_real_escape_string($conn,$_POST['txtphone']);
 $gender = mysqli_real_escape_string($conn,$_POST['cmdgender']);
 $versity = mysqli_real_escape_string($conn,$_POST['txtversity']);
-$dept = mysqli_real_escape_string($conn,$_POST['txtdept']);
 $syear = mysqli_real_escape_string($conn,$_POST['txtsyear']);
 
 $photo='upload/default.jpg';
-$credential='upload/Result-Report-card-software.png';
+$credential='image/s_id.png';
 
 $status='0';
 
@@ -49,7 +48,7 @@ if (mysqli_num_rows($res_u) > 0) {
 $msg_error = "Phone already exist";
 
 }else {
-$sql = "INSERT INTO admission (name,email,phone,gender,versity,dept,syear,status,photo,date_admission,applicationID)VALUES( '$name','$email','$phone','$gender','$versity','$dept','$syear','$status','$photo','$current_date','$applicationID')";
+$sql = "INSERT INTO admission (name,email,phone,gender,versity,syear,status,photo,date_admission,applicationID)VALUES( '$name','$email','$phone','$gender','$versity','$syear','$status','$photo','$current_date','$applicationID')";
  
  if ($conn->query($sql) === TRUE) {
  
@@ -73,6 +72,8 @@ alert('Problem Occured , Try Again');
 
 
 <title>Registation Form| Student Registation </title>
+<link rel="shortcut icon" href="../images/favicon.png" type="image/png">
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <?php if ($msg <> "") { ?>
   <style type="text/css">
 <!--
@@ -125,18 +126,14 @@ alert('Problem Occured , Try Again');
                 <input type="text"  id="pass1" class="form-control" name="txtversity" value="<?php if (isset($_POST['txtversity']))?><?php echo $_POST['txtversity']; ?> " required="">
               </label>
             </div>
-				<div class="form-group">
-              <label class="col-lg-12 control-label" for="pass1">Department:
-                <input type="text"  id="pass1" class="form-control" name="txtdept" value="<?php if (isset($_POST['txtdept']))?><?php echo $_POST['txtdept']; ?>" required="">
-              </label>
-            </div>
 			
 		<div class="form-group">
               <label class="col-lg-12 control-label" for="pass1">Year:
                 <input type="text"  id="pass1" class="form-control" name="txtsyear"  value="<?php if (isset($_POST['txtsyear']))?><?php echo $_POST['txtyear']; ?>" required="">
               </label>
             </div>
-		 
+            
+            
 
             <div style="height: 10px;clear: both"></div>
 
@@ -144,7 +141,7 @@ alert('Problem Occured , Try Again');
 			
 			
               <div class="col-lg-10">
-                <button class="btn btn-primary" type="submit" name="btnsubmit">Submit</button> 
+                <button class="btn btn-primary" type="submit" name="btnsubmit">Next</button> 
                 <a href="../user/login.php">Already register then LogIn</a>
               </div>
             </div>
@@ -154,6 +151,7 @@ alert('Problem Occured , Try Again');
     </div>
   </div>
 </div>
+
 
 <p>
 </p>

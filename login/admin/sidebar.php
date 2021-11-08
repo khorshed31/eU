@@ -60,19 +60,19 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="user-record.php" class="nav-link">
+                <a href="manage-students.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Student</p>
+                  <p>Show Student PinCode</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="user-record.php" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Enroll History</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="user-record.php" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Student Logs</p>
                 </a>

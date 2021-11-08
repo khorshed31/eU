@@ -38,6 +38,7 @@ window.location = "upload.php";
 ?>
 
 <title>Upload Image| </title>
+<link rel="shortcut icon" href="../images/favicon.png" type="image/png">
 	<style type="text/css">
 <!--
 .style1 {
@@ -76,10 +77,11 @@ window.location = "upload.php";
               <label class="col-lg-12 control-label" for="pass1"><span class="controls"><br />
               <br />
               <span class="style2">N/B: Copy out your email and Application ID</span> <br />
+              <span class="style1">Upload Your Student ID Photo</span> <br />
               <img src="../<?php echo $row['ssce'];?>"  width="333" height="333" border="6" /></span><br />
               <br />
              
-                <input type="file" class="form-control" name="image">
+                <input type="file" class="form-control" name="image" required>
               </label>
             </div>
 		  <div class="form-group">
@@ -109,7 +111,7 @@ window.location = "upload.php";
 				      </div>
 					  <div align="center"><a href="../user/login.php"></a></div></td>
                     <td width="142">&nbsp;
-                      <div align="center"><a href="../user/login.php">Finish </a></div></td>
+                      <div align="center"><a href="../user/login.php">Login Now </a></div></td>
                   </tr>
           </table> 
              

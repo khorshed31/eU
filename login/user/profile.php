@@ -29,7 +29,7 @@ $rowaccess = mysqli_fetch_array($result);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Profile|easyUniversity</title>
+    <title>Profile | easyUniversity</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -125,10 +125,9 @@ $rowaccess = mysqli_fetch_array($result);
                                     <i class="fa fa-wrench"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="#">Config option 1</a>
+                                    <li><a href="edit-profile.php">Edit</a>
                                     </li>
-                                    <li><a href="#">Config option 2</a>
-                                    </li>
+                                    
                                 </ul>
                                 <a class="close-link">
                                     <i class="fa fa-times"></i>

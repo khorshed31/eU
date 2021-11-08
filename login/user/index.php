@@ -11,9 +11,13 @@ if(strlen($_SESSION['uemail'])=="" || !isset($_SESSION["uemail"]))
       
 $email = $_SESSION['uemail'];
                 
-$sql = "select * from admission where email='$email'"; 
+$sql = "select * from students where email='$email'"; 
 $result = $conn->query($sql);
 $rowaccess = mysqli_fetch_array($result);
+
+$sql1 = "select * from admission where email='$email'"; 
+$result1 = $conn->query($sql1);
+$rowaccess1 = mysqli_fetch_array($result1);
 
 date_default_timezone_set('Asia/Dhaka');
 $current_date = date('Y-m-d H:i:s');
@@ -28,7 +32,8 @@ $current_date = date('Y-m-d H:i:s');
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>User Dashboard</title>
+<title><?php echo $rowaccess['studentName'];?>[<?php echo $rowaccess['applicationID'];?>] | easyUniversity</title>
+<link rel="shortcut icon" href="../images/favicon.png" type="image/png">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -41,7 +46,7 @@ $current_date = date('Y-m-d H:i:s');
 
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+    
 
 </head>
 
@@ -141,7 +146,42 @@ $current_date = date('Y-m-d H:i:s');
 </h5>
                             </div>
                             <div class="ibox-content">
-                                <h3 class="no-margins"><?php echo $rowaccess['date_admission'];  ?></h3>
+                                <h3 class="no-margins"><?php echo $rowaccess1['date_admission'];  ?></h3>
+                                <small> </small> 
+						  </div>
+                        </div>
+                    </div>
+                    <?php         
+    $query = "SELECT * FROM course"; 
+       $result = mysqli_query($conn, $query); 
+      
+    if ($result) 
+    { 
+        // it return number of rows in the table. 
+        $row_users = mysqli_num_rows($result); 
+          
+    }?>
+                    <div class="col-lg-3">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                              <h5><span class="label label-success pull-right">Total Courses</span>
+</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <h3 class="no-margins"> <?php echo $row_users;?></h3>
+                                <small> </small> 
+						  </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                              <h5><span class="label label-success pull-right">Total Courses</span>
+</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <h3 class="no-margins"> <?php echo $row_users;?></h3>
                                 <small> </small> 
 						  </div>
                         </div>
@@ -154,7 +194,7 @@ $current_date = date('Y-m-d H:i:s');
 </h5>
                             </div>
                             <div class="ibox-content">
-                                <h3 class="no-margins"><?php if(($rowaccess['status'])==(0))
+                                <h3 class="no-margins"><?php if(($rowaccess1['status'])==(0))
 { ?>
  <h4 style="color:red">No Registation yet.</h4>
 			   <?php } else {?>
@@ -182,7 +222,6 @@ $current_date = date('Y-m-d H:i:s');
             <div class="row">&nbsp; </p>
           </div>
           </div>
-
 
           </div>
             <div class="footer">

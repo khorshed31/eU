@@ -1,3 +1,15 @@
+<?php
+session_start();
+error_reporting(0);
+include 'header.php';
+include('../connect.php');
+
+$email = $_SESSION["uemail"];
+      $sql = "select * from admission where email='$email'"; 
+      $result = $conn->query($sql);
+      $rowaccess = mysqli_fetch_array($result);
+?>
+
 <li class="nav-header">
                     
                     <div class="logo-element">
@@ -14,8 +26,13 @@
   					
                     </ul>
                 </li>
-			
-				<li>
-                    <a href="../onlinecourse/student-registration.php"><i class="fa fa-money"></i> <span class="nav-label">Apply Courses</span></a>
+                <li>
+                <?php if(($rowaccess['status'])==(0))
+{ ?>
+ <h4 style="color:red">Panding Registation...</h4>
+			   <?php } else {?>
+	 
+				
+                    <a href="student.php"><i class="fa fa-money"></i> <span class="nav-label">Apply Courses</span></a>
                 </li>
-			
+			<?php } ?>

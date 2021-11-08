@@ -25,7 +25,7 @@ if ( $row['status'] == '1') {
               <h3>Letter of Admission to <?php echo $row['fullname']?></h3>
                       <p>Dear <?php echo $row['fullname']."," ?></p>
                       <p>
-                        Congratulations! We are pleased to offer you admission to the RITMAN UNIVERSITY, IKOT EKPENE 
+                        Congratulations! We are pleased to offer you admission to the easyUniversity, IKOT EKPENE 
                       </p>
                       <p>
                         PROCEDURE FOR PAYMENT OF ACCEPTANCE FEE, ACADEMIC CLEARANCE & PAYMENT OF TUITION FEE
@@ -35,7 +35,6 @@ YOU ARE EXPECTED TO PAY THE ACCEPTANCE FEE ON OR BEFORE 7TH AUGUST, 2021. PLEASE
 <li>PAY YOUR ACCEPTANCE FEE WITH AN ATM CARD.</li>
 <li>PRINT YOUR ACCEPTANCE FEE RECEIPT AND CLEARANCE SCHEDULE.</li>
 <li>KEEP YOUR RECEIPT AND CLEARANCE SCHEDULE FOR REGISTRATION.</li>
-<li>DEADLINE FOR PAYMENT OF TUITION FEE IS 24TH NOVEMBER, 2017.</li>
 </ol>
 <h3>THE FOLLOWING DOCUMENTS ARE REQUIRED FOR REGISTRATION:</h3>
 <ol>

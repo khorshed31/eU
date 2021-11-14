@@ -55,7 +55,7 @@ if(isset($_POST["btnpassword"])){
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Change Password|Online student admission system</title>
-    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -115,7 +115,7 @@ if(isset($_POST["btnpassword"])){
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
      <a href="#" class="brand-link">
-      <img src="images/logo-banner.png" alt=" Logo" width="130" height="80" style="opacity: .8">
+      <!-- <img src="images/logo.png" alt=" Logo" width="130" height="80" style="opacity: .8"> -->
       <span class="brand-text font-weight-light">      &nbsp;&nbsp;&nbsp;&nbsp;   </span>
     </a>
 

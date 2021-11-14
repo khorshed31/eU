@@ -2,12 +2,12 @@
 session_start();
 error_reporting(0);
 include('../connect.php');
-if(strlen($_SESSION['uemail'])=="" || !isset($_SESSION["uemail"]))
+if(strlen($_SESSION['uemail'])=="")
     {   
     header("Location: login.php"); 
     }
     else{
-	}
+	
       
 $email = $_SESSION['uemail'];
                 
@@ -37,7 +37,6 @@ $current_date = date('Y-m-d H:i:s');
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-
     <!-- Morris -->
     <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
 
@@ -161,6 +160,16 @@ $current_date = date('Y-m-d H:i:s');
         $row_users = mysqli_num_rows($result); 
           
     }?>
+     <?php         
+    $query = "SELECT * FROM courseenrolls WHERE email = '".$_SESSION['uemail']."'"; 
+       $result = mysqli_query($conn, $query); 
+      
+    if ($result) 
+    { 
+        // it return number of rows in the table. 
+        $row_enroll = mysqli_num_rows($result); 
+          
+    }?>
                     <div class="col-lg-3">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
@@ -177,11 +186,11 @@ $current_date = date('Y-m-d H:i:s');
                     <div class="col-lg-3">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
-                              <h5><span class="label label-success pull-right">Total Courses</span>
+                              <h5><span class="label label-info pull-right">Total Enrolling Courses</span>
 </h5>
                             </div>
                             <div class="ibox-content">
-                                <h3 class="no-margins"> <?php echo $row_users;?></h3>
+                                <h3 class="no-margins"> <?php echo $row_enroll;?></h3>
                                 <small> </small> 
 						  </div>
                         </div>
@@ -222,16 +231,38 @@ $current_date = date('Y-m-d H:i:s');
             <div class="row">&nbsp; </p>
           </div>
           </div>
-
           </div>
-            <div class="footer">
-            
-            <div>
-<?php include('footer.php');  ?>            </div>
-        </div>
+          <h2><strong>Post</strong></h2><hr>
+          <?php
+$sql=mysqli_query($conn,"SELECT * FROM `courseenrolls`, `post`,`teacher` WHERE `courseenrolls`.`course` = `post`.`course` and  `post`.`t_id` = `teacher`.`t_id` and  email = '".$_SESSION['uemail']."'");
+$cnt=1;
+while($row=mysqli_fetch_array($sql))
+{
+?>
+          <div class="col-lg-8">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                              <h5><span class="label label-success pull-right"><?php echo($row['course']);?></span></h5>
+                              <strong class="label label-info pull-right"> <?php echo($row['t_name']);?></strong>
+                            </div>
+                            <div class="ibox-title">
+                              <h5><span class="label label-secondary pull-right"><?php echo($row['title']);?></span>
+</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <h3 class="no-margins"> <?php echo($row['description']);?></h3><br>
+                                <strong class="label label-info pull-left"> <?php echo($row['post_date']);?></strong> 
+                                <h5><span class="label pull-right"><img src="../<?php echo $row['photo'];?>" alt="User Image" width="30" height="30" class="img-circle elevation-2 "></span></h5>
+						  </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+          <div>
+          
+          </div>
         </div>
 </div>
-
+<?php include('footer.php');  ?>
             <!-- Mainly scripts -->
     <script src="js/jquery-2.1.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -436,3 +467,4 @@ $current_date = date('Y-m-d H:i:s');
     </script>
 </body>
 </html>
+<?php } ?>

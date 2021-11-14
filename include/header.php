@@ -82,7 +82,7 @@
                                 </div>
                             </div>
                             <div class="button float-left">
-                                <a href="login/index.php" class="main-btn">Registration</a>
+                                <a href="login/apply/admission.php" class="main-btn">Registration</a>
                             </div>
                         </div>
                     </div>

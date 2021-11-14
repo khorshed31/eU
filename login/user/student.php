@@ -9,6 +9,7 @@ if(strlen($_SESSION['uemail'])=="")
     header("Location: login.php"); 
     }
     else{
+
 	
       $email = $_SESSION["uemail"];
       $sql = "select * from admission where email='$email'"; 
@@ -18,11 +19,12 @@ if(isset($_POST['submit']))
 {
 
 $applicationID=$_POST['applicationID'];
+$email=$_POST['email'];
 $session=$_POST['session'];
 $semester=$_POST['semester'];
 $dept_id=$_POST['dept_id'];
 $course=$_POST['course'];
-$ret=mysqli_query($conn,"insert into c_enroll(applicationID,session,semester,dept_id,course) values('$applicationID','$session','$semester','$dept_id','$course')");
+$ret=mysqli_query($conn,"insert into courseenrolls(applicationID,email,session,semester,dept_id,course) values('$applicationID','$email','$session','$semester','$dept_id','$course')");
 if($ret)
 {
 $_SESSION['msg']="Student Registered Successfully !!";
@@ -159,7 +161,7 @@ else
         while($row=mysqli_fetch_array($sql))
         {
         ?>
-        <option value="<?php echo $row['s_id'];?>"><?php echo ($row['session']);?></option>
+        <option value="<?php echo $row['session'];?>"><?php echo ($row['session']);?></option>
         <?php } ?>
 
     </select> 
@@ -174,7 +176,7 @@ else
         while($row=mysqli_fetch_array($sql))
         {
         ?>
-        <option value="<?php echo $row['sem_id'];?>"><?php echo ($row['semester']);?></option>
+        <option value="<?php echo $row['semester'];?>"><?php echo ($row['semester']);?></option>
         <?php } ?>
 
     </select> 

@@ -120,7 +120,7 @@
                                         </div>
                                     </div> <!-- overview description -->
                                 </div>
-                                <table>
+                                <table class="table">
                                     <tr>
                                         <th>Course Code</th>
                                         <th>Course Name</th>

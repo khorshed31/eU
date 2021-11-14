@@ -46,7 +46,7 @@ $_SESSION['error']=' Wrong Email Address or Application ID';
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
 
 
 </head>

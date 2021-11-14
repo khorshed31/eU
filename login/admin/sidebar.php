@@ -62,7 +62,7 @@
               <li class="nav-item">
                 <a href="manage-students.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Show Student PinCode</p>
+                  <p>Enrolling Course</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -79,6 +79,24 @@
               </li>
               </ul>
           </li>
+              <li class="nav-item">
+                <a href="teacher.php" class="nav-link">
+                  <i class="fa fa-user nav-icon"></i>
+                  <p>Add Teacher</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="upload.php" class="nav-link">
+                  <i class="fa fa-image nav-icon"></i>
+                  <p>Teacher Photo</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="ass_course.php" class="nav-link">
+                  <i class="fa fa-image nav-icon"></i>
+                  <p>Assign Course</p>
+                </a>
+              </li>
 		  
 		   <li class="nav-header">Settings</li>
           <li class="nav-item">

@@ -33,6 +33,7 @@ $email = $_SESSION["uemail"];
 			   <?php } else {?>
 	 
 				
-                    <a href="student.php"><i class="fa fa-money"></i> <span class="nav-label">Apply Courses</span></a>
+                    <a href="student.php"><i class="fa fa-file"></i> <span class="nav-label">Apply Courses</span></a>
                 </li>
 			<?php } ?>
+            <li><a href="enroll-history.php"><i class="fa fa-history"></i> <span class="nav-label">Course History</span></a></li>

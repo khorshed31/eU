@@ -1,8 +1,8 @@
-<?php  
-session_start(); //to ensure you are using same session
-session_destroy(); //destroy the session
- 
+<?php
+include('dbcon.php');
+include('session.php');
+mysqli_query($conn,"update user_log set logout_Date = NOW() where user_id = '$session_id' ")or die(mysqli_error());
+
+ session_destroy();
+header('location:index.php'); 
 ?>
-<script>
-window.location="login.php";
-</script>

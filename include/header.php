@@ -82,7 +82,7 @@
                                 </div>
                             </div>
                             <div class="button float-left">
-                                <a href="login/apply/admission.php" class="main-btn">Registration</a>
+                                <a href="login/" class="main-btn">Registration</a>
                             </div>
                         </div>
                     </div>
@@ -110,21 +110,17 @@
                                         <a href="about.html">About us</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="courses.php">Department</a>
+                                        <a href="department.php">Department</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="events.html">Events</a>
+                                        <a href="#">Login</a>
                                         <ul class="sub-menu">
-                                            <li><a href="events.html">Events</a></li>
-                                            <li><a href="events-singel.html">Event Singel</a></li>
+                                            <li><a href="login/">User Login</a></li>
+                                            <li><a href="login/">Teacher Login</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="teachers.html">Our teachers</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="teachers.html">teachers</a></li>
-                                            <li><a href="teachers-singel.html">teacher Singel</a></li>
-                                        </ul>
+                                        <a href="teachers.php">Teachers</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="book_shop/index.php">Shop</a>

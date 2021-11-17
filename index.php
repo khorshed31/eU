@@ -28,7 +28,7 @@
 </head>
 
 <body>
-<div class="preloader">
+<!-- <div class="preloader">
         <div class="loader rubix-cube">
             <div class="layer layer-1"></div>
             <div class="layer layer-2"></div>
@@ -39,7 +39,7 @@
             <div class="layer layer-7"></div>
             <div class="layer layer-8"></div>
         </div>
-    </div>
+    </div> -->
     <?php include("include/header.php"); ?>
 
     <!--====== SEARCH BOX PART START ======-->
@@ -69,7 +69,7 @@
                             <h1 data-animation="bounceInLeft" data-delay="1s">Choose the right Courses for Skill</h1>
                             <p data-animation="fadeInUp" data-delay="1.3s">We have lot of courses you may like. If you miss any courses on your UNIVERSITY don't worry we provide you those courses.ENROLL right now</p>
                             <ul>
-                                <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="courses.php">Department</a></li>
+                                <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="department.php">Department</a></li>
                                 <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="login/index.php">Registration</a></li>
                             </ul>
                         </div>
@@ -86,7 +86,7 @@
                             <h1 data-animation="bounceInLeft" data-delay="1s">Choose the right Courses for Skill</h1>
                             <p data-animation="fadeInUp" data-delay="1.3s">We have lot of courses you may like. If you miss any courses on your UNIVERSITY don't worry we provide you those courses.ENROLL right now</p>
                             <ul>
-                                <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="courses.php">Department</a></li>
+                                <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="department.php">Department</a></li>
                                 <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="login/index.php">Registration</a></li>
                             </ul>
                         </div>
@@ -103,7 +103,7 @@
                             <h1 data-animation="bounceInLeft" data-delay="1s">Choose the right Courses for Skill</h1>
                             <p data-animation="fadeInUp" data-delay="1.3s">We have lot of courses you may like. If you miss any courses on your UNIVERSITY don't worry we provide you those courses.ENROLL right now</p>
                             <ul>
-                                <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="courses.php">Department</a></li>
+                                <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="department.php">Department</a></li>
                                 <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="login/index.php">Registration</a></li>
                             </ul>
                         </div>
@@ -303,159 +303,7 @@
 
     <!--====== APPLY PART ENDS ======-->
     <!--====== COURSE PART START ======-->
-    <?php 
-        include("login/connect.php");          
-    $query = "SELECT * FROM course where dept_id = '1'"; 
-       $result = mysqli_query($conn, $query); 
-      
-    if ($result) 
-    { 
-        // it return number of rows in the table. 
-        $row_users = mysqli_num_rows($result); 
-          
-    }                   
-                 $query = "SELECT * FROM course where dept_id = '2'"; 
-                    $result = mysqli_query($conn, $query); 
-                   
-                 if ($result) 
-                 { 
-                     // it return number of rows in the table. 
-                     $row_users_eee = mysqli_num_rows($result); 
-                       
-                 }  
-                 $query = "SELECT * FROM course where dept_id = '3'"; 
-                    $result = mysqli_query($conn, $query); 
-                   
-                 if ($result) 
-                 { 
-                     // it return number of rows in the table. 
-                     $row_users_cen = mysqli_num_rows($result); 
-                       
-                 }          
-                 ?>
     
-    <section id="course-part" class="pt-115 pb-120 gray-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-title pb-45">
-                        <h5>Our course</h5>
-                        <h2>Featured courses </h2>
-                    </div> <!-- section title -->
-                </div>
-            </div> <!-- row -->
-            <div class="row course-slied mt-30">
-                <div class="col-lg-4">
-                    <div class="singel-course">
-                        <div class="thum">
-                            <div class="image">
-                                <img src="images/CSE.png" alt="Course">
-                            </div>
-                            <div class="price">
-                                <span>Free</span>
-                            </div>
-                        </div>
-                        <div class="cont">
-                            <ul>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                            <span>(20 Reviws)</span>
-                            <a href="cse.php"><h4>Computer Science and Engineering(CSE)</h4></a>
-                            <div class="course-teacher">
-                                <!-- <div class="thum">
-                                    <a href="#"><img src="images/course/teacher/t-1.jpg" alt="teacher"></a>
-                                </div> -->
-                                <div class="name">
-                                    <a href="#"><h6>Admin</h6></a>
-                                </div>
-                                <div class="admin">
-                                    <ul>
-                                    <strong>Total Courses : <?php echo $row_users;?></strong>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- singel course -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="singel-course">
-                        <div class="thum">
-                            <div class="image">
-                                <img src="images/EEE.png" alt="Course">
-                            </div>
-                            <div class="price">
-                                <span>Free</span>
-                            </div>
-                        </div>
-                        <div class="cont">
-                            <ul>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                            <span>(20 Reviws)</span>
-                            <a href="eee.php"><h4>Electrical and Electronics Engineering(EEE)</h4></a>
-                            <div class="course-teacher">
-                                <!-- <div class="thum">
-                                    <a href="#"><img src="images/course/teacher/t-2.jpg" alt="teacher"></a>
-                                </div> -->
-                                <div class="name">
-                                    <a href="#"><h6>Admin</h6></a>
-                                </div>
-                                <div class="admin">
-                                    <ul>
-                                    <strong>Total Courses : <?php echo $row_users_eee;?></strong>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- singel course -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="singel-course">
-                        <div class="thum">
-                            <div class="image">
-                                <img src="images/CEN.png" alt="Course">
-                            </div>
-                            <div class="price">
-                                <span>Free</span>
-                            </div>
-                        </div>
-                        <div class="cont">
-                            <ul>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                            <span>(20 Reviws)</span>
-                            <a href="cen.php"><h4>Civil Engineering(CEN)</h4></a>
-                            <div class="course-teacher">
-                                <!-- <div class="thum">
-                                    <a href="#"><img src="images/course/teacher/t-3.jpg" alt="teacher"></a>
-                                </div> -->
-                                <div class="name">
-                                    <a href="#"><h6>Admin</h6></a>
-                                </div>
-                                <div class="admin">
-                                    <ul>
-                                    <strong>Total Courses : <?php echo $row_users_cen;?></strong>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- singel course -->
-                </div>
-            </div> <!-- course slied -->
-        </div> <!-- container -->
-    </section>
     
     <!--====== COURSE PART ENDS ======-->
     <!--/main-->

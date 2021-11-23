@@ -6,7 +6,7 @@
             <div class="row-fluid">
 				<?php include('student_sidebar.php'); ?>
 				<div class="span3" id="adduser">
-				<?php include('add_students.php'); ?>		   			
+						   			
 				</div>
                 <div class="span6" id="">
                      <div class="row-fluid">

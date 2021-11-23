@@ -1,28 +1,13 @@
-						<!-- block -->
+<div class="row-fluid">
+                        <!-- block -->
                         <div class="block">
                             <div class="navbar navbar-inner block-header">
-                                <!-- <div id="" class="muted pull-left"><h4><i class="icon-plus-sign"></i> Add Course</h4></div> -->
+                                <div class="muted pull-left">Enroll Course</div>
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span12">
-								<form method="post" id="add_class">
-								<div class="control-group">
-											<label>Teacher :</label>
-                                          <div class="controls">
-                                            <select name="teacher_id" required>
-                                             	<option> Select Teacher</option>
-											<?php
-											$query = mysqli_query($conn,"select * from teacher");
-											while($row = mysqli_fetch_array($query)){
-											
-											?>
-											<option value="<?php echo $row['teacher_id']; ?>"><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?></option>
-											<?php } ?>
-                                            </select>
-                                          </div>
-                                        </div>
-
-										<div class="control-group">
+								<form method="post">
+                                <div class="control-group">
 											<label>Department :</label>
                                           <div class="controls">
                                             <select name="dept_id"  class="dept" required>
@@ -47,39 +32,21 @@
                                             </select>
                                           </div>
                                         </div>
-										
+					
 											<div class="control-group">
                                           <div class="controls">
-												<button name="save" class="btn btn-success"><i class="icon-save"></i> Save</button>
+												<button name="save" class="btn btn-info"><i class="icon-plus-sign icon-large"></i></button>
+
                                           </div>
                                         </div>
                                 </form>
-								
-            <script>
-			jQuery(document).ready(function($){
-				$("#add_class").submit(function(e){
-					e.preventDefault();
-					var _this = $(e.target);
-					var formData = $(this).serialize();
-					$.ajax({
-						type: "POST",
-						url: "add_class_action.php",
-						data: formData,
-						success: function(html){
-						if(html=="true")
-						{
-						$.jGrowl("Class Already Exist", { header: 'Add Class Failed' });
-						}else{
-							$.jGrowl("Classs Successfully  Added", { header: 'Class Added' });
-							var delay = 500;
-							setTimeout(function(){ window.location = 'ass_teacher.php'  }, delay);  
-						}
-						}
-					});
-				});
-			});
-			</script>
-			<script>
+								</div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+
+                    <script>
 				$('.dept').on('change', function() {
         var dept_id = this.value;
         $.ajax({
@@ -93,10 +60,27 @@
           }
         });
    });
-			</script>		
+			</script>
 
-								</div>
-                            </div>
-                        </div>
-                        <!-- /block -->
-						
+					
+					<?php 
+                    if (isset($_POST['save'])){  
+                    $s_id = $_POST['subject_id'];   
+                    $user_query = mysqli_query($conn,"SELECT `teacher_class`.`teacher_class_id`,`teacher_class`.`teacher_id` FROM `teacher_class` INNER JOIN `subject` ON `subject`.`subject_id` = `teacher_class`.`subject_id` WHERE `subject`.`subject_id`= '$s_id'");
+                    while($row = mysqli_fetch_array($user_query)){
+                    $id = $row['teacher_class_id'];
+                    $t_id = $row['teacher_id'];   
+             
+                                                     
+
+
+mysqli_query($conn,"insert into teacher_class_student (student_id,teacher_class_id,teacher_id,subject_id) values('$session_id','$id','$t_id','$s_id')");
+?>
+<script>
+window.location = "add_course.php";
+</script>
+<?php
+}
+}
+                    
+?>

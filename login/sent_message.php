@@ -8,15 +8,15 @@
                 <div class="span6" id="content">
                      <div class="row-fluid">
 					    <!-- breadcrumb -->	
-					     <ul class="breadcrumb">
-								<?php
-								$school_year_query = mysqli_query($conn,"select * from school_year order by school_year DESC")or die(mysqli_error());
-								$school_year_query_row = mysqli_fetch_array($school_year_query);
-								$school_year = $school_year_query_row['school_year'];
-								?>
+					    <ul class="breadcrumb">
+						 <?php
+						$student_query = mysqli_query($conn,"select * from student");
+						$student_query_row = mysqli_fetch_array($student_query);
+						$student = $student_query_row['firstname'];
+						?>
 								<li><a href="#">Message</a><span class="divider">/</span></li>
-								<li><a href="#"><b>Sent Messages</b></a><span class="divider">/</span></li>
-								<li><a href="#">School Year: <?php echo $school_year_query_row['school_year']; ?></a></li>
+								<li><a href="#"><b>Send Massege</b></a><span class="divider">/</span></li>
+								<li><a href="#">Name: <?php echo $student_query_row['firstname']; ?></a></li>
 						</ul>
 						 <!-- end breadcrumb -->
 					 

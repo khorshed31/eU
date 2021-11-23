@@ -1,5 +1,5 @@
    <div class="row-fluid">
-       <a href="students.php" class="btn btn-info"><i class="icon-plus-sign icon-large"></i> Add Student</a>
+       <a href="students.php" class="btn btn-info"><i class="icon-plus-sign icon-large"></i> Student List</a>
                         <!-- block -->
                         <div class="block">
                             <div class="navbar navbar-inner block-header">

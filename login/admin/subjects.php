@@ -8,11 +8,11 @@
 		
                 <div class="span9" id="content">
                      <div class="row-fluid">
-					 <a href="add_subject.php" class="btn btn-info"><i class="icon-plus-sign icon-large"></i> Add Subject</a>
+					 <a href="add_subject.php" class="btn btn-info"><i class="icon-plus-sign icon-large"></i> Add Courses</a>
                         <!-- block -->
                         <div id="block_bg" class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div class="muted pull-left">Subject List</div>
+                                <div class="muted pull-left">Courses List</div>
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span12">
@@ -23,22 +23,22 @@
 										<thead>
 										  <tr>
 											    <th></th>
-												<th>Subject Code</th>
-												<th>Subject Title</th>
+												<th>Courses Code</th>
+												<th>Courses Title</th>
 												<th></th>
 										   </tr>
 										</thead>
 										<tbody>
 											
 												<?php
-											$subject_query = mysqli_query($conn,"select * from subject")or die(mysqli_error());
+											$subject_query = mysqli_query($conn,"select * from subject");
 											while($row = mysqli_fetch_array($subject_query)){
 											$id = $row['subject_id'];
 											?>
 										
 											<tr>
 													<td width="30">
-													<input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
+													<input id="optionsCheckbox" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
 													</td>
 													<td><?php echo $row['subject_code']; ?></td>
 													<td><?php echo $row['subject_title']; ?></td>

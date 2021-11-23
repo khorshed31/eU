@@ -1,54 +1,53 @@
 						<!-- block -->
                         <div class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div id="" class="muted pull-left"><h4><i class="icon-plus-sign"></i> Add class</h4></div>
+                                <!-- <div id="" class="muted pull-left"><h4><i class="icon-plus-sign"></i> Add Course</h4></div> -->
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span12">
 								<form method="post" id="add_class">
-										<div class="control-group">
-											<label>Class Name:</label>
+								<div class="control-group">
+											<label>Teacher :</label>
                                           <div class="controls">
-											<input type="hidden" name="session_id" value="<?php echo $session_id; ?>">
-                                            <select name="class_id"  class="" required>
-                                             	<option></option>
+                                            <select name="teacher_id" required>
+                                             	<option> Select Teacher</option>
 											<?php
-											$query = mysqli_query($conn,"select * from class order by class_name");
+											$query = mysqli_query($conn,"select * from teacher");
 											while($row = mysqli_fetch_array($query)){
 											
 											?>
-											<option value="<?php echo $row['class_id']; ?>"><?php echo $row['class_name']; ?></option>
+											<option value="<?php echo $row['teacher_id']; ?>"><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?></option>
+											<?php } ?>
+                                            </select>
+                                          </div>
+                                        </div>
+
+										<div class="control-group">
+											<label>Department :</label>
+                                          <div class="controls">
+                                            <select name="dept_id"  class="dept" required>
+                                             	<option> Select Department</option>
+											<?php
+											$query = mysqli_query($conn,"select * from department");
+											while($row = mysqli_fetch_array($query)){
+											
+											?>
+											<option value="<?php echo $row['dept_id']; ?>"><?php echo $row['department_name']; ?></option>
 											<?php } ?>
                                             </select>
                                           </div>
                                         </div>
 										
 										<div class="control-group">
-											<label>Subject:</label>
+											<label>Course:</label>
                                           <div class="controls">
-                                            <select name="subject_id"  class="" required>
-                                             	<option></option>
-											<?php
-											$query = mysqli_query($conn,"select * from subject order by subject_code");
-											while($row = mysqli_fetch_array($query)){
-											
-											?>
-											<option value="<?php echo $row['subject_id']; ?>"><?php echo $row['subject_code']; ?></option>
-											<?php } ?>
+                                            <select name="subject_id" id="course" class="course" required>
+                                             	<option> Select Course</option>
+											    <option value=""></option>
                                             </select>
                                           </div>
                                         </div>
 										
-										<div class="control-group">
-											<label>School Year:</label>
-                                          <div class="controls">
-											<?php
-											$query = mysqli_query($conn,"select * from school_year order by school_year DESC");
-											$row = mysqli_fetch_array($query);
-											?>
-											<input id="" class="span5" type="text" class="" name="school_year" value="<?php  echo $row['school_year']; ?>" >
-                                          </div>
-                                        </div>
 											<div class="control-group">
                                           <div class="controls">
 												<button name="save" class="btn btn-success"><i class="icon-save"></i> Save</button>
@@ -73,12 +72,27 @@
 						}else{
 							$.jGrowl("Classs Successfully  Added", { header: 'Class Added' });
 							var delay = 500;
-							setTimeout(function(){ window.location = 'dasboard_teacher.php'  }, delay);  
+							setTimeout(function(){ window.location = '../dashboard.php'  }, delay);  
 						}
 						}
 					});
 				});
 			});
+			</script>
+			<script>
+				$('.dept').on('change', function() {
+        var dept_id = this.value;
+        $.ajax({
+          url: 'course_sql.php',
+          type: "POST",
+          data: {
+            dep_id : dept_id
+          },
+          success: function(result){
+            $('#course').html(result);
+          }
+        });
+   });
 			</script>		
 
 								</div>

@@ -13,14 +13,13 @@
 							<a href="my_students.php<?php echo '?id='.$get_id; ?>" class="btn btn-info"><i class="icon-arrow-left"></i> Back</a>
 						</div>
 										<?php $class_query = mysqli_query($conn,"select * from teacher_class
-										LEFT JOIN class ON class.class_id = teacher_class.class_id
 										LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
-										where teacher_class_id = '$get_id'")or die(mysqli_error());
+										where teacher_class_id = '$get_id'");
 										$class_row = mysqli_fetch_array($class_query);
 										?>
 				
 					     <ul class="breadcrumb">
-							<li><a href="#"><?php echo $class_row['class_name']; ?></a> <span class="divider">/</span></li>
+							<li><a href="#"><?php echo $class_row['subject_title']; ?></a> <span class="divider">/</span></li>
 							<li><a href="#"><?php echo $class_row['subject_code']; ?></a> <span class="divider">/</span></li>
 							<li><a href="#">My Students</a><span class="divider">/</span></li>
 							<li><a href="#"><b>Add Student</b></a></li>
@@ -50,7 +49,7 @@
                                
                                     <th>Photo</th>
                                     <th>Name</th>
-                                    <th>Course Year and Section</th>
+                                    <!-- <th>Course</th> -->
                   
                                     <th></th>
                                 </tr>
@@ -61,9 +60,7 @@
 							
 							
 										$a = 0 ;
-										$query = mysqli_query($conn,"select * from student LEFT JOIN class on class.class_id = student.class_id
-												
-										") or die(mysqli_error());
+										$query = mysqli_query($conn,"select * from student");
 										while ($row = mysqli_fetch_array($query)) {
                                         $id = $row['student_id'];
 										$a++;
@@ -74,7 +71,6 @@
 										<input type="hidden" name="test" value="<?php echo $a; ?>">
                                         <td width="70"><img  class="img-rounded" src="admin/<?php echo $row['location']; ?>" height="50" width="40"></td>
                                         <td><?php echo $row['firstname'] . " " . $row['lastname']; ?></td> 
-										<td><?php echo $row['class_name']; ?></td> 
 								
 										<td width="80">
 										<select name="add_student<?php echo $a; ?>" class="span12">
@@ -83,7 +79,7 @@
 										</select>
 										
 										<input type="hidden" name="student_id<?php echo $a; ?>" value="<?php echo $id; ?>">
-										<input type="hidden" name="class_id<?php echo $a; ?>" value="<?php echo $get_id; ?>">
+										<input type="hidden" name="subject_id<?php echo $a; ?>" value="<?php echo $get_id; ?>">
 										<input type="hidden" name="teacher_id<?php echo $a; ?>" value="<?php echo $session_id; ?>">
 										
 										</td>
@@ -110,21 +106,21 @@ if (isset($_POST['submit'])){
 		
 		
 	$test1 = "student_id".$b;
-	$test2 = "class_id".$b;
+	$test2 = "subject_id".$b;
 	$test3 = "teacher_id".$b;
 	$test4 = "add_student".$b;
 	
 	$id = $_POST[$test1];
-	$class_id = $_POST[$test2];
+	$subject_id = $_POST[$test2];
 	$teacher_id = $_POST[$test3];
 	$Add = $_POST[$test4];
 	
- 	$query = mysqli_query($conn,"select * from teacher_class_student where student_id = '$id' and teacher_class_id = '$class_id' ")or die(mysqli_error());
+ 	$query = mysqli_query($conn,"select * from teacher_class_student where student_id = '$id' and teacher_class_id = '$subject_id' ");
 	$count = mysqli_num_rows($query); 
 	
  	if ($count > 0){ ?>
 	<script>
-	 alert('Student Already in the class'); 
+	 alert('Student Already in the Course'); 
 	</script>
 	<script>
 	window.location = "add_student.php<?php echo '?id='.$get_id; ?>"; 
@@ -135,7 +131,7 @@ if (isset($_POST['submit'])){
 	if($Add == 'Add'){
 	
 	
-	mysqli_query($conn,"insert into teacher_class_student (student_id,teacher_class_id,teacher_id) values('$id','$class_id','$teacher_id') ")or die(mysqli_error());
+	mysqli_query($conn,"insert into teacher_class_student (student_id,teacher_class_id,teacher_id,subject_id) values('$id','$subject_id','$teacher_id','$get_id') ");
 	
 	
 	}else{

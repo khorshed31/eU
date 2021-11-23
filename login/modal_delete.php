@@ -112,7 +112,7 @@
 					</div>
 					<div class="modal-body">
 					<div class="alert alert-danger">
-					<p>Are you sure you want to delete the subject you check?.</p>
+					<p>Are you sure you want to delete the Course you check?.</p>
 					</div>
 					</div>
 					<div class="modal-footer">

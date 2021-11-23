@@ -12,36 +12,42 @@
 		                        <!-- block -->
 		                        <div class="block">
 		                            <div class="navbar navbar-inner block-header">
-		                                <div class="muted pull-left">Add Subject</div>
+		                                <div class="muted pull-left">Add Courses</div>
 		                            </div>
 		                            <div class="block-content collapse in">
 									<a href="subjects.php"><i class="icon-arrow-left"></i> Back</a>
 									    <form class="form-horizontal" method="post">
 										<div class="control-group">
-											<label class="control-label" for="inputEmail">Subject Code</label>
+											<label class="control-label" for="inputEmail">Course Code</label>
 											<div class="controls">
-											<input type="text" name="subject_code" id="inputEmail" placeholder="Subject Code">
+											<input type="text" name="subject_code" id="inputEmail" placeholder="Course Code">
 											</div>
 										</div>
 										<div class="control-group">
-											<label class="control-label" for="inputPassword">Subject Title</label>
+											<label class="control-label" for="inputPassword">Course Title</label>
 											<div class="controls">
-											<input type="text" class="span8" name="title" id="inputPassword" placeholder="Subject Title" required>
+											<input type="text" class="span8" name="title" id="inputPassword" placeholder="Course Title" required>
 											</div>
 										</div>
 										<div class="control-group">
-											<label class="control-label" for="inputPassword">Number of Units</label>
+											<label class="control-label" for="inputPassword">Price</label>
 											<div class="controls">
-											<input type="text" class="span1" name="unit" id="inputPassword" required>
+											<input type="text" class="span1" name="price" id="inputPassword" required>
 											</div>
 										</div>
 											<div class="control-group">
-											<label class="control-label" for="inputPassword">Semester</label>
+											<label class="control-label" for="inputPassword">Department ID</label>
 											<div class="controls">
-												<select name="semester">
-													<option></option>
-													<option>1st</option>
-													<option>2nd</option>
+												<select name="dept_id">
+													<option value="">Select Department</option>
+                                                     <?php
+                                                     $sql = mysqli_query($conn,"SELECT * FROM department");
+                                                     while ($row = mysqli_fetch_assoc($sql)) {
+                                                       ?>
+                                                       <option value="<?php echo $row['dept_id'];?>"><?php echo ($row['department_name']);?></option>
+                                                       <?php
+                                                     }
+                                                     ?>
 												</select>
 											</div>
 										</div>
@@ -67,12 +73,12 @@
 										if (isset($_POST['save'])){
 										$subject_code = $_POST['subject_code'];
 										$title = $_POST['title'];
-										$unit = $_POST['unit'];
+										$price = $_POST['price'];
 										$description = $_POST['description'];
-										$semester = $_POST['semester'];
+										$dept_id = $_POST['dept_id'];
 										
 										
-										$query = mysqli_query($conn,"select * from subject where subject_code = '$subject_code' ")or die(mysqli_error());
+										$query = mysqli_query($conn,"select * from subject where subject_code = '$subject_code' ");
 										$count = mysqli_num_rows($query);
 
 										if ($count > 0){ ?>
@@ -81,10 +87,10 @@
 										</script>
 										<?php
 										}else{
-										mysqli_query($conn,"insert into subject (subject_code,subject_title,description,unit,semester) values('$subject_code','$title','$description','$unit','$semester')")or die(mysqli_error());
+										mysqli_query($conn,"insert into subject (subject_code,subject_title,description,price,dept_id) values('$subject_code','$title','$description','$price','$dept_id')");
 										
 										
-										mysqli_query($conn,"insert into activity_log (date,username,action) values(NOW(),'$user_username','Add Subject $subject_code')")or die(mysqli_error());
+										mysqli_query($conn,"insert into activity_log (date,username,action) values(NOW(),'$user_username','Add Subject $subject_code')");
 										
 										
 										?>

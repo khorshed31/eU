@@ -79,12 +79,12 @@
 								$count_class = mysqli_num_rows($query_class);
 								?>
 								
-                                <div class="span3">
+                                <!-- <div class="span3">
                                     <div class="chart" data-percent="<?php echo $count_class; ?>"><?php echo $count_class; ?></div>
                                     <div class="chart-bottom-heading"><strong>Courses</strong>
 
                                     </div>
-                                </div>
+                                </div> -->
 								
 								
 										<?php 
@@ -107,7 +107,7 @@
 								
                                 <div class="span3">
                                     <div class="chart" data-percent="<?php echo $count_subject; ?>"><?php echo $count_subject; ?></div>
-                                    <div class="chart-bottom-heading"><strong>Subjects</strong>
+                                    <div class="chart-bottom-heading"><strong>Courses</strong>
 
                                     </div>
                                 </div>

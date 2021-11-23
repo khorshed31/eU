@@ -33,14 +33,14 @@
 										</thead>
 										<tbody>
 												 <?php
-                                    $teacher_query = mysqli_query($conn,"select * from teacher") or die(mysqli_error());
+                                    $teacher_query = mysqli_query($conn,"select * from teacher");
                                     while ($row = mysqli_fetch_array($teacher_query)) {
                                     $id = $row['teacher_id'];
                                     $teacher_stat = $row['teacher_stat'];
                                         ?>
 									<tr>
 										<td width="30">
-										<input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
+										<input id="optionsCheckbox" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
 										</td>
                                     <td width="40"><img class="img-circle" src="<?php echo $row['location']; ?>" height="50" width="50"></td> 
                                     <td><?php echo $row['firstname'] . " " . $row['lastname']; ?></td> 

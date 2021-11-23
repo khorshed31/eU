@@ -19,8 +19,9 @@
                                 <div id="" class="muted pull-right">
 								<?php 
 								$my_student = mysqli_query($conn,"SELECT * FROM teacher_class_student
+														LEFT JOIN subject ON subject.subject_id = teacher_class_student.subject_id 
 														LEFT JOIN student ON student.student_id = teacher_class_student.student_id 
-														INNER JOIN class ON class.class_id = student.class_id where teacher_class_id = '$get_id' order by lastname ")or die(mysqli_error());
+														INNER JOIN teacher_class ON teacher_class.teacher_class_id = teacher_class_student.teacher_class_id where teacher_class_id = '$get_id' order by lastname ");
 								$count_my_student = mysqli_num_rows($my_student);?>
 								Number of Students: <span class="badge badge-info"><?php echo $count_my_student; ?></span>
 								</div>
@@ -30,8 +31,9 @@
 									<ul	 id="da-thumbs" class="da-thumbs">
 										    <?php
 														$my_student = mysqli_query($conn,"SELECT * FROM teacher_class_student
-														LEFT JOIN student ON student.student_id = teacher_class_student.student_id 
-														INNER JOIN class ON class.class_id = student.class_id where teacher_class_id = '$get_id' order by lastname ")or die(mysqli_error());
+														LEFT JOIN subject ON subject.subject_id = teacher_class_student.subject_id 
+														LEFT JOIN student ON student.student_id = teacher_class_student.student_id  
+														INNER JOIN teacher_class ON teacher_class.teacher_class_id = teacher_class_student.teacher_class_id where teacher_class_id = '$get_id' order by lastname ");
 														while($row = mysqli_fetch_array($my_student)){
 														$id = $row['teacher_class_student_id'];
 														?>

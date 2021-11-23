@@ -9,13 +9,7 @@
                      <div class="row-fluid">
 					    <!-- breadcrumb -->
 					     <ul class="breadcrumb">
-						<?php
-						$school_year_query = mysqli_query($conn,"select * from school_year order by school_year DESC")or die(mysqli_error());
-						$school_year_query_row = mysqli_fetch_array($school_year_query);
-						$school_year = $school_year_query_row['school_year'];
-						?>
-							<li><a href="#"><b>My Class</b></a><span class="divider">/</span></li>
-							<li><a href="#">School Year: <?php echo $school_year_query_row['school_year']; ?></a><span class="divider">/</span></li>
+							<li><a href="#"><b>My Course</b></a><span class="divider">/</span></li>
 							<li><a href="#"><b>Notification</b></a></li>
 						</ul>
 						 <!-- end breadcrumb -->
@@ -47,10 +41,9 @@
 					LEFT JOIN teacher_class on teacher_class.teacher_class_id = teacher_notification.teacher_class_id
 					LEFT JOIN student on student.student_id = teacher_notification.student_id
 					LEFT JOIN assignment on assignment.assignment_id = teacher_notification.assignment_id 
-					LEFT JOIN class on teacher_class.class_id = class.class_id
 					LEFT JOIN subject on teacher_class.subject_id = subject.subject_id
 					where teacher_class.teacher_id = '$session_id'  order by  teacher_notification.date_of_notification DESC
-					")or die(mysqli_error());
+					");
 					$count = mysqli_num_rows($query);
 					while($row = mysqli_fetch_array($query)){
 					$assignment_id = $row['assignment_id'];
@@ -58,7 +51,7 @@
 					$id = $row['teacher_notification_id'];
 					
 					
-					$query_yes_read = mysqli_query($conn,"select * from notification_read_teacher where notification_id = '$id' and teacher_id = '$session_id'")or die(mysqli_error());
+					$query_yes_read = mysqli_query($conn,"select * from notification_read_teacher where notification_id = '$id' and teacher_id = '$session_id'");
 					$read_row = mysqli_fetch_array($query_yes_read);
 					
 					$yes = $read_row['student_read']; 
@@ -75,7 +68,7 @@
 											<strong><?php echo $row['firstname']." ".$row['lastname'];  ?></strong>
 											<?php echo $row['notification']; ?> In <b><?php echo $row['fname']; ?></b>
 											<a href="<?php echo $row['link']; ?><?php echo '?id='.$get_id; ?>&<?php echo 'post_id='.$assignment_id; ?>">
-											<?php echo $row['class_name']; ?> 
+											<?php echo $row['subject_title']; ?> 
 											<?php echo $row['subject_code']; ?> 
 									 
 											</a>

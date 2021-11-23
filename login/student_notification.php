@@ -11,13 +11,8 @@
 				
 									
 					     <ul class="breadcrumb">
-						<?php
-						$school_year_query = mysqli_query($conn,"select * from school_year order by school_year DESC")or die(mysqli_error());
-						$school_year_query_row = mysqli_fetch_array($school_year_query);
-						$school_year = $school_year_query_row['school_year'];
-						?>
-							<li><a href="#"><b>My Class</b></a><span class="divider">/</span></li>
-							<li><a href="#">School Year: <?php echo $school_year_query_row['school_year']; ?></a></li>
+						
+							<li><a href="#"><b>My Course</b></a><span class="divider">/</span></li>
 						</ul>
 						 <!-- end breadcrumb -->
 					 
@@ -49,12 +44,11 @@
 				
 					<?php $query = mysqli_query($conn,"select * from teacher_class_student
 					LEFT JOIN teacher_class ON teacher_class.teacher_class_id = teacher_class_student.teacher_class_id 
-					LEFT JOIN class ON class.class_id = teacher_class.class_id 
 					LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
 					LEFT JOIN teacher ON teacher.teacher_id = teacher_class_student.teacher_id 
 					JOIN notification ON notification.teacher_class_id = teacher_class.teacher_class_id 	
-					where teacher_class_student.student_id = '$session_id' and school_year = '$school_year'  order by notification.date_of_notification DESC
-					")or die(mysqli_error());
+					where teacher_class_student.student_id = '$session_id' order by notification.date_of_notification DESC
+					");
 					$count = mysqli_num_rows($query);
 					if ($count  > 0){
 					while($row = mysqli_fetch_array($query)){
@@ -62,7 +56,7 @@
 					$id = $row['notification_id'];
 					
 					
-					$query_yes_read = mysqli_query($conn,"select * from notification_read where notification_id = '$id' and student_id = '$session_id'")or die(mysqli_error());
+					$query_yes_read = mysqli_query($conn,"select * from notification_read where notification_id = '$id' and student_id = '$session_id'");
 					$read_row = mysqli_fetch_array($query_yes_read);
 					
 					$yes = $read_row['student_read'];

@@ -5,10 +5,10 @@
         <div class="container-fluid">
             <div class="row-fluid">
 				<?php include('student_sidebar.php'); ?>
-				<div class="span3" id="adduser">
+				<div class="span6" id="adduser">
 						   			
 				</div>
-                <div class="span6" id="">
+                <div class="span8" id="">
                      <div class="row-fluid">
                         <!-- block -->
                         <div  id="block_bg" class="block">

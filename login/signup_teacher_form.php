@@ -6,10 +6,10 @@
 					<select name="department_id" class="input-block-level span12">
 						<option></option>
 						<?php
-						$query = mysqli_query($conn,"select * from department order by department_name ")or die(mysqli_error());
+						$query = mysqli_query($conn,"select * from department order by department_name ");
 						while($row = mysqli_fetch_array($query)){
 						?>
-						<option value="<?php echo $row['department_id'] ?>"><?php echo $row['department_name']; ?></option>
+						<option value="<?php echo $row['dept_id'] ?>"><?php echo $row['department_name']; ?></option>
 						<?php
 						}
 						?>
@@ -34,7 +34,7 @@
 						success: function(html){
 						if(html=='true')
 						{
-						$.jGrowl("Welcome to CHMSC Learning Management System", { header: 'Sign up Success' });
+						$.jGrowl("Welcome to easyUniversity", { header: 'Sign up Success' });
 						var delay = 1000;
 							setTimeout(function(){ window.location = 'dasboard_teacher.php'  }, delay);  
 						}else{

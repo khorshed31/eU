@@ -9,11 +9,10 @@
 										if ($count > 0){
 										while($row = mysqli_fetch_array($query)){
 										$id = $row['teacher_class_id'];
-										$sub_id = $row['subject_id'];
 				
 										?>
 											<li id="del<?php echo $id; ?>">
-												<a href="my_students.php<?php echo '?id='.$id; ?> <?php echo '?subject_id='.$sub_id; ?>">
+												<a href="my_students.php<?php echo '?id='.$id; ?>">
 														<img src ="<?php echo $row['thumbnails'] ?>" width="124" height="140" class="img-polaroid" alt="">
 													<div>
 													<span><p><?php echo $row['subject_title']; ?></p></span>
@@ -26,6 +25,6 @@
 											</li>
 										<?php include("delete_class_modal.php"); ?>
 									<?php } }else{ ?>
-									<div class="alert alert-info"><i class="icon-info-sign"></i> No Class Currently Added</div>
+									<div class="alert alert-info"><i class="icon-info-sign"></i> No Course Currently Added</div>
 									<?php  } ?>
 									</ul>

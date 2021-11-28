@@ -10,18 +10,16 @@
                      <div class="row-fluid">
 					     <!-- breadcrumb -->
 					<?php $query = mysqli_query($conn,"select * from teacher_class_student
-					LEFT JOIN teacher_class ON teacher_class.teacher_class_id = teacher_class_student.teacher_class_id 
-					JOIN class ON class.class_id = teacher_class.class_id 
-					JOIN subject ON subject.subject_id = teacher_class.subject_id
-					where student_id = '$session_id'
-					")or die(mysqli_error());
+                                                    LEFT JOIN teacher_class ON teacher_class.teacher_class_id = teacher_class_student.teacher_class_id 
+                                                    LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
+                                                    LEFT JOIN teacher ON teacher.teacher_id = teacher_class.teacher_id
+                                                    where student_id = '$session_id'");
 					$row = mysqli_fetch_array($query);
 					$id = $row['teacher_class_student_id'];	
 					?>
 					     <ul class="breadcrumb">
-							<li><a href="#"><?php echo $row['class_name']; ?></a> <span class="divider">/</span></li>
+							<li><a href="#"><?php echo $row['subject_title']; ?></a> <span class="divider">/</span></li>
 							<li><a href="#"><?php echo $row['subject_code']; ?></a> <span class="divider">/</span></li>
-							<li><a href="#">School Year: <?php echo $row['school_year']; ?></a> <span class="divider">/</span></li>
 							<li><a href="#"><b>My Classmates</b></a></li>
 						</ul>
 						
@@ -30,30 +28,34 @@
                         <!-- block -->
                         <div id="block_bg" class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div id="" class="muted pull-left"></div>
+                                <div id="" class="muted pull-right">
+									<?php
+										 $my_student = mysqli_query($conn,"SELECT *
+										 FROM teacher_class_student
+										 LEFT JOIN student ON student.student_id = teacher_class_student.student_id
+										 INNER JOIN subject ON subject.subject_id = teacher_class_student.subject_id
+										  where teacher_class_id = '$get_id' order by lastname ");
+						
+										 $count = mysqli_num_rows($query);
+										 ?>
+										 
+										 <span class="badge badge-info"><?php echo $count; ?></span>
+										</div>
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span12">
 									<ul	 id="da-thumbs" class="da-thumbs">
-										    <?php
-										 
-										 
-														$my_student = mysqli_query($conn,"SELECT *
-														FROM teacher_class_student
-														LEFT JOIN student ON student.student_id = teacher_class_student.student_id
-														INNER JOIN class ON class.class_id = student.class_id where teacher_class_id = '$get_id' order by lastname ")or die(mysqli_error());
-														
-														while($row = mysqli_fetch_array($my_student)){
-														$id = $row['teacher_class_student_id'];
-														?>
-														
+	                                 <?php
+									while($row = mysqli_fetch_array($my_student)){
+										 $id = $row['teacher_class_student_id'];
+										 ?>		
 											<li id="del<?php echo $id; ?>">
 												<a  class="classmate_cursor" href="#">
 														<img id="student_avatar_class" src ="admin/<?php echo $row['location'] ?>" width="124" height="140" class="img-polaroid">
-													<div><span></span></div>
+													<div><span><?php echo $row['subject_title']; ?></span></div>
 												</a>
-												<p class="class"><?php echo $row['lastname'];?></p>
-												<p class="subject"><?php echo $row['firstname']; ?></p>
+												<p class="class"><?php echo $row['firstname']; ?></p>
+												<p class="subject"><?php echo $row['lastname'];?></p>
 											</li>
 									<?php } ?>
 									</ul>

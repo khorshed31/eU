@@ -13,18 +13,20 @@ if(isset($_POST["save"])){
 $sql_u = "SELECT * FROM student WHERE email='$em'";
 $res_u = mysqli_query($conn, $sql_u);
 if (mysqli_num_rows($res_u) > 0) {
-$msg_error = "Email already exist";
+  ?>
+<p><h4><?php echo "<p> <font color=red font face='arial' size='3pt'>'Email already exist'</font> </p>"; ?></h4>  </p> 
+<?php
 }else{
 
                mysqli_query($conn,"insert into student (username,firstname,lastname,email,password,versity,location,status)
 		values ('$un','$fn','$ln','$em','$password','$vr','uploads/NO-IMAGE-AVAILABLE.jpg','Unregistered')                                    
 		") ?>
-		
-<?php $msg_succ = "Student Registstion Successfully";} 
+	<h4><?php echo "<p> <font color=green font face='arial' size='3pt'>'Student Registstion Successfully'</font> </p>"; ?></h4>  </p>	
+<?php } 
 
 }?> 
-<p><h4><?php echo "<p> <font color=red font face='arial' size='3pt'>$msg_error</font> </p>"; ?></h4>  </p>
-  <h4><?php echo "<p> <font color=green font face='arial' size='3pt'>$msg_succ</font> </p>"; ?></h4>  </p>
+
+  
  
  
  <div class="row-fluid">
@@ -41,10 +43,10 @@ $msg_error = "Email already exist";
 								        <?php 
 										function applicationID(){
 											$string = (uniqid(rand(), true));
-											return substr($string, 0,5);
+											return substr($string, 0,3);
 											}
 												
-											$applicationID = applicationID();	
+											$applicationID = 'eu-'.applicationID();	
 										
 										
 										?>
@@ -78,7 +80,7 @@ $msg_error = "Email already exist";
                                         </div>
 										<div class="control-group">
                                           <div class="controls">
-										  <input type="password" class="input-block-level" id="password" name="password" placeholder="Password" required>
+										                        <input type="password" class="input focused" id="password" name="password" placeholder="Password" required>
                                           </div>
                                         </div>
 											<div class="control-group">
@@ -93,4 +95,36 @@ $msg_error = "Email already exist";
                         </div>
                         <!-- /block -->
                     </div>	
+
+                    <script>
+			jQuery(document).ready(function(){
+			jQuery("#signin_teacher").submit(function(e){
+					e.preventDefault();
+						var password = jQuery('#password').val();
+						var cpassword = jQuery('#cpassword').val();
+					if (password == cpassword){
+					var formData = jQuery(this).serialize();
+					$.ajax({
+						type: "POST",
+						url: "add_students.php",
+						data: formData,
+						success: function(html){
+						if(html=='true')
+						{
+						$.jGrowl("Welcome to easyUniversity", { header: 'Sign up Success' });
+						var delay = 1000;
+							setTimeout(function(){ window.location = 'dasboard_teacher.php'  }, delay);  
+						}else{
+							$.jGrowl("Your data is not found in the database", { header: 'Sign Up Failed' });
+						}
+						}
+					});
+			
+					}else
+						{
+						$.jGrowl("Your data is not found in the database", { header: 'Sign Up Failed' });
+						}
+				});
+			});
+			</script>
 <a onclick="window.location='index.php'" id="btn_login" name="login" class="btn" type="submit"><i class="icon-signin icon-large"></i> Click here to Login</a>

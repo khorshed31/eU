@@ -26,7 +26,7 @@
 											while($row = mysqli_fetch_array($query)){
 											
 											?>
-											<option value="<?php echo $row['department_id']; ?>"><?php echo $row['department_name']; ?></option>
+											<option value="<?php echo $row['dept_id']; ?>"><?php echo $row['department_name']; ?></option>
 											<?php } ?>
                                             </select>
                                           </div>
@@ -65,10 +65,10 @@
                            
                                 $firstname = $_POST['firstname'];
                                 $lastname = $_POST['lastname'];
-                                $department_id = $_POST['department'];
+                                $dept_id = $_POST['department'];
 								
 								
-								$query = mysqli_query($conn,"select * from teacher where firstname = '$firstname' and lastname = '$lastname' ")or die(mysqli_error());
+								$query = mysqli_query($conn,"select * from teacher where firstname = '$firstname' and lastname = '$lastname' ");
 								$count = mysqli_num_rows($query);
 								
 								if ($count > 0){ ?>
@@ -78,9 +78,9 @@
 								<?php
 								}else{
 
-                                mysqli_query($conn,"insert into teacher (firstname,lastname,location,department_id)
-								values ('$firstname','$lastname','uploads/NO-IMAGE-AVAILABLE.jpg','$department_id')         
-								") or die(mysqli_error()); ?>
+                                mysqli_query($conn,"insert into teacher (firstname,lastname,location,dept_id)
+								values ('$firstname','$lastname','uploads/NO-IMAGE-AVAILABLE.jpg','$dept_id')         
+								"); ?>
 								<script>
 							 	window.location = "teachers.php"; 
 								</script>

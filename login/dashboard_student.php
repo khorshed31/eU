@@ -12,7 +12,7 @@
 									
 					     <ul class="breadcrumb">
 						<?php
-						$student_query = mysqli_query($conn,"select * from student");
+						$student_query = mysqli_query($conn,"select * from student where student_id = '$session_id'");
 						$student_query_row = mysqli_fetch_array($student_query);
 						$student = $student_query_row['firstname'];
 						?>
@@ -22,17 +22,15 @@
 						 <!-- end breadcrumb -->
 					 
 				
-					 
                         <!-- block -->
                         <div class="block">
                             <div class="navbar navbar-inner block-header">
                                 <div id="" class="muted pull-right">
-									<?php $query = mysqli_query($conn,"select * from teacher_class_student
-														LEFT JOIN teacher_class ON teacher_class.teacher_class_id = teacher_class_student.teacher_class_id 
-														LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
+									<?php $query = mysqli_query($conn,"select * from payment
+														LEFT JOIN subject ON subject.subject_id = payment.subject_id
+														LEFT JOIN teacher_class ON teacher_class.teacher_class_id = payment.teacher_class_id
 														LEFT JOIN teacher ON teacher.teacher_id = teacher_class.teacher_id
-														where student_id = '$session_id'
-														");
+														where student_id = '$session_id' and pay_status = '1'");
 														$count = mysqli_num_rows($query);
 									?>
 												<span class="badge badge-info"><?php echo $count; ?></span>
@@ -66,7 +64,7 @@
 								
 			
 									<?php }}else{ ?>
-									<div class="alert alert-info"><i class="icon-info-sign"></i> You are currently not enroll to your class</div>
+									<div class="alert alert-info"><i class="icon-info-sign"></i> You are currently not enroll to your course</div>
 									<?php } ?>	
 									</ul>
 						

@@ -22,15 +22,13 @@
 					   <!-- breadcrumb -->
 				
 										<?php $class_query = mysqli_query($conn,"select * from teacher_class
-										LEFT JOIN class ON class.class_id = teacher_class.class_id
 										LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
-										where teacher_class_id = '$get_id'")or die(mysqli_error());
+										where teacher_class_id = '$get_id'");
 										$class_row = mysqli_fetch_array($class_query);
 										?>
 					     <ul class="breadcrumb">
-							<li><a href="#"><?php echo $class_row['class_name']; ?></a> <span class="divider">/</span></li>
+							<li><a href="#"><?php echo $class_row['subject_title']; ?></a> <span class="divider">/</span></li>
 							<li><a href="#"><?php echo $class_row['subject_code']; ?></a> <span class="divider">/</span></li>
-							<li><a href="#">School Year: <?php echo $class_row['school_year']; ?></a> <span class="divider">/</span></li>
 							<li><a href="#"><b>Uploaded Assignments</b></a></li>
 						</ul>
 						 <!-- end breadcrumb -->
@@ -44,7 +42,7 @@
                             <div class="block-content collapse in">
                                 <div class="span12">
 									<?php
-										$query1 = mysqli_query($conn,"select * FROM assignment where assignment_id = '$post_id'")or die(mysqli_error());
+										$query1 = mysqli_query($conn,"select * FROM assignment where assignment_id = '$post_id'");
 										$row1 = mysqli_fetch_array($query1);
 									
 									?>
@@ -58,8 +56,8 @@
 										<thead>
 										        <tr>
 												<th>Date Upload</th>
-												<th>File Name</th>
-												<th>Description</th>
+												<th>Course Name</th>
+												<th>User ID</th>
 												<th>Submitted by:</th>
 												<th>Grade</th>
 												</tr>
@@ -70,7 +68,7 @@
                               		<?php
 										$query = mysqli_query($conn,"select * FROM student_assignment 
 										LEFT JOIN student on student.student_id  = student_assignment.student_id
-										where assignment_id = '$post_id'  order by assignment_fdatein DESC")or die(mysqli_error());
+										where assignment_id = '$post_id'  order by assignment_fdatein DESC");
 										while($row = mysqli_fetch_array($query)){
 										$id  = $row['student_assignment_id'];
 										$student_id = $row['student_id'];

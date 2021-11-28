@@ -5,7 +5,7 @@
 <?php $quiz_id = $_GET['quiz_id']; ?>
 <?php $quiz_time = $_GET['quiz_time']; ?>
 
-<?php $query1 = mysqli_query($conn,"select * from student_class_quiz where student_id = '$session_id' and class_quiz_id = '$class_quiz_id' ")or die(mysqli_error());
+<?php $query1 = mysqli_query($conn,"select * from student_class_quiz where student_id = '$session_id' and class_quiz_id = '$class_quiz_id' ");
 	  $count = mysqli_num_rows($query1);
 ?>
 
@@ -26,17 +26,13 @@ if ($count > 0){
                      <div class="row-fluid">
 					    <!-- breadcrumb -->
 										<?php $class_query = mysqli_query($conn,"select * from teacher_class
-										LEFT JOIN class ON class.class_id = teacher_class.class_id
 										LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
-										where teacher_class_id = '$get_id'")or die(mysqli_error());
+										where teacher_class_id = '$get_id'");
 										$class_row = mysqli_fetch_array($class_query);
-										$class_id = $class_row['class_id'];
-										$school_year = $class_row['school_year'];
 										?>
 					     <ul class="breadcrumb">
-							<li><a href="#"><?php echo $class_row['class_name']; ?></a> <span class="divider">/</span></li>
+							<li><a href="#"><?php echo $class_row['subject_title']; ?></a> <span class="divider">/</span></li>
 							<li><a href="#"><?php echo $class_row['subject_code']; ?></a> <span class="divider">/</span></li>
-							<li><a href="#">School Year: <?php echo $class_row['school_year']; ?></a> <span class="divider">/</span></li>
 							<li><a href="#"><b>Practice Quiz</b></a></li>
 						</ul>
 						 <!-- end breadcrumb -->
@@ -49,7 +45,7 @@ if ($count > 0){
 							<?php
 if($_GET['test'] == 'ok'){
 /* $sqlp = mysqli_query($conn,"SELECT * FROM groupcode WHERE course_code = '".$row['course_code']."'"); */
-$sqlp = mysqli_query($conn,"SELECT * FROM class_quiz WHERE class_quiz_id = '$class_quiz_id'")or die(mysqli_error());
+$sqlp = mysqli_query($conn,"SELECT * FROM class_quiz WHERE class_quiz_id = '$class_quiz_id'");
 $rowp = mysqli_fetch_array($sqlp);
 /* mysqli_query($conn,"UPDATE students SET `time-left` = ".$rowp['time']." WHERE stud_id = '".$_SESSION['user_id']."'"); */
 /* echo $rowp['time']; */
@@ -77,7 +73,7 @@ $x=0;
 										$sqla = mysqli_query($conn,"select * FROM class_quiz 
 										LEFT JOIN quiz ON quiz.quiz_id  = class_quiz.quiz_id
 										where teacher_class_id = '$get_id' 
-										order by date_added DESC ")or die(mysqli_error());
+										order by date_added DESC ");
 										/* $row = mysqli_fetch_array($sqla); */
 										$rowa = mysqli_fetch_array($sqla);
 					
@@ -188,7 +184,7 @@ if($roww['question_type_id']=='2'){
 	</center>
 	<?php
 	/* echo "Your Percentage Grade is : <b>".$per."%</b>"; */
-	mysqli_query($conn,"UPDATE student_class_quiz SET `student_quiz_time` = 3600, `grade` = '".$score." out of ".($x-1)."' WHERE student_id = '$session_id' and class_quiz_id = '$class_quiz_id'")or die(mysqli_error());
+	mysqli_query($conn,"UPDATE student_class_quiz SET `student_quiz_time` = 3600, `grade` = '".$score." out of ".($x-1)."' WHERE student_id = '$session_id' and class_quiz_id = '$class_quiz_id'");
 ?>
 <script>
 	  window.location = 'student_quiz_list.php<?php echo '?id='.$get_id; ?>'; 

@@ -4,7 +4,7 @@
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 		/* student */
-			$query = "SELECT * FROM student WHERE username='$username' AND password='$password'";
+			$query = "SELECT * FROM student WHERE username='$username' OR email='$username' AND password='$password'";
 			$result = mysqli_query($conn,$query);
 			$row = mysqli_fetch_array($result);
 			$num_row = mysqli_num_rows($result);

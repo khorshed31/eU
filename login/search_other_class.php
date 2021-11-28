@@ -1,22 +1,22 @@
 	      <!-- block -->
                         <div class="block" id="search_class">
                             <div class="navbar navbar-inner block-header">
-                                <div id="" class="muted pull-left"><strong>Search Past Class</strong></div>
+                                <div id="" class="muted pull-left"><strong>Search Past Course</strong></div>
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span12">
 								<form method="post" action="search_class.php">	
 										<div class="control-group">
-											<label>School Year:</label>
+											<label>Course Name:</label>
                                           <div class="controls">
-                                            <select name="school_year"  class="span8" required>
+                                            <select name="title"  class="span8" required>
                                              	<option></option>
 											<?php
-											$query = mysqli_query($conn,"select * from school_year order by school_year DESC");
+											$query = mysqli_query($conn,"select * from subject");
 											while($row = mysqli_fetch_array($query)){
 											
 											?>
-											<option><?php echo $row['school_year']; ?></option>
+											<option><?php echo $row['subject_title']; ?></option>
 											<?php } ?>
                                             </select>
                                           </div>

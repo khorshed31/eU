@@ -10,16 +10,15 @@
                 <div class="span9" id="content">
                      <div class="row-fluid">
 					    <!-- breadcrumb -->	
-									<ul class="breadcrumb">
-										<?php
-										$school_year_query = mysqli_query($conn,"select * from school_year order by school_year DESC")or die(mysqli_error());
-										$school_year_query_row = mysqli_fetch_array($school_year_query);
-										$school_year = $school_year_query_row['school_year'];
-										?>
-										<li><a href="#"><b>My Class</b></a><span class="divider">/</span></li>
-										<li><a href="#">School Year: <?php echo $school_year_query_row['school_year']; ?></a><span class="divider">/</span></li>
-										<li><a href="#"><b>Quiz Question</b></a></li>
-									</ul>
+						<ul class="breadcrumb">
+									<?php
+										$teacher_query = mysqli_query($conn,"select * from teacher");
+										$teacher_query_row = mysqli_fetch_array($teacher_query);
+								    ?>
+										<li><a href="#"><b>My Course</b></a><span class="divider">/</span></li>
+										<li><a href="#">Teacher: <?php echo $teacher_query_row['firstname']; ?></a><span class="divider">/</span></li>
+										<li><a href="#"><b>Quiz</b></a></li>
+						</ul>
 						 <!-- end breadcrumb -->
                         <!-- block -->
                         <div id="block_bg" class="block">
@@ -33,7 +32,7 @@
 								<?php
 										$query = mysqli_query($conn,"select * FROM quiz_question
 										LEFT JOIN question_type on quiz_question.question_type_id = question_type.question_type_id
-										where quiz_id = '$get_id' and quiz_question_id = '$quiz_question_id'  order by date_added DESC ")or die(mysqli_error());
+										where quiz_id = '$get_id' and quiz_question_id = '$quiz_question_id'  order by date_added DESC ");
 										$row = mysqli_fetch_array($query);
 								?>
 								
@@ -44,13 +43,13 @@
 													<textarea name="question" id="ckeditor_full" required><?php echo $row['question_text']; ?></textarea>
 											</div>
 										</div>
-										<!-- <div class="control-group">
+										<div class="control-group">
 											<label class="control-label" for="inputEmail">Points</label>
 											<div class="controls">
 											
 											<input type="number" class="span1" name="points" min=1 max=5 required> 
 											</div>
-										</div> -->
+										</div>
 										<div class="control-group">
 											<label class="control-label" for="inputEmail">Question Type:</label>
 											<div class="controls">			
@@ -58,7 +57,7 @@
 
 														<option value="<?php echo $row['question_type_id']; ?>" ><?php echo $row['question_type']; ?></option>
 													<?php
-													$query_question = mysqli_query($conn,"select * from question_type")or die(mysqli_error());
+													$query_question = mysqli_query($conn,"select * from question_type");
 													while($query_question_row = mysqli_fetch_array($query_question)){
 													?>
 													<option value="<?php echo $query_question_row['question_type_id']; ?>"><?php echo $query_question_row['question_type'];  ?></option>
@@ -123,20 +122,20 @@
 		$ans4 = $_POST['ans4'];
 		
 		if ($type  == '2'){
-				mysqli_query($conn,"insert into quiz_question (quiz_id,question_text,date_added,answer,question_type_id) 
-			values('$get_id','$question',NOW(),'".$_POST['correctt']."','$type')")or die(mysqli_error());
+				mysqli_query($conn,"insert into quiz_question (quiz_id,points,question_text,date_added,answer,question_type_id) 
+			values('$get_id','$points','$question',NOW(),'".$_POST['correctt']."','$type')");
 		}else{
 	
 		mysqli_query($conn,"insert into quiz_question (quiz_id,question_text,date_added,answer,question_type_id) 
-		values('$get_id','$question',NOW(),'$answer','$type')")or die(mysqli_error());
-		$query = mysqli_query($conn,"select * from quiz_question order by quiz_question_id DESC LIMIT 1")or die(mysqli_error());
+		values('$get_id','$question',NOW(),'$answer','$type')");
+		$query = mysqli_query($conn,"select * from quiz_question order by quiz_question_id DESC LIMIT 1");
 		$row = mysqli_fetch_array($query);
 		$quiz_question_id = $row['quiz_question_id'];
 		
-		mysqli_query($conn,"insert into answer (quiz_question_id,answer_text,choices) values('$quiz_question_id','$ans1','A')")or die(mysqli_error());
-		mysqli_query($conn,"insert into answer (quiz_question_id,answer_text,choices) values('$quiz_question_id','$ans2','B')")or die(mysqli_error());
-		mysqli_query($conn,"insert into answer (quiz_question_id,answer_text,choices) values('$quiz_question_id','$ans3','C')")or die(mysqli_error());
-		mysqli_query($conn,"insert into answer (quiz_question_id,answer_text,choices) values('$quiz_question_id','$ans4','D')")or die(mysqli_error());
+		mysqli_query($conn,"insert into answer (quiz_question_id,answer_text,choices) values('$quiz_question_id','$ans1','A')");
+		mysqli_query($conn,"insert into answer (quiz_question_id,answer_text,choices) values('$quiz_question_id','$ans2','B')");
+		mysqli_query($conn,"insert into answer (quiz_question_id,answer_text,choices) values('$quiz_question_id','$ans3','C')");
+		mysqli_query($conn,"insert into answer (quiz_question_id,answer_text,choices) values('$quiz_question_id','$ans4','D')");
 		
 		}
 		

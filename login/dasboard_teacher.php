@@ -9,9 +9,15 @@
                      <div class="row-fluid">
 					    <!-- breadcrumb -->	
 					     <ul class="breadcrumb">
+						 <ul class="breadcrumb">
+								<?php
+								$teacher_query = mysqli_query($conn,"select * from teacher");
+								$teacher_query_row = mysqli_fetch_array($teacher_query);
+								?>
 								<li><a href="#"><b>My Course</b></a><span class="divider">/</span></li>
-								
+								<li><a href="#">Teacher Name: <b><?php echo $teacher_query_row['firstname']; ?></b></a></li>
 						</ul>
+							
 						 <!-- end breadcrumb -->
                         <!-- block -->
                         <div class="block">

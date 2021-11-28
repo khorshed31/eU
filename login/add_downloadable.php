@@ -8,16 +8,6 @@
                 <div class="span9" id="content">
                      <div class="row-fluid">
 					    <!-- breadcrumb -->	
-					     <ul class="breadcrumb">
-								<?php
-								$school_year_query = mysqli_query($conn,"select * from school_year order by school_year DESC")or die(mysqli_error());
-								$school_year_query_row = mysqli_fetch_array($school_year_query);
-								$school_year = $school_year_query_row['school_year'];
-								?>
-								<li><a href="#"><b>My Class</b></a><span class="divider">/</span></li>
-								<li><a href="#">School Year: <?php echo $school_year_query_row['school_year']; ?></a></li>
-						</ul>
-						 <!-- end breadcrumb -->
 					 
                         <!-- block -->
                         <div class="block">
@@ -34,7 +24,7 @@
                             <div class="controls">
 				
 									
-								<input name="uploaded_file"  class="input-file uniform_on" id="fileInput" type="file" required>
+								<input name="uploaded_file" id="fileInput" type="file" required>
                          
                                 <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
                                 <input type="hidden" name="id" value="<?php echo $session_id ?>"/>
@@ -85,7 +75,7 @@
 									</div>
 									<div class="span8">
 											
-			<div class="alert alert-info">Check The Class you want to put this file.</div>
+			<div class="alert alert-info">Check The Course you want to put this file.</div>
 					
 									<div class="pull-left">
 							Check All <input type="checkbox"  name="selectAll" id="checkAll" />
@@ -100,17 +90,17 @@
 										<thead>
 										        <tr>
 												<th></th>
-												<th>Class Name</th>
-												<th>Subject Code</th>
+												<th>Course Name</th>
+												<th>Course Code</th>
 												</tr>
 												
 										</thead>
 										<tbody>
 											
                               	<?php $query = mysqli_query($conn,"select * from teacher_class
-										LEFT JOIN class ON class.class_id = teacher_class.class_id
+					
 										LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
-										where teacher_id = '$session_id' and school_year = '$school_year' ")or die(mysqli_error());
+										where teacher_id = '$session_id' ");
 										$count = mysqli_num_rows($query);
 										
 									
@@ -122,7 +112,7 @@
 											<td width="30">
 												<input id="" class="" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
 											</td>
-											<td><?php echo $row['class_name']; ?></td>
+											<td><?php echo $row['subject_title']; ?></td>
 											<td><?php echo $row['subject_code']; ?></td>                                                                   
 										</tr>
                          
@@ -154,7 +144,7 @@
 			
 
                 </div>
-							<?php/*  include('teacher_right_sidebar.php')  */?>
+				
 	
             </div>
 		<?php include('footer.php'); ?>

@@ -4,7 +4,7 @@
     <?php include('navbar_student.php'); ?>
         <div class="container-fluid">
             <div class="row-fluid">
-            <?php include('student_sidebar.php'); ?>
+            <?php include('enroll_sidebar.php'); ?>
 				<div class="span3" id="adduser">
 				<?php include('course.php'); ?>		   			
 				</div>
@@ -26,8 +26,8 @@
 												<th></th>
 												<th>Courses</th>
                                                 <th>Teacher</th>
-											
-												<th></th>
+												<th>Price</th>
+												<th>Payment</th>
 										   </tr>
 										</thead>
 										<tbody>
@@ -36,9 +36,9 @@
                                                     LEFT JOIN teacher_class ON teacher_class.teacher_class_id = teacher_class_student.teacher_class_id 
                                                     LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
                                                     LEFT JOIN teacher ON teacher.teacher_id = teacher_class.teacher_id
-                                                    where student_id = '$session_id'");
+													LEFT JOIN payment ON payment.subject_id = teacher_class_student.subject_id
+                                                    where teacher_class_student.student_id = '$session_id'");
 													while($row = mysqli_fetch_array($user_query)){
-													$id = $row['teacher_class_student_id'];
 													?>
 									
 												<tr>
@@ -46,25 +46,22 @@
 												<input id="optionsCheckbox" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
 												</td>
 												<td><?php echo $row['subject_title']; ?></td>
-											<td><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?></td>
-		
-									
+											    <td><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?></td>
+												<td><?php echo $row['price']; ?></td>
+													
+													 <td><?php if(($row['pay_status'])==((1)))
+                                                   { ?>
+													<span class="badge badge-info">Payment Complete</span>
+													<?php } else {?>
+														<a href="add_payment.php" class="btn btn-success"><i class="icon-money"></i> </a>
+													<?php } ?></td>
+												<!-- <td width="30"><a href="add_payment.php" class="btn btn-success"><i class="icon-money"></i> </a></td> -->
 												</tr>
-                                                <?php
-
-if (isset($_POST['delete_user'])){
-$id=$_POST['selector'];
-$N = count($id);
-for($i=0; $i < $N; $i++)
-{
-	mysqli_query($conn,"DELETE FROM teacher_class_student where teacher_class_student_id='$id[$i]'");
-}
-header("location: add_course.php");
-}
-?>
-												<?php } ?>
+                                                
+												<?php include("delete_course.php");} ?>
 										</tbody>
 									</table>
+									<h4 class="alert alert-success"><strong>Bkash,Nagad: <span style="color:blue">+088 01303 713906</span></strong></h4>
 									</form>
                                 </div>
                             </div>

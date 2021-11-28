@@ -54,7 +54,7 @@
 					$query_yes_read = mysqli_query($conn,"select * from notification_read_teacher where notification_id = '$id' and teacher_id = '$session_id'");
 					$read_row = mysqli_fetch_array($query_yes_read);
 					
-					$yes = $read_row['student_read']; 
+				    $yes = $read_row['student_read']; 
 				
 					?>
 									<div class="post"  id="del<?php echo $id; ?>">

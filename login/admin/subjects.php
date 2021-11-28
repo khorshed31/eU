@@ -25,7 +25,8 @@
 											    <th></th>
 												<th>Courses Code</th>
 												<th>Courses Title</th>
-												<th></th>
+												<th>Price</th>
+												<th>Edit</th>
 										   </tr>
 										</thead>
 										<tbody>
@@ -42,6 +43,7 @@
 													</td>
 													<td><?php echo $row['subject_code']; ?></td>
 													<td><?php echo $row['subject_title']; ?></td>
+													<td><?php echo $row['price']; ?>tk</td>
 												
 													<td width="30"><a href="edit_subject.php<?php echo '?id='.$id; ?>" class="btn btn-success"><i class="icon-pencil"></i> </a></td>
 										</tr>

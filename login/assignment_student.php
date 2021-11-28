@@ -12,16 +12,14 @@
 					   <!-- breadcrumb -->
 				
 										<?php $class_query = mysqli_query($conn,"select * from teacher_class
-										LEFT JOIN class ON class.class_id = teacher_class.class_id
 										LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
-										where teacher_class_id = '$get_id'")or die(mysqli_error());
+										where teacher_class_id = '$get_id'");
 										$class_row = mysqli_fetch_array($class_query);
 										?>
 				
 					     <ul class="breadcrumb">
-							<li><a href="#"><?php echo $class_row['class_name']; ?></a> <span class="divider">/</span></li>
+							<li><a href="#"><?php echo $class_row['subject_title']; ?></a> <span class="divider">/</span></li>
 							<li><a href="#"><?php echo $class_row['subject_code']; ?></a> <span class="divider">/</span></li>
-							<li><a href="#">School Year: <?php echo $class_row['school_year']; ?></a> <span class="divider">/</span></li>
 							<li><a href="#"><b>Uploaded Assignments</b></a></li>
 						</ul>
 						 <!-- end breadcrumb -->
@@ -30,7 +28,7 @@
                         <!-- block -->
                         <div id="block_bg" class="block">
                             <div class="navbar navbar-inner block-header">
-								<?php $query = mysqli_query($conn,"select * FROM assignment where class_id = '$get_id'  order by fdatein DESC")or die(mysqli_error()); 
+								<?php $query = mysqli_query($conn,"select * FROM assignment where subject_id = '$get_id'  order by fdatein DESC"); 
 									  $count  = mysqli_num_rows($query);
 								?>
                                 <div id="" class="muted pull-right"><span class="badge badge-info"><?php echo $count; ?></span></div>
@@ -38,7 +36,7 @@
                             <div class="block-content collapse in">
                                 <div class="span12">
 								<?php
-									$query = mysqli_query($conn,"select * FROM assignment where class_id = '$get_id'  order by fdatein DESC")or die(mysqli_error());
+									$query = mysqli_query($conn,"select * FROM assignment where subject_id = '$get_id'  order by fdatein DESC");
 									$count = mysqli_num_rows($query);
 									if ($count == '0'){?>
 									<div class="alert alert-info">No Assignment Currently Uploaded</div>
@@ -59,7 +57,7 @@
 										<tbody>
 											
                               		<?php
-										$query = mysqli_query($conn,"select * FROM assignment where class_id = '$get_id'  order by fdatein DESC")or die(mysqli_error());
+										$query = mysqli_query($conn,"select * FROM assignment where subject_id = '$get_id'  order by fdatein DESC");
 										while($row = mysqli_fetch_array($query)){
 										$id  = $row['assignment_id'];
 										$floc = $row['floc'];

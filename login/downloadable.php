@@ -10,17 +10,13 @@
                      <div class="row-fluid">
 					    <!-- breadcrumb -->
 										<?php $class_query = mysqli_query($conn,"select * from teacher_class
-										LEFT JOIN class ON class.class_id = teacher_class.class_id
 										LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
-										where teacher_class_id = '$get_id'")or die(mysqli_error());
+										where teacher_class_id = '$get_id'");
 										$class_row = mysqli_fetch_array($class_query);
-										$class_id = $class_row['class_id'];
-										$school_year = $class_row['school_year'];
 										?>
 					     <ul class="breadcrumb">
-							<li><a href="#"><?php echo $class_row['class_name']; ?></a> <span class="divider">/</span></li>
+							<li><a href="#"><?php echo $class_row['subject_title']; ?></a> <span class="divider">/</span></li>
 							<li><a href="#"><?php echo $class_row['subject_code']; ?></a> <span class="divider">/</span></li>
-							<li><a href="#">School Year: <?php echo $class_row['school_year']; ?></a> <span class="divider">/</span></li>
 							<li><a href="#"><b>Downloadable Materials</b></a></li>
 						</ul>
 						 <!-- end breadcrumb -->
@@ -42,7 +38,8 @@
 							</div>
 								
 									<?php
-										$query = mysqli_query($conn,"select * FROM files where class_id = '$get_id'  order by fdatein DESC ")or die(mysqli_error());
+									
+										$query = mysqli_query($conn,"select * FROM files where subject_id = '$get_id'  order by fdatein DESC ");
 										$count = mysqli_fetch_array($query);
 										if ($count == '0'){ ?>
 											<div class="alert alert-info"><i class="icon-info-sign"></i> Currently you did not upload any downloadable materials</div>
@@ -53,7 +50,6 @@
 								
 									<a data-toggle="modal" href="#user_delete" id="delete"  class="btn btn-info" name=""><i class="icon-file"></i> Copy Check item</a>
   									<table cellpadding="0" cellspacing="0" border="0" class="table" id="">
-									<?php include('move_to_school_year.php'); ?>
 										<thead>
 										        <tr>
 												<th>Date Upload</th>
@@ -68,7 +64,7 @@
 										<tbody>
 											
                               		<?php
-										$query = mysqli_query($conn,"select * FROM files where class_id = '$get_id'  order by fdatein DESC ")or die(mysqli_error());
+										$query = mysqli_query($conn,"select * FROM files where subject_id = '$get_id'  order by fdatein DESC ");
 										while($row = mysqli_fetch_array($query)){
 										$id  = $row['file_id'];
 									?>                              
@@ -145,7 +141,7 @@
 </script>
 					
                 </div>
-				<?php include('downloadable_sidebar.php') ?>
+				
             </div>
 		<?php include('footer.php'); ?>
         </div>

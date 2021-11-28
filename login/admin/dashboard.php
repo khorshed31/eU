@@ -16,46 +16,32 @@
                             <div class="navbar navbar-inner block-header">
                                 <div class="muted pull-left">Data Numbers</div>
                             </div>
-                            <div class="block-content collapse in">
+                            <div class="block-content collapse in" style="background-color:cadetblue;">
 							        <div class="span12">
 						
 									<?php 
-								$query_reg_teacher = mysqli_query($conn,"select * from teacher where teacher_status = 'Registered' ");
-								$count_reg_teacher = mysqli_num_rows($query_reg_teacher);
+								$pay = mysqli_query($conn,"select * from payment where pay_status = '0' ");
+								$count_pay = mysqli_num_rows($pay);
 								?>
 								
                                 <div class="span3">
-                                    <div class="chart" data-percent="<?php echo $count_reg_teacher; ?>"><?php echo $count_reg_teacher; ?></div>
-                                    <div class="chart-bottom-heading"><strong>Registered Teacher</strong>
+                                    <div class="chart" data-percent="<?php echo $count_pay; ?>"><?php echo $count_pay; ?></div>
+                                    <div class="chart-bottom-heading"><strong>Payment Panding</strong>
 
                                     </div>
                                 </div>
 								
 								<?php 
-								$query_teacher = mysqli_query($conn,"select * from teacher");
-								$count_teacher = mysqli_num_rows($query_teacher);
-								?>
-								
-								
-                                <div class="span3">
-                                    <div class="chart" data-percent="<?php echo $count_teacher; ?>"><?php echo $count_teacher ?></div>
-                                    <div class="chart-bottom-heading"><strong>Teachers</strong>
-
-                                    </div>
-                                </div>
-								
-								<?php 
-								$query_student = mysqli_query($conn,"select * from student where status='Registered'");
-								$count_student = mysqli_num_rows($query_student);
+								$pay = mysqli_query($conn,"select * from payment where pay_status = '1' ");
+								$count_pay = mysqli_num_rows($pay);
 								?>
 								
                                 <div class="span3">
-                                    <div class="chart" data-percent="<?php echo $count_student ?>"><?php echo $count_student ?></div>
-                                    <div class="chart-bottom-heading"><strong>Registered Students</strong>
+                                    <div class="chart" data-percent="<?php echo $count_pay; ?>"><?php echo $count_pay; ?></div>
+                                    <div class="chart-bottom-heading"><strong>Complete Payment</strong>
 
                                     </div>
                                 </div>
-								
 								
 										<?php 
 								$query_student = mysqli_query($conn,"select * from student");
@@ -68,23 +54,19 @@
 
                                     </div>
                                 </div>
-								
-								
-								
-								
-							
-								
-									<?php 
-								$query_class = mysqli_query($conn,"select * from class");
-								$count_class = mysqli_num_rows($query_class);
+
+                                <?php 
+								$query_teacher = mysqli_query($conn,"select * from teacher");
+								$count_teacher = mysqli_num_rows($query_teacher);
 								?>
 								
-                                <!-- <div class="span3">
-                                    <div class="chart" data-percent="<?php echo $count_class; ?>"><?php echo $count_class; ?></div>
-                                    <div class="chart-bottom-heading"><strong>Courses</strong>
+                                <div class="span3">
+                                    <div class="chart" data-percent="<?php echo $count_teacher ?>"><?php echo $count_teacher ?></div>
+                                    <div class="chart-bottom-heading"><strong>Teachers</strong>
 
                                     </div>
-                                </div> -->
+                                </div>
+						
 								
 								
 										<?php 
@@ -104,6 +86,8 @@
 								$query_subject = mysqli_query($conn,"select * from subject");
 								$count_subject = mysqli_num_rows($query_subject);
 								?>
+
+                                
 								
                                 <div class="span3">
                                     <div class="chart" data-percent="<?php echo $count_subject; ?>"><?php echo $count_subject; ?></div>
@@ -111,12 +95,54 @@
 
                                     </div>
                                 </div>
-						
+						<?php 
+								$query_t_c = mysqli_query($conn,"select * from teacher_class_student");
+								$count_t_c = mysqli_num_rows($query_t_c);
+								?>
+                                <?php 
+								$query_quiz = mysqli_query($conn,"select * from student_class_quiz");
+								$count_quiz = mysqli_num_rows($query_quiz);
+								?>
+                                <?php 
+								$query_log = mysqli_query($conn,"select * from user_log");
+								$count_log = mysqli_num_rows($query_log);
+								?>
+                                <?php 
+								$query_alog = mysqli_query($conn,"select * from activity_log");
+								$count_alog = mysqli_num_rows($query_alog);
+								?>
 						
                             </div>
+                            
                         </div>
                         <!-- /block -->
-						
+						<div id="piechart"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['Enroll Course', <?php echo $count_t_c ?>],
+  ['Quiz', <?php echo $count_quiz ?>],
+  ['User Log', <?php echo $count_log; ?>],
+  ['Activity Log', <?php echo $count_alog; ?>],
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Analysis', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
                     </div>
                     </div>
                 

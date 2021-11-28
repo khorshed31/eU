@@ -13,7 +13,7 @@
                             <div class="controls">
 				
 									
-								<input name="uploaded_file"  class="input-file uniform_on" id="fileInput" type="file" >
+								<input name="uploaded_file" id="fileInput" type="file" >
                          
                                 <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
                                 <input type="hidden" name="id" value="<?php echo $session_id ?>"/>
@@ -23,7 +23,7 @@
                         <div class="control-group">
                       
                             <div class="controls">
-                                <input type="text" name="name" Placeholder="File Name"  class="input">
+                                <input type="text" name="name" Placeholder="Name"  class="input">
                             </div>
                         </div>
                         <div class="control-group">

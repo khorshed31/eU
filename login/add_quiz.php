@@ -8,16 +8,15 @@
                 <div class="span9" id="content">
                      <div class="row-fluid">
 					    <!-- breadcrumb -->	
-									<ul class="breadcrumb">
-										<?php
-										$school_year_query = mysqli_query($conn,"select * from school_year order by school_year DESC")or die(mysqli_error());
-										$school_year_query_row = mysqli_fetch_array($school_year_query);
-										$school_year = $school_year_query_row['school_year'];
-										?>
-											<li><a href="#"><b>My Class</b></a><span class="divider">/</span></li>
-										<li><a href="#">School Year: <?php echo $school_year_query_row['school_year']; ?></a><span class="divider">/</span></li>
+						<ul class="breadcrumb">
+									<?php
+										$teacher_query = mysqli_query($conn,"select * from teacher");
+										$teacher_query_row = mysqli_fetch_array($teacher_query);
+								    ?>
+										<li><a href="#"><b>My Course</b></a><span class="divider">/</span></li>
+										<li><a href="#">Teacher: <?php echo $teacher_query_row['firstname']; ?></a><span class="divider">/</span></li>
 										<li><a href="#"><b>Quiz</b></a></li>
-									</ul>
+						</ul>
 						 <!-- end breadcrumb -->
                         <!-- block -->
                         <div id="block_bg" class="block">
@@ -53,7 +52,7 @@
 										if (isset($_POST['save'])){
 										$quiz_title = $_POST['quiz_title'];
 										$description = $_POST['description'];
-										mysqli_query($conn,"insert into quiz (quiz_title,quiz_description,date_added,teacher_id) values('$quiz_title','$description',NOW(),'$session_id')")or die(mysqli_error());
+										mysqli_query($conn,"insert into quiz (quiz_title,quiz_description,date_added,teacher_id) values('$quiz_title','$description',NOW(),'$session_id')");
 										?>
 										<script>
 										window.location = 'teacher_quiz.php';

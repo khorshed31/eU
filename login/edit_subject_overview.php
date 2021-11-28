@@ -12,14 +12,13 @@
 					  <!-- breadcrumb -->
 				
 										<?php $class_query = mysqli_query($conn,"select * from teacher_class
-										LEFT JOIN class ON class.class_id = teacher_class.class_id
 										LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
-										where teacher_class_id = '$get_id'")or die(mysqli_error());
+										where teacher_class_id = '$get_id'");
 										$class_row = mysqli_fetch_array($class_query);
 										?>
 				
 					     <ul class="breadcrumb">
-							<li><a href="#"><?php echo $class_row['class_name']; ?></a> <span class="divider">/</span></li>
+						 <li><a href="#"><?php echo $class_row['subject_title']; ?></a> <span class="divider">/</span></li>
 							<li><a href="#"><?php echo $class_row['subject_code']; ?></a> <span class="divider">/</span></li>
 							<li><a href="#"><b>Subject Overview</b></a></li>
 						</ul>
@@ -35,7 +34,7 @@
                             <div class="block-content collapse in">
                                 <div class="span12">
 								<?php 
-								$subject_query = mysqli_query($conn,"select * from class_subject_overview where  class_subject_overview_id  = '$subject_id'")or die(mysqli_error());
+								$subject_query = mysqli_query($conn,"select * from class_subject_overview where  class_subject_overview_id  = '$subject_id'");
 								$subject_row = mysqli_fetch_array($subject_query);
 								?>
 														<form class="form-horizontal" method="post">
@@ -55,7 +54,7 @@
 										<?php
 										if (isset($_POST['save'])){
 										$content = $_POST['content'];
-										mysqli_query($conn,"update class_subject_overview set content = '$content' where class_subject_overview_id = '$subject_id'")or die(mysqli_error());
+										mysqli_query($conn,"update class_subject_overview set content = '$content' where class_subject_overview_id = '$subject_id'");
 										?>
 										<script>
 											window.location = 'subject_overview.php<?php echo '?id='.$get_id; ?>';

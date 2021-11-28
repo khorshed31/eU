@@ -23,7 +23,7 @@
 												<th>Description</th>
 												<th>Date Upload</th>
 												<th>Upload By</th>
-												<th>Class</th>
+												<th>Course</th>
                                    
 												</tr>
 												
@@ -32,8 +32,8 @@
 											
                               		<?php
 										$query = mysqli_query($conn,"select * FROM assignment LEFT JOIN teacher ON teacher.teacher_id = assignment.teacher_id 
-																				  LEFT JOIN teacher_class ON teacher_class.teacher_class_id = assignment.class_id 
-																				  INNER JOIN class ON class.class_id = teacher_class.class_id  ")or die(mysqli_error());
+																				  LEFT JOIN teacher_class ON teacher_class.teacher_class_id = assignment.subject_id 
+                                                                                  INNER JOIN subject ON subject.subject_id = teacher_class.subject_id   ");
 										while($row = mysqli_fetch_array($query)){
 									?>
 							
@@ -46,7 +46,7 @@
                                          <td><?php echo $row['fdesc']; ?></td>
                                          <td><?php echo $row['fdatein']; ?></td>
                                          <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>
-                                         <td><?php echo $row['class_name']; ?></td>
+                                         <td><?php echo $row['subject_title']; ?></td>
 
                                
                                 </tr>

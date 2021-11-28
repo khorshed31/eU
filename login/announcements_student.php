@@ -11,14 +11,13 @@
 					  <!-- breadcrumb -->
 				
 										<?php $class_query = mysqli_query($conn,"select * from teacher_class
-										LEFT JOIN class ON class.class_id = teacher_class.class_id
 										LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
-										where teacher_class_id = '$get_id'")or die(mysqli_error());
+										where teacher_class_id = '$get_id'");
 										$class_row = mysqli_fetch_array($class_query);
 										?>
 				
 					     <ul class="breadcrumb">
-							<li><a href="#"><?php echo $class_row['class_name']; ?></a> <span class="divider">/</span></li>
+							<li><a href="#"><?php echo $class_row['subject_title']; ?></a> <span class="divider">/</span></li>
 							<li><a href="#"><?php echo $class_row['subject_code']; ?></a> <span class="divider">/</span></li>
 							<li><a href="#"><b>Announcements</b></a></li>
 						</ul>
@@ -27,14 +26,16 @@
                         <!-- block -->
                         <div id="block_bg" class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div id="" class="muted pull-left"></div>
+                                <div id="" class="muted pull-left">Post</div>
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span12">
 								 <?php
 								 $query_announcement = mysqli_query($conn,"select * from teacher_class_announcements
-																	where  teacher_class_id = '$get_id' order by date DESC
-																	")or die(mysqli_error());
+								 left join teacher_class on teacher_class.teacher_class_id = teacher_class_announcements.teacher_class_id
+								 left join teacher on teacher.teacher_id = teacher_class_announcements.teacher_id
+																	where teacher_class_announcements.teacher_class_id = '$get_id' order by date DESC
+																	");
 								$count = mysqli_num_rows($query_announcement);
 								if ($count > 0){
 								 while($row = mysqli_fetch_array($query_announcement)){
@@ -47,8 +48,12 @@
 											
 										
 											<strong><i class="icon-calendar"></i> <?php echo $row['date']; ?></strong>
-											
+											<div class="muted pull-right" style="color:green;"> 
+											<img src ="admin/<?php echo $row['location'] ?>" width="30" height="30" class="img-polaroid">
+										      <strong><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?></strong>
 										
+										</div>
+										    
 											
 											</div>
 											

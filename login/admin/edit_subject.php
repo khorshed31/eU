@@ -9,37 +9,37 @@
 		
 						<div class="span9" id="content">
 		                    <div class="row-fluid">
-									 <a href="add_subject.php" class="btn btn-info"><i class="icon-plus-sign icon-large"></i> Add Subject</a>
+									 <a href="add_subject.php" class="btn btn-info"><i class="icon-plus-sign icon-large"></i> Add Course</a>
 		                        <!-- block -->
 		                        <div id="" class="block">
 		                            <div class="navbar navbar-inner block-header">
-		                                <div class="muted pull-left">Edit Subject</div>
+		                                <div class="muted pull-left">Edit Course</div>
 		                            </div>
 		                            <div class="block-content collapse in">
 									<a href="subjects.php"><i class="icon-arrow-left"></i> Back</a>
 									
 									<?php
-									$query = mysqli_query($conn,"select * from subject where subject_id = '$get_id'")or die(mysqli_error());
+									$query = mysqli_query($conn,"select * from subject where subject_id = '$get_id'");
 									$row = mysqli_fetch_array($query);
 									?>
 									
 									    <form class="form-horizontal" method="post">
 										<div class="control-group">
-											<label class="control-label" for="inputEmail">Subject Code</label>
+											<label class="control-label" for="inputEmail">Course Code</label>
 											<div class="controls">
 											<input type="text" value="<?php echo $row['subject_code']; ?>" name="subject_code" id="inputEmail" placeholder="Subject Code">
 											</div>
 										</div>
 										<div class="control-group">
-											<label class="control-label" for="inputPassword">Subject Title</label>
+											<label class="control-label" for="inputPassword">Course Title</label>
 											<div class="controls">
 											<input type="text" value="<?php echo $row['subject_title']; ?>" class="span8" name="title" id="inputPassword" placeholder="Subject Title" required>
 											</div>
 										</div>
 										<div class="control-group">
-											<label class="control-label" for="inputPassword">Number of Units</label>
+											<label class="control-label" for="inputPassword">Price</label>
 											<div class="controls">
-											<input type="text" value="<?php echo $row['unit']; ?>" class="span1" name="unit" id="inputPassword" required>
+											<input type="text" value="<?php echo $row['price']; ?>" class="span1" name="price" id="inputPassword" required>
 											</div>
 										</div>
 										<div class="control-group">
@@ -65,18 +65,18 @@
 										if (isset($_POST['update'])){
 										$subject_code = $_POST['subject_code'];
 										$title = $_POST['title'];
-										$unit = $_POST['unit'];
+										$price = $_POST['price'];
 										$description = $_POST['description'];
 										
 										
 									
 										mysqli_query($conn,"update subject set subject_code = '$subject_code' ,
 																		subject_title = '$title',
-																		unit  = '$unit',
+																		price  = '$price',
 																		description = '$description'
-																		where subject_id = '$get_id' ")or die(mysqli_error());
+																		where subject_id = '$get_id' ");
 																		
-										mysqli_query($conn,"insert into activity_log (date,username,action) values(NOW(),'$user_username','Edit Subject $subject_code')")or die(mysqli_error());
+										mysqli_query($conn,"insert into activity_log (date,username,action) values(NOW(),'$user_username','Edit Subject $subject_code')");
 										
 										?>
 										<script>

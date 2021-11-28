@@ -71,7 +71,7 @@
 											<strong><?php echo $row['firstname']." ".$row['lastname'];  ?></strong>
 											<?php echo $row['notification']; ?> In 
 											<a href="<?php echo $row['link']; ?><?php echo '?id='.$get_id; ?>">
-											<?php echo $row['class_name']; ?> 
+											<?php echo $row['subject_title']; ?> 
 											<?php echo $row['subject_code']; ?> 
 									 
 											</a>

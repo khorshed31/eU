@@ -1,46 +1,21 @@
-<?php require("libs/fetch_data.php"); ?>
-<!DOCTYPE html>
-<html lang="zxx">
+<!doctype html>
+<html lang="en">
 
 <head>
-    <!--====== <title><?php //getwebname("titles"); echo"|"; gettagline("titles");
-                        ?></title> ======-->
-    <title>easyUniversity | Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <!--====== Required meta tags ======-->
     <meta charset="utf-8">
-    <link id="browser_favicon" rel="shortcut icon" href="blogadmin/images/<?php geticon("titles"); ?>">
-    <meta charset="utf-8" name="description" content="<?php getshortdescription("titles"); ?>">
-    <meta name="keywords" content="<?php getkeywords("titles"); ?>" />
-    <script>
-        addEventListener("load", function() {
-            setTimeout(hideURLbar, 0);
-        }, false);
-
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="css/jquery.desoslide.css">
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
-    <link href="css/fontawesome-all.css" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800" rel="stylesheet">
-</head>
-
-<body>
-<!-- <div class="preloader">
-        <div class="loader rubix-cube">
-            <div class="layer layer-1"></div>
-            <div class="layer layer-2"></div>
-            <div class="layer layer-3 color-1"></div>
-            <div class="layer layer-4"></div>
-            <div class="layer layer-5"></div>
-            <div class="layer layer-6"></div>
-            <div class="layer layer-7"></div>
-            <div class="layer layer-8"></div>
-        </div>
-    </div> -->
-    <?php include("include/header.php"); ?>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!--====== Title ======-->
+    <title>Teachers | easyUniversity</title>
+    
+    <!--====== Favicon Icon ======-->
+    <?php include('include/header.php') ?>
+    
+    <!--====== HEADER PART ENDS ======-->
    
     <!--====== SEARCH BOX PART START ======-->
     
@@ -82,27 +57,28 @@
     <!--====== PAGE BANNER PART ENDS ======-->
    
     <!--====== TEACHERS PART START ======-->
-                                    <?php include("login/connect.php"); 
-                                    $sql = "SELECT * from teacher WHERE id";
+                                    <?php include("login/dbcon.php"); 
+                                    $sql = "SELECT * from teacher ";
                                     $result = $conn-> query($sql);
                                     while($row = $result-> fetch_assoc()){
                                     ?>
     <section id="teachers-page" class="pt-90 pb-120 gray-bg">
         <div class="container ">
            <div class="row">
-           <?php include("login/connect.php"); 
-                                    $sql = "SELECT * from teacher WHERE id";
+           <?php include("login/dbcon.php"); 
+                                    $sql = "SELECT * from teacher";
                                     $result = $conn-> query($sql);
                                     while($row = $result-> fetch_assoc()){
                                     ?>
                <div class="col-lg-3 col-sm-6">
                    <div class="singel-teachers mt-30 text-center ">
                         <div class="image">
-                            <img src="login/admin/<?php echo $row['photo'];?>" alt="Teachers">
+                            <img src="login/admin/<?php echo $row['location'];?>" alt="Teachers">
                         </div>
                         <div class="cont">
-                            <h6><?php echo htmlentities($row['t_name']);?></h6>
-                            <span><?php echo htmlentities($row['t_id']);?></span>
+                            <h6><?php echo ($row['firstname']);?> <?php echo ($row['lastname']);?></h6>
+                            <span><?php echo($row['username']);?></span><br>
+                            <span><?php echo($row['dept_id']);?></span><br>
                         </div>
                     </div>
                      <!-- singel teachers -->

@@ -60,10 +60,10 @@
 										<thead>
 										        <tr>
 												<th>Date Upload</th>
-												<th>File Name</th>
-												<th>Description</th>
+												<th>Course Name</th>
+												<th>User ID</th>
 												<th>Submitted by:</th>
-												<th></th>
+												<th>Show Answer</th>
 												<th></th>
 												</tr>
 												
@@ -82,7 +82,7 @@
                                          <td><?php  echo $row['fname']; ?></td>
                                          <td><?php echo $row['fdesc']; ?></td>                                                                        
                                          <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>                                                                        
-                                         <td><a href="<?php echo $row['floc']; ?>"><i class="icon-download icon-large"></i></a></td>                                                                        
+                                         <td><a href="<?php echo $row['floc']; ?>" target="_blank"><i class="icon-download icon-large"></i></a></td>                                                                        
                                          <td width="140">
 										 <form method="post" action="save_grade.php">
 										 <input type="hidden" class="span4" name="id" value="<?php echo $id; ?>">

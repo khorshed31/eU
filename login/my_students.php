@@ -8,20 +8,20 @@
 				<?php include('class_sidebar.php'); ?>
                 <div class="span9" id="content">
                      <div class="row-fluid">
-						<div class="pull-right">
+						<!-- <div class="pull-right">
 							<a href="add_student.php<?php echo '?id='.$get_id; ?>" class="btn btn-info"><i class="icon-plus-sign"></i> Add Student</a>
 							<a onclick="window.open('print_student.php<?php echo '?id='.$get_id; ?>')"  class="btn btn-success"><i class="icon-list"></i> Student List</a>
-						</div>
+						</div> -->
 						<?php include('my_students_breadcrums.php'); ?>
                         <!-- block -->
                         <div id="block_bg" class="block">
                             <div class="navbar navbar-inner block-header">
                                 <div id="" class="muted pull-right">
 								<?php 
-								$my_student = mysqli_query($conn,"SELECT * FROM teacher_class_student
-														LEFT JOIN subject ON subject.subject_id = teacher_class_student.subject_id 
-														LEFT JOIN student ON student.student_id = teacher_class_student.student_id 
-														INNER JOIN teacher_class ON teacher_class.teacher_class_id = teacher_class_student.teacher_class_id where teacher_class_id = '$get_id' order by lastname ");
+								$my_student = mysqli_query($conn,"SELECT * FROM `teacher_class_student` 
+								LEFT JOIN `teacher_class` ON `teacher_class`.`teacher_class_id` =`teacher_class_student`.`teacher_class_id` 
+								LEFT JOIN `subject` ON `subject`.`subject_id` = `teacher_class_student`.`subject_id` 
+								LEFT JOIN `student` ON `student`.`student_id` = `teacher_class_student`.`student_id` WHERE `teacher_class`.`teacher_class_id`='$get_id' ");
 								$count_my_student = mysqli_num_rows($my_student);?>
 								Number of Students: <span class="badge badge-info"><?php echo $count_my_student; ?></span>
 								</div>
@@ -30,10 +30,10 @@
                                 <div class="span12">
 									<ul	 id="da-thumbs" class="da-thumbs">
 										    <?php
-														$my_student = mysqli_query($conn,"SELECT * FROM teacher_class_student
-														LEFT JOIN subject ON subject.subject_id = teacher_class_student.subject_id 
-														LEFT JOIN student ON student.student_id = teacher_class_student.student_id  
-														INNER JOIN teacher_class ON teacher_class.teacher_class_id = teacher_class_student.teacher_class_id where teacher_class_id = '$get_id' order by lastname ");
+														$my_student = mysqli_query($conn,"SELECT * FROM `teacher_class_student` 
+														LEFT JOIN `teacher_class` ON `teacher_class`.`teacher_class_id` =`teacher_class_student`.`teacher_class_id` 
+														LEFT JOIN `subject` ON `subject`.`subject_id` = `teacher_class_student`.`subject_id` 
+														LEFT JOIN `student` ON `student`.`student_id` = `teacher_class_student`.`student_id` WHERE `teacher_class_student`.`teacher_class_id`='$get_id'");
 														while($row = mysqli_fetch_array($my_student)){
 														$id = $row['teacher_class_student_id'];
 														?>
@@ -42,13 +42,13 @@
 															<img id="student_avatar_class" src ="admin/<?php echo $row['location'] ?>" width="124" height="140" class="img-polaroid">
 														<div>
 														<span>
-														<p><?php ?></p>
+														<p><?php echo $row['subject_title'];?></p>
 														
 														</span>
 														</div>
 													</a>
-													<p class="class"><?php echo $row['lastname'];?></p>
-													<p class="subject"><?php echo $row['firstname']; ?></p>
+													<p class="class"><?php echo $row['firstname'];?></p>
+													<p class="subject"><?php echo $row['lastname']; ?></p>
 													<a  href="#<?php echo $id; ?>" data-toggle="modal"><i class="icon-trash"></i> Remove</a>	
 											</li>
 											<?php include("remove_student_modal.php"); ?>

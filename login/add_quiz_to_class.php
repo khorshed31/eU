@@ -8,16 +8,15 @@
                 <div class="span9" id="content">
                      <div class="row-fluid">
 					    <!-- breadcrumb -->	
-									<ul class="breadcrumb">
-										<?php
-										$school_year_query = mysqli_query($conn,"select * from school_year order by school_year DESC")or die(mysqli_error());
-										$school_year_query_row = mysqli_fetch_array($school_year_query);
-										$school_year = $school_year_query_row['school_year'];
-										?>
-											<li><a href="#"><b>My Class</b></a><span class="divider">/</span></li>
-										<li><a href="#">School Year: <?php echo $school_year_query_row['school_year']; ?></a><span class="divider">/</span></li>
+						<ul class="breadcrumb">
+									<?php
+										$teacher_query = mysqli_query($conn,"select * from teacher");
+										$teacher_query_row = mysqli_fetch_array($teacher_query);
+								    ?>
+										<li><a href="#"><b>My Course</b></a><span class="divider">/</span></li>
+										<li><a href="#">Teacher: <?php echo $teacher_query_row['firstname']; ?></a><span class="divider">/</span></li>
 										<li><a href="#"><b>Quiz</b></a></li>
-									</ul>
+						</ul>
 						 <!-- end breadcrumb -->
                         <!-- block -->
                         <div id="block_bg" class="block">
@@ -36,7 +35,7 @@
 											<div class="controls">
 											<select name="quiz_id">
 											<option></option>
-												<?php  $query = mysqli_query($conn,"select * from quiz where teacher_id = '$session_id'")or die(mysqli_error());
+												<?php  $query = mysqli_query($conn,"select * from quiz where teacher_id = '$session_id'");
 												while ($row = mysqli_fetch_array($query)){ $id = $row['quiz_id']; ?>
 												<option value="<?php echo $id; ?>"><?php echo $row['quiz_title']; ?></option>
 												<?php } ?>
@@ -58,9 +57,8 @@
 				
 				<tbody>
 					<?php $query = mysqli_query($conn,"select * from teacher_class
-										LEFT JOIN class ON class.class_id = teacher_class.class_id
 										LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
-										where teacher_id = '$session_id' and school_year = '$school_year' ")or die(mysqli_error());
+										where teacher_id = '$session_id' ");
 										$count = mysqli_num_rows($query);
 										
 
@@ -70,9 +68,9 @@
 										?>
 					<tr>
 					<td width="30">
-						<input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
+						<input id="optionsCheckbox" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
 					</td>
-					<td><?php echo $row['class_name']; ?></td>
+					<td><?php echo $row['subject_title']; ?></td>
 					<td><?php echo $row['subject_code']; ?></td>
 					</tr>
 					<?php } ?>
@@ -101,8 +99,8 @@
 											$N = count($id);
 											for($i=0; $i < $N; $i++)
 											{
-												mysqli_query($conn,"insert into class_quiz (teacher_class_id,quiz_time,quiz_id) values('$id[$i]','$time','$quiz_id')")or die(mysqli_error());
-												mysqli_query($conn,"insert into notification (teacher_class_id,notification,date_of_notification,link) value('$id[$i]','$name_notification',NOW(),'student_quiz_list.php')")or die(mysqli_error());
+												mysqli_query($conn,"insert into class_quiz (teacher_class_id,quiz_time,quiz_id) values('$id[$i]','$time','$quiz_id')");
+												mysqli_query($conn,"insert into notification (teacher_class_id,notification,date_of_notification,link) value('$id[$i]','$name_notification',NOW(),'student_quiz_list.php')");
 											} ?>
 											<script>
 												window.location = 'teacher_quiz.php';

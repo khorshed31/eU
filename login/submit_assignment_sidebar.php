@@ -3,7 +3,7 @@
 				      <!-- block -->
                         <div id="block_bg" class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div id="" class="muted pull-left"><h4><i class="icon-plus-sign"></i> Add Downloadable</h4></div>
+                                <div id="" class="muted pull-left"><h4><i class="icon-plus-sign"></i> Add Your Answer</h4></div>
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span12">
@@ -13,7 +13,7 @@
                             <div class="controls">
 				
 									
-								<input name="uploaded_file"  class="input-file uniform_on" id="fileInput" type="file" required>
+								<input name="uploaded_file"  id="fileInput" type="file" required>
                          
                                 <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
                                 <input type="hidden" name="id" value="<?php echo $post_id; ?>"/>
@@ -23,13 +23,13 @@
                         <div class="control-group">
                       
                             <div class="controls">
-                                <input type="text" name="name" Placeholder="File Name"  class="input" required>
+                                <input type="text" name="name" Placeholder="Course Name"  class="input" required>
                             </div>
                         </div>
                         <div class="control-group">
                           
                             <div class="controls">
-                                <input type="text" name="desc" Placeholder="Description"  class="input" required>
+                                <input type="text" name="desc" Placeholder="Your User ID"  class="input" required>
                             </div>
                         </div>
                         <div class="control-group">

@@ -10,12 +10,12 @@
 					    <!-- breadcrumb -->	
 									<ul class="breadcrumb">
 										<?php
-										$school_year_query = mysqli_query($conn,"select * from school_year order by school_year DESC")or die(mysqli_error());
-										$school_year_query_row = mysqli_fetch_array($school_year_query);
-										$school_year = $school_year_query_row['school_year'];
+										$teacher_query = mysqli_query($conn,"select * from teacher");
+										$teacher_query_row = mysqli_fetch_array($teacher_query);
+										
 										?>
-											<li><a href="#"><b>My Class</b></a><span class="divider">/</span></li>
-										<li><a href="#">School Year: <?php echo $school_year_query_row['school_year']; ?></a><span class="divider">/</span></li>
+											<li><a href="#"><b>My Course</b></a><span class="divider">/</span></li>
+										<li><a href="#">Teacher: <?php echo $teacher_query_row['firstname']; ?></a><span class="divider">/</span></li>
 										<li><a href="#"><b>Shared Files</b></a></li>
 									</ul>
 						 <!-- end breadcrumb -->
@@ -53,7 +53,7 @@
 										$query = mysqli_query($conn,"select * FROM teacher_shared
 										LEFT JOIN teacher on teacher_shared.teacher_id = teacher.teacher_id
 										where shared_teacher_id = '$session_id' 
-										order by fdatein DESC")or die(mysqli_error());
+										order by fdatein DESC");
 										while($row = mysqli_fetch_array($query)){
 										$id  = $row['teacher_shared_id'];
 									?>                              

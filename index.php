@@ -304,6 +304,103 @@
     <!--====== APPLY PART ENDS ======-->
     <!--====== COURSE PART START ======-->
     
+    <section id="course-part" class="pt-115 pb-115">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-title pb-45">
+                        <h5>Our Department</h5>
+                        <h2>Featured Department </h2>
+                    </div> <!-- section title -->
+                </div>
+            </div> <!-- row -->
+            <?php 
+            include('login/dbcon.php');
+            
+								$cse = mysqli_query($conn,"select * from subject where dept_id = 'CSE' ");
+								$count_cse = mysqli_num_rows($cse);
+								
+                                $eee = mysqli_query($conn,"select * from subject where dept_id = 'EEE' ");
+								$count_eee = mysqli_num_rows($eee);
+
+
+								
+            ?>
+            
+            <div class="row course-slied mt-30">
+                <div class="col-lg-4">
+                    <div class="singel-course-2">
+                        <div class="thum">
+                            <div class="image">
+                                <img src="images/CSE.png" alt="Dept">
+                            </div>
+                            <div class="course-teacher">
+                                <!-- <div class="thum">
+                                    <a href="cse.php"><img src="images/CSE.png" alt="teacher"></a>
+                                </div> -->
+                                <div class="name">
+                                    <h6>Courses No: </h6>
+                                </div>
+                                <div class="review text-white">
+                                <strong><?php echo $count_cse; ?></strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cont">
+                            <a href="cse.php"><h4>Computer Science And Engineering(CSE) </h4></a>
+                        </div>
+                    </div> <!-- singel course -->
+                </div>
+                <div class="col-lg-4">
+                    <div class="singel-course-2">
+                        <div class="thum">
+                            <div class="image">
+                                <img src="images/EEE.png" alt="Dept">
+                            </div>
+                            <div class="course-teacher">
+                                <!-- <div class="thum">
+                                    <a href="cse.php"><img src="images/CSE.png" alt="teacher"></a>
+                                </div> -->
+                                <div class="name">
+                                    <h6>Courses No: </h6>
+                                </div>
+                                <div class="review text-white">
+                                <strong><?php echo $count_eee; ?></strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cont">
+                            <a href="eee.php"><h4>Electrical and Electronic Engineering(EEE)</h4></a>
+                        </div>
+                    </div> <!-- singel course -->
+                </div>
+                <div class="col-lg-4">
+                    <div class="singel-course-2">
+                        <div class="thum">
+                            <div class="image">
+                                <img src="images/CEN.png" alt="Dept">
+                            </div>
+                            <div class="course-teacher">
+                                <!-- <div class="thum">
+                                    <a href="cse.php"><img src="images/CSE.png" alt="teacher"></a>
+                                </div> -->
+                                <div class="name">
+                                    <h6>Courses No: </h6>
+                                </div>
+                                <div class="review text-white">
+                                <strong><?php echo '0'; ?></strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cont">
+                            <a href="cen.php"><h4>Civil Engineering(CEN) </h4></a>
+                        </div>
+                    </div> <!-- singel course -->
+                </div>
+                
+            </div> <!-- course slied -->
+        </div> <!-- container -->
+    </section>
     
     <!--====== COURSE PART ENDS ======-->
     <!--/main-->

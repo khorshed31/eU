@@ -9,13 +9,12 @@
                      <div class="row-fluid">
 					    <!-- breadcrumb -->	
 									<ul class="breadcrumb">
-										<?php
-										$school_year_query = mysqli_query($conn,"select * from school_year order by school_year DESC")or die(mysqli_error());
-										$school_year_query_row = mysqli_fetch_array($school_year_query);
-										$school_year = $school_year_query_row['school_year'];
-										?>
-											<li><a href="#"><b>My Class</b></a><span class="divider">/</span></li>
-										<li><a href="#">School Year: <?php echo $school_year_query_row['school_year']; ?></a><span class="divider">/</span></li>
+									<?php
+											$teacher_query = mysqli_query($conn,"select * from teacher");
+											$teacher_query_row = mysqli_fetch_array($teacher_query);
+								?>
+											<li><a href="#"><b>My Course</b></a><span class="divider">/</span></li>
+										<li><a href="#">Teacher: <?php echo $teacher_query_row['firstname']; ?></a><span class="divider">/</span></li>
 										<li><a href="#"><b>Quiz</b></a></li>
 									</ul>
 						 <!-- end breadcrumb -->
@@ -47,7 +46,7 @@
 										</thead>
 										<tbody>
                               		<?php
-										$query = mysqli_query($conn,"select * FROM quiz where teacher_id = '$session_id'  order by date_added DESC ")or die(mysqli_error());
+										$query = mysqli_query($conn,"select * FROM quiz where teacher_id = '$session_id'  order by date_added DESC ");
 										while($row = mysqli_fetch_array($query)){
 										$id  = $row['quiz_id'];
 									?>                              

@@ -12,14 +12,14 @@
 									
 					     <ul class="breadcrumb">
 						<?php
-						$sy = $_POST['school_year'];
+						$st = $_POST['title'];
 						
-						$school_year_query = mysqli_query($conn,"select * from school_year where  school_year = '$sy'")or die(mysqli_error());
-						$school_year_query_row = mysqli_fetch_array($school_year_query);
-						$school_year = $school_year_query_row['school_year'];
+						$teacher_query = mysqli_query($conn,"select * from subject where  subject_title = '$st'");
+						$teacher_query_row = mysqli_fetch_array($teacher_query);
+						$teacher = $teacher_query_row['subject_title'];
 						?>
-							<li><a href="#"><b>My Class</b></a><span class="divider">/</span></li>
-							<li><a href="#"><?php echo $school_year_query_row['school_year']; ?></a></li>
+							<li><a href="#"><b>My Course</b></a><span class="divider">/</span></li>
+							<li><a href="#"><?php echo $teacher_query_row['subject_title']; ?></a></li>
 						</ul>
 						 <!-- end breadcrumb -->
 					 
@@ -33,9 +33,8 @@
 								
   										<ul	 id="da-thumbs" class="da-thumbs">
 										<?php $query = mysqli_query($conn,"select * from teacher_class
-										LEFT JOIN class ON class.class_id = teacher_class.class_id
 										LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
-										where teacher_id = '$session_id' and school_year = '$school_year' ")or die(mysqli_error());
+										where teacher_id = '$session_id' ");
 										while($row = mysqli_fetch_array($query)){
 										$id = $row['teacher_class_id'];
 				
@@ -45,12 +44,12 @@
 														<img src ="<?php echo $row['thumbnails'] ?>" width="124" height="140" class="img-polaroid">
 													<div>
 													<span>
-													<p><?php echo $row['class_name']; ?></p>
+													<p><?php echo $row['subject_title']; ?></p>
 													
 													</span>
 													</div>
 												</a>
-												<p class="class"><?php echo $row['class_name']; ?></p>
+												<p class="class"><?php echo $row['subject_title']; ?></p>
 												<p class="subject"><?php echo $row['subject_code']; ?></p>
 												<a  href="#<?php echo $id; ?>" data-toggle="modal"><i class="icon-trash"></i> Remove</a>	
 											
@@ -69,7 +68,7 @@
 
 
                 </div>
-				<?php include('teacher_right_sidebar.php') ?>
+				
             </div>
 		<?php include('footer.php'); ?>
         </div>

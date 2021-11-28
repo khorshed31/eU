@@ -34,9 +34,7 @@
 						<li>
                             <a href="activity_log.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> Activity Log</a>
                         </li>
-                        <li>
-                            <a href="school_year.php"><i class="icon-chevron-right"></i><i class="icon-calendar"></i>Year</a>
-                        </li>
+                        
 						<li class="">
                             <a href="calendar_of_events.php"><i class="icon-chevron-right"></i><i class="icon-calendar"></i>Calendar of Events</a>
                         </li>

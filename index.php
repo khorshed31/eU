@@ -403,6 +403,77 @@
     </section>
     
     <!--====== COURSE PART ENDS ======-->
+
+    <!--====== TEACHERS PART START ======-->
+    
+    <section id="teachers-part" class="pt-70 pb-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="section-title mt-50">
+                        <h5>Featured Teachers</h5>
+                        <h2>Meet Our teachers</h2>
+                    </div> <!-- section title -->
+                    <div class="teachers-cont">
+                        <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet . Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt  mauris. <br> <br> auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet . Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt  mauris</p>
+                        <a href="teachers.php" class="main-btn mt-55">Show All</a>
+                    </div> <!-- teachers cont -->
+                </div>
+                <div class="col-lg-6 offset-lg-1">
+                    <div class="teachers mt-20">
+                    <div class="row">
+           <?php include("login/dbcon.php"); 
+                                    $sql = "SELECT * from teacher LIMIT 4";
+                                    $result = $conn-> query($sql);
+                                    while($row = $result-> fetch_assoc()){
+                                    ?>
+                              <div class="col-sm-6">
+                                <div class="singel-teachers mt-30 text-center">
+                                    
+                        <div class="image">
+                            <img src="login/admin/<?php echo $row['location'];?>" alt="Teachers">
+                        </div>
+                        <div class="cont">
+                            <h6><?php echo ($row['firstname']);?> <?php echo ($row['lastname']);?></h6>
+                            <span><?php echo($row['username']);?></span><br>
+                            <span><?php echo($row['dept_id']);?></span><br>
+                        </div>
+                    </div>
+                     <!-- singel teachers -->
+               </div>
+               <?php } ?>
+               </div>
+                            
+                        </div> <!-- row -->
+                    </div> <!-- teachers -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+    
+    <!--====== TEACHERS PART ENDS ======-->
+
+     <!--====== PUBLICATION PART START ======-->
+    
+     <section id="publication-part" class="pt-115 pb-120 gray-bg">
+        <div class="container">
+            <div class="row align-items-end">
+                <div class="col-lg-6 col-md-8 col-sm-7">
+                    <div class="section-title pb-60">
+                        <h5>Publications</h5>
+                        <h2>From Store </h2>
+                    </div> <!-- section title -->
+                </div>
+                <div class="col-lg-6 col-md-4 col-sm-5">
+                    <div class="products-btn text-right pb-60">
+                        <a href="book_shop/index.php" class="main-btn">All Products</a>
+                    </div> <!-- products btn -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+    
+    <!--====== PUBLICATION PART ENDS ======-->
     <!--/main-->
 
     <!--//main-->

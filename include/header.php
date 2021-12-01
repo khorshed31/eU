@@ -34,6 +34,18 @@
 </head>
 
 <body>
+<div class="preloader">
+        <div class="loader rubix-cube">
+            <div class="layer layer-1"></div>
+            <div class="layer layer-2"></div>
+            <div class="layer layer-3 color-1"></div>
+            <div class="layer layer-4"></div>
+            <div class="layer layer-5"></div>
+            <div class="layer layer-6"></div>
+            <div class="layer layer-7"></div>
+            <div class="layer layer-8"></div>
+        </div>
+    </div>
    
     
     <!--====== HEADER PART START ======-->
@@ -107,17 +119,13 @@
                                         <a class="active" href="index.php">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="about.html">About us</a>
+                                        <a href="about.php">About us</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="department.php">Department</a>
+                                        <a href="department.php">Departments</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#">Login</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="login/">User Login</a></li>
-                                            <li><a href="login/">Teacher Login</a></li>
-                                        </ul>
+                                        <a href="courses.php">Courses</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="teachers.php">Teachers</a>
@@ -126,7 +134,7 @@
                                         <a href="book_shop/index.php">Shop</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="contact.html">Contact</a>
+                                        <a href="contact.php">Contact</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="contact.html">Game Center</a>

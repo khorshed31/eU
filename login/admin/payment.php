@@ -23,6 +23,7 @@
                                                 <th>Price</th>
 												<th>Date Upload</th>
 												<th>Upload By</th>
+                                                <th>Transaction ID</th>
 												<th>Show Payment SS</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -45,6 +46,7 @@
                                          <td><?php echo $row['price']; ?></td>
                                          <td><?php echo $row['date']; ?></td>
                                          <td><?php echo $row['uploaded_by'];?></td>
+                                         <td><?php echo $row['trans_id'];?></td>
                                          <td>
 										 <a  data-placement="bottom" title="Download" id="<?php echo $id; ?>download" href="../<?php echo $row['pay_image']; ?>" target="_blank"><i class="icon-download icon-large"></i></a>
 										 <?php include('../delete_download_modal.php'); ?>

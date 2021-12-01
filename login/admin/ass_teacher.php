@@ -40,7 +40,7 @@
 											success: function(html){
 											$("#del"+id).fadeOut('slow', function(){ $(this).remove();}); 
 											$('#'+id).modal('hide');
-											$.jGrowl("Your Course is Successfully Deleted", { header: 'Class Delete' });
+											$.jGrowl("Your Course is Successfully Deleted", { header: 'Course Delete' });
 											}
 											}); 	
 											return false;

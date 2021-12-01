@@ -33,7 +33,7 @@
 														where student_id = '$session_id' and pay_status = '1'");
 														$count = mysqli_num_rows($query);
 									?>
-												<span class="badge badge-info"><?php echo $count; ?></span>
+												Number of Courses: <span class="badge badge-info"><?php echo $count; ?></span>
 								</div>
                             </div>
                             <div class="block-content collapse in">
@@ -73,11 +73,10 @@
                         </div>
                         <!-- /block -->
                     </div>
-
-
                 </div>
 			
             </div>
+			
 		<?php include('footer.php'); ?>
         </div>
 		<?php include('script.php'); ?>

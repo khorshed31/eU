@@ -23,6 +23,7 @@ function clean($str) {
 
 //Sanitize the POST values
 $subject = clean($_POST['course']);
+$trans = clean($_POST['trans']);
 
 $teacher_query = mysqli_query($conn,"select * from teacher_class where subject_id = '$subject'");
 $teacher_query_row = mysqli_fetch_array($teacher_query);
@@ -77,7 +78,7 @@ if ((!empty($_FILES["uploaded_file"])) && ($_FILES['uploaded_file']['error'] == 
                /*  $qry2 = "INSERT INTO files (fdesc,floc,fdatein,teacher_id,class_id,fname,uploaded_by) VALUES ('$filedesc','$newname',NOW(),'$session_id','$id[$i]','$name','$uploaded_by')"; */
                // echo "INSERT INTO files (fdesc,floc,fdatein,teacher_id,class_id,fname,uploaded_by) VALUES ('$filedesc','$newname',NOW(),'$session_id','$id[$i]','$name','$uploaded_by')";
                 // exit;
-				mysqli_query($conn,"INSERT INTO payment (pay_image,date,student_id,subject_id,teacher_class_id,uploaded_by) VALUES ('$newname',NOW(),'$session_id','$subject','$teacher','$uploaded_by')");
+				mysqli_query($conn,"INSERT INTO payment (pay_image,date,student_id,subject_id,teacher_class_id,trans_id,uploaded_by) VALUES ('$newname',NOW(),'$session_id','$subject','$teacher','$trans','$uploaded_by')");
 				// mysqli_query($conn,"insert into notification (teacher_class_id,notification,date_of_notification,link) value('$id[$i]','$name_notification',NOW(),'downloadable_student.php')");
 			   
 

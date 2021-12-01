@@ -30,6 +30,11 @@
                                 <input type="hidden" name="id" value="<?php echo $session_id ?>"/>
                             </div>
                         </div>
+						<div class="control-group">
+                                          <div class="controls">
+                                            <input class="input focused" id="focusedInput" name="trans" type="text" placeholder = "Transaction ID">
+                                          </div>
+                                        </div>
                         <div class="control-group">
 											<label>Course :</label>
                                           <div class="controls">
@@ -90,9 +95,10 @@
 										        <tr>
 												<th>Date Upload</th>
 												<th>Course</th>
+												<th>Transaction ID </th>
 												<th>Uploaded by</th>
 												<th>Show</th>
-												<th></th>
+												
 												</tr>
 												
 										</thead>
@@ -108,7 +114,8 @@
 										<tr id="del<?php echo $id; ?>">
 									
 										 <td><?php echo $row['date']; ?></td>
-                                         <td><?php echo $row['subject_title']; ?></td>                                      
+                                         <td><?php echo $row['subject_title']; ?></td>   
+										 <td><?php echo $row['trans_id']; ?></td>                                    
                                          <td><?php echo $row['uploaded_by']; ?></td>                                      
                                          <td width="40">
 										 <a  data-placement="bottom" title="Download" id="<?php echo $id; ?>download" href="<?php echo $row['pay_image']; ?>" target="_blank"><i class="icon-download icon-large"></i></a>
@@ -120,14 +127,13 @@
 															$('#<?php echo $id; ?>download').tooltip('show');
 															$('#<?php echo $id; ?>download').tooltip('hide');
 														});
-														</script>
-														
+														</script>			
                                
                                 </tr>
                          
-						 <?php } ?>
+						 
 							
-						   
+						   <?php } ?>
                               
 										</tbody>
 									</table>

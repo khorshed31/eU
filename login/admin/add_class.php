@@ -68,9 +68,9 @@
 						success: function(html){
 						if(html=="true")
 						{
-						$.jGrowl("Class Already Exist", { header: 'Add Class Failed' });
+						$.jGrowl("Course Already Assign", { header: 'Assign Course Failed' });
 						}else{
-							$.jGrowl("Classs Successfully  Added", { header: 'Class Added' });
+							$.jGrowl("Assign Successfully  Added", { header: 'Course Added' });
 							var delay = 500;
 							setTimeout(function(){ window.location = 'ass_teacher.php'  }, delay);  
 						}

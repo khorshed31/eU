@@ -11,13 +11,6 @@
     
     <!--====== Title ======-->
     <title>Computer Science And Engineering(CSE)</title>
-
-    <style>
-        th{
-            background-color: #f2bf07;
-            color:white;
-        }
-    </style>
     
     <!--====== Favicon Icon ======-->
     <?php include('include/header.php') ?>

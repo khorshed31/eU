@@ -41,11 +41,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="page-banner-cont">
-                        <h2>Our Teachers</h2>
+                        <h2>We Are</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Teacher</li>
+                                <li class="breadcrumb-item active" aria-current="page">Contact</li>
                             </ol>
                         </nav>
                     </div>  <!-- page banner cont -->
@@ -61,25 +61,37 @@
     <section id="teachers-page" class="pt-90 pb-120 gray-bg">
         <div class="container ">
            <div class="row">
-           <?php include("login/dbcon.php"); 
-                                    $sql = "SELECT * from teacher";
-                                    $result = $conn-> query($sql);
-                                    while($row = $result-> fetch_assoc()){
-                                    ?>
-               <div class="col-lg-3 col-sm-6">
+               <div class="col-lg-4 col-sm-8">
                    <div class="singel-teachers mt-30 text-center ">
                         <div class="image">
-                            <img src="login/admin/<?php echo $row['location'];?>" alt="Teachers">
+                            <img src="images/me1.png" alt="Admin">
                         </div>
-                        <div class="cont">
-                            <h6><?php echo ($row['firstname']);?> <?php echo ($row['lastname']);?></h6>
-                            <span><?php echo($row['username']);?></span><br>
-                            <span><?php echo($row['dept_id']);?></span><br>
+                        <div class="bg-white m-1 p-lg-2">
+                            <h5>Md Khorshed Alom</h5>
+                            <strong>Full Stack Developer</strong><br>
+                            Mail: <a href="mailto:khorshedalom3517@gmail.com"> khorshedalom3517@gmail.com </a><br>
+                            <span>B.Ss. In CSE</span><br>
+                            <span>Stamford University Bangladesh</span>
                         </div>
                     </div>
-                     <!-- singel teachers -->
+                     
                </div>
-               <?php } ?>
+               <div class="col-lg-4 col-sm-8">
+                   <div class="singel-teachers mt-30 text-center ">
+                        <div class="image">
+                            <img src="images/me2.png" alt="Admin">
+                        </div>
+                        <div class="bg-white m-1 p-lg-2">
+                            <h5>Sumon Kumar Ghosh</h5>
+                            <strong>Web Developer</strong><br>
+                            Mail: <a href="mailto:sumoncse7720@gmil.com"> sumoncse7720@gmil.com </a><br>
+                            <span>B.Ss. In CSE</span><br>
+                            <span>Stamford University Bangladesh</span>
+                        </div>
+                    </div>
+                     
+               </div>
+               
                </div>
         </div>
         

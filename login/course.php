@@ -45,6 +45,7 @@
                         </div>
                         <!-- /block -->
                     </div>
+                    <img src="admin/images/bkash.png" alt="" width="50%">
 
                     <script>
 				$('.dept').on('change', function() {

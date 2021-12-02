@@ -47,13 +47,12 @@
 										Instructor: <strong><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?></strong>
 															<br>
 															<img id="avatar" class="img-polaroid" src="admin/<?php echo $row['location']; ?>" width>
-															<p><a href=""><i class="icon-search"></i> view info</a></p>
 															<hr>
-										<?php $query = mysqli_query($conn,"select * from teacher_class
-											LEFT JOIN class_subject_overview ON class_subject_overview.teacher_class_id = teacher_class.teacher_class_id
-											where class_subject_overview.teacher_class_id = '$get_id'");
-											$row_subject = mysqli_fetch_array($query); ?>
-										<?php echo $row_subject['content']; ?>
+															<div class="alert alert-success">
+										<h3>Subject Info:</h3> Subject Name:<strong><?php echo $row['subject_title']; ?> </strong><br>
+										Subject Code:<strong><?php echo $row['subject_code']; ?> </strong><br>
+										Information: <strong><?php echo $row['description']; ?> </strong>
+									</div>
                                 </div>
                             </div>
                         </div>

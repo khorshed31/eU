@@ -1,3 +1,4 @@
+
 <link rel="shortcut icon" href="images/favicon.png" type="image/png">
 
     <!--====== Slick css ======-->
@@ -147,7 +148,6 @@
                         <div class="right-icon text-right">
                             <ul>
                                 <li><a href="#" id="search"><i class="fa fa-search"></i></a></li>
-                                <li><a href="login/index.php" title="Login | Registration"><i class="fa fa-user"></i></a></li>
                             </ul>
                         </div> <!-- right icon -->
                     </div>

@@ -64,7 +64,7 @@
 												<?php include("delete_course.php");} ?>
 										</tbody>
 									</table>
-									<h4 class="alert alert-success"><strong>Bkash,Nagad: <span style="color:blue">+088 01303 713906</span></strong></h4>
+									<h4 class="alert alert-success"><strong>Bkash,Nagad: <span style="color:blue" id="copy">+088 01303 713906</span></strong></h4>
 									</form>
                                 </div>
                             </div>

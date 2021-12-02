@@ -13,6 +13,7 @@
 					     <ul class="breadcrumb">
 						
 							<li><a href="#"><b>My Course</b></a><span class="divider">/</span></li>
+							<li><a href="#"><b>Notifications</b></a><span class="divider">/</span></li>
 						</ul>
 						 <!-- end breadcrumb -->
 					 
@@ -46,6 +47,7 @@
 					LEFT JOIN teacher_class ON teacher_class.teacher_class_id = teacher_class_student.teacher_class_id 
 					LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
 					LEFT JOIN teacher ON teacher.teacher_id = teacher_class_student.teacher_id 
+					LEFT JOIN payment ON payment.subject_id = subject.subject_id
 					JOIN notification ON notification.teacher_class_id = teacher_class.teacher_class_id 	
 					where teacher_class_student.student_id = '$session_id' order by notification.date_of_notification DESC
 					");
@@ -56,12 +58,13 @@
 					$id = $row['notification_id'];
 					
 					
-					$query_yes_read = mysqli_query($conn,"select * from notification_read where notification_id = '$id' and student_id = '$session_id'");
+					$query_yes_read = mysqli_query($conn,"select * from notification_read where notification_id = '$id' and student_id = '$session_id'")or die(mysqli_error($conn,$query_yes_read));
 					$read_row = mysqli_fetch_array($query_yes_read);
 					
 					$yes = $read_row['student_read'];
 				
 					?>
+					<?php if(($row['pay_status'])==((1))){?>
 									<div class="post"  id="del<?php echo $id; ?>">
 										<?php if ($yes == 'yes'){
 										}else{
@@ -84,7 +87,7 @@
 											
 											</div>
 					<?php
-					} }else{
+					} } }else{
 					?>
 					<div class="alert alert-info"><strong><i class="icon-info-sign"></i> No Notifications Found</strong></div>
 					<?php

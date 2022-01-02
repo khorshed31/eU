@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2021 at 10:29 AM
+-- Generation Time: Jan 02, 2022 at 11:42 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -290,7 +290,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `avatar`, `last_login`, `type`, `date_added`, `date_updated`) VALUES
-(1, 'Adminstrator', 'Admin', 'admin', 'b8cc4edba5145d41f9da01d85f459aef', 'uploads/1626589080_137-1378551_commerce-vector-cartoon-business-man-hq-image-free (2).png', NULL, 1, '2021-01-20 14:02:37', '2021-07-18 12:18:25');
+(1, 'Adminstrator', 'Admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'uploads/1626589080_137-1378551_commerce-vector-cartoon-business-man-hq-image-free (2).png', NULL, 1, '2021-01-20 14:02:37', '2021-11-03 15:21:36');
 
 --
 -- Indexes for dumped tables

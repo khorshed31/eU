@@ -10,14 +10,13 @@
 					    <!-- breadcrumb -->
 				
 									
-					     <ul class="breadcrumb">
-						<?php
-						$school_year_query = mysqli_query($conn,"select * from school_year order by school_year DESC")or die(mysqli_error());
-						$school_year_query_row = mysqli_fetch_array($school_year_query);
-						$school_year = $school_year_query_row['school_year'];
-						?>
-							<li><a href="#">Teachers</a><span class="divider">/</span></li>
-							<li><a href="#"><b>Profile</b></a></li>
+					    <ul class="breadcrumb">
+								<?php
+								$teacher_query = mysqli_query($conn,"select * from teacher");
+								$teacher_query_row = mysqli_fetch_array($teacher_query);
+								?>
+								<li><a href="#"><b>Profile</b></a><span class="divider">/</span></li>
+								<li><a href="#">Teacher Name: <b><?php echo $teacher_query_row['firstname']; ?></b></a></li>
 						</ul>
 						 <!-- end breadcrumb -->
 					 
@@ -29,7 +28,7 @@
                             <div class="block-content collapse in">
                                 <div class="span12">
 										<div class="alert alert-info"><i class="icon-info-sign"></i> About Me</div>
-								<?php $query= mysqli_query($conn,"select * from teacher where teacher_id = '$session_id'")or die(mysqli_error());
+								<?php $query= mysqli_query($conn,"select * from teacher where teacher_id = '$session_id'");
 								$row = mysqli_fetch_array($query);
 						?>
   									<?php echo $row['about']; ?>
@@ -42,7 +41,7 @@
 
 
                 </div>
-				<?php include('teacher_right_sidebar.php') ?>
+				
             </div>
 		<?php include('footer.php'); ?>
         </div>

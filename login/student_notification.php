@@ -60,14 +60,15 @@
 					
 					$query_yes_read = mysqli_query($conn,"select * from notification_read where notification_id = '$id' and student_id = '$session_id'")or die(mysqli_error($conn,$query_yes_read));
 					$read_row = mysqli_fetch_array($query_yes_read);
-					
+					 if(isset($_POST["login"])){ 
 					$yes = $read_row['student_read'];
-				
+					 }
 					?>
 					<?php if(($row['pay_status'])==((1))){?>
 									<div class="post"  id="del<?php echo $id; ?>">
+									<?php if(isset($_POST["login"])){ ?>
 										<?php if ($yes == 'yes'){
-										}else{
+										} }else{
 										?>
 										<input id="" class="" name="selector[]" type="checkbox" value="<?php echo $id; ?>">	
 										<?php } ?>	

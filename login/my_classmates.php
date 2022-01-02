@@ -39,7 +39,7 @@
 										 $count = mysqli_num_rows($query);
 										 ?>
 										 
-										 <span class="badge badge-info"><?php echo $count; ?></span>
+										 <!-- <span class="badge badge-info"><?php echo $count; ?></span> -->
 										</div>
                             </div>
                             <div class="block-content collapse in">

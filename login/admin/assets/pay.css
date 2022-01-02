@@ -1,143 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Work+Sans:wght@800&display=swap');
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box
-}
-
-body {
-    padding: 15px;
-    background-color: #ddc3c3
-}
-
-.container {
-    margin: 20px auto;
-    max-width: 1000px;
-    background-color: white;
-    padding: 0
-}
-
-.form-control {
-    height: 25px;
-    width: 150px;
-    border: none;
-    border-radius: 0;
-    font-weight: 800;
-    padding: 0 0 5px 0;
-    background-color: transparent;
-    box-shadow: none;
-    outline: none;
-    border-bottom: 2px solid #ccc;
-    margin: 0;
-    font-size: 14px
-}
-
-.form-control:focus {
-    box-shadow: none;
-    border-bottom: 2px solid #ccc;
-    background-color: transparent
-}
-
-.form-control2 {
-    font-size: 14px;
-    height: 20px;
-    width: 55px;
-    border: none;
-    border-radius: 0;
-    font-weight: 800;
-    padding: 0 0 5px 0;
-    background-color: transparent;
-    box-shadow: none;
-    outline: none;
-    border-bottom: 2px solid #ccc;
-    margin: 0
-}
-
-.form-control2:focus {
-    box-shadow: none;
-    border-bottom: 2px solid #ccc;
-    background-color: transparent
-}
-
-.form-control3 {
-    font-size: 14px;
-    height: 20px;
-    width: 30px;
-    border: none;
-    border-radius: 0;
-    font-weight: 800;
-    padding: 0 0 5px 0;
-    background-color: transparent;
-    box-shadow: none;
-    outline: none;
-    border-bottom: 2px solid #ccc;
-    margin: 0
-}
-
-.form-control3:focus {
-    box-shadow: none;
-    border-bottom: 2px solid #ccc;
-    background-color: transparent
-}
-
-p {
-    margin: 0
-}
-
-img {
-    width: 100%;
-    height: 100%;
-    object-fit: fill
-}
-
-.text-muted {
-    font-size: 10px
-}
-
-.textmuted {
-    color: #6c757d;
-    font-size: 13px
-}
-
-.fs-14 {
-    font-size: 14px
-}
-
-.btn.btn-primary {
-    width: 100%;
-    height: 55px;
-    border-radius: 0;
-    padding: 13px 0;
-    background-color: black;
-    border: none;
-    font-weight: 600
-}
-
-.btn.btn-primary:hover .fas {
-    transform: translateX(10px);
-    transition: transform 0.5s ease
-}
-
-.fw-900 {
-    font-weight: 900
-}
-
-::placeholder {
-    font-size: 12px
-}
-
-.ps-30 {
-    padding-left: 30px
-}
-
-.h4 {
-    font-family: 'Work Sans', sans-serif !important;
-    font-weight: 800 !important
-}
-
-.textmuted,
-h5,
-.text-muted {
-    font-family: 'Poppins', sans-serif
-}
+    .text-danger strong {
+    		color: #9f181c;
+		}
+		.receipt-main {
+			background: #ffffff none repeat scroll 0 0;
+			border-bottom: 12px solid #FFC600;
+			border-top: 12px solid #07294D;
+			margin-top: 50px;
+			margin-bottom: 50px;
+			padding: 40px 30px !important;
+			position: relative;
+			box-shadow: 0 1px 21px #acacac;
+			color: #333333;
+			font-family: open sans;
+		}
+		.receipt-main p {
+			color: #333333;
+			font-family: open sans;
+			line-height: 1.42857;
+		}
+		.receipt-footer h1 {
+			font-size: 15px;
+			font-weight: 400 !important;
+			margin: 0 !important;
+		}
+		.receipt-main::after {
+			background: #414143 none repeat scroll 0 0;
+			content: "";
+			height: 5px;
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: -13px;
+		}
+		.receipt-main thead {
+			background: #07294D none repeat scroll 0 0;
+		}
+		.receipt-main thead th {
+			color:#fff;
+		}
+		.receipt-right h5 {
+			font-size: 16px;
+			font-weight: bold;
+			margin: 0 0 7px 0;
+		}
+		.receipt-right p {
+			font-size: 12px;
+			margin: 0px;
+		}
+		.receipt-right p i {
+			text-align: center;
+			width: 18px;
+		}
+		.receipt-main td {
+			padding: 9px 20px !important;
+		}
+		.receipt-main th {
+			padding: 13px 20px !important;
+		}
+		.receipt-main td {
+			font-size: 13px;
+			font-weight: initial !important;
+		}
+		.receipt-main td p:last-child {
+			margin: 0;
+			padding: 0;
+		}	
+		.receipt-main td h2 {
+			font-size: 20px;
+			font-weight: 900;
+			margin: 0;
+			text-transform: uppercase;
+		}
+		.receipt-header-mid .receipt-left h1 {
+			font-weight: 100;
+			margin: 34px 0 0;
+			text-align: right;
+			text-transform: uppercase;
+		}
+		.receipt-header-mid {
+			margin: 24px 0;
+			overflow: hidden;
+		}
+		
+		#container {
+			background-color: #dcdcdc;
+		}

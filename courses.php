@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
 
@@ -16,7 +18,7 @@
     <?php include('include/header.php') ?>
     
     <!--====== HEADER PART ENDS ======-->
-    <div class="preloader">
+    <!-- <div class="preloader">
         <div class="loader rubix-cube">
             <div class="layer layer-1"></div>
             <div class="layer layer-2"></div>
@@ -27,7 +29,7 @@
             <div class="layer layer-7"></div>
             <div class="layer layer-8"></div>
         </div>
-    </div>
+    </div> -->
    
     <!--====== SEARCH BOX PART START ======-->
     
@@ -69,31 +71,31 @@
     <!--====== PAGE BANNER PART ENDS ======-->
    
     <!--====== TEACHERS PART START ======-->
-                                    <?php include("login/dbcon.php"); 
-                                    $sql = "SELECT * from subject ";
-                                    $result = $conn-> query($sql);
-                                    while($row = $result-> fetch_assoc()){
-                                    ?>
+                                    
     <section id="teachers-page" class="pt-90 pb-120 gray-bg">
         <div class="container ">
            <div class="row">
-           <?php include("login/dbcon.php"); 
+                                    <?php
+                                    include('login/dbcon.php');
                                     $sql = "SELECT * from subject";
                                     $result = $conn-> query($sql);
                                     while($row = $result-> fetch_assoc()){
+                                        $id = $row['subject_id'];
                                     ?>
                <div class="col-lg-3 col-sm-6">
                    <div class="singel-course mt-30 ">
                    <div class="thum">
+                       <a href="course_single.php<?php echo '?id='.$id; ?>">
                         <div class="image">
                             <img src="images/courses.png" alt="courses">
-                        </div>
+                        </div></a>
                         <div class="price">
                                <span>&#2547;<?php echo ($row['price']);?></span>
                         </div>
                    </div>
                         <div class="cont">
-                            <h6><?php echo ($row['subject_title']);?></h6>
+                            <a href="course_single.php<?php echo '?id='.$id; ?>">
+                            <h6><?php echo ($row['subject_title']);?></h6></a><br>
                             <span><?php echo($row['subject_code']);?></span><br>
                             <span><?php echo($row['dept_id']);?></span><br>
                         </div>
@@ -118,4 +120,3 @@
 </body>
 
 </html>
-<?php } ?>

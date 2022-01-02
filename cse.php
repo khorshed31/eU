@@ -11,6 +11,13 @@
     
     <!--====== Title ======-->
     <title>Computer Science And Engineering(CSE)</title>
+
+    <style>
+        th{
+            background-color: #f2bf07;
+            color:white;
+        }
+    </style>
     
     <!--====== Favicon Icon ======-->
     <?php include('include/header.php') ?>
@@ -79,9 +86,9 @@
                                     <div class="overview-description">
                                         <div class="singel-description pt-40">
                                             <h6>Summery</h6>
-                                            <p> <b>Computer Science Engineering (CSE)</b> encompasses a variety of topics that relates to computation, like analysis of algorithms, programming languages, program design, software, and computer hardware.
+                                            <p> <b>Computer Science And Engineering(CSE)</b> encompasses a variety of topics that relates to computation, like analysis of algorithms, programming languages, program design, software, and computer hardware.
 
-Computer Science engineering has roots in electrical engineering, mathematics, and linguistics. In the past Computer Science was taught as part of mathematics or engineering departments & in the recent days it has emerged as a separate engineering field..</p>
+Computer Science engineering has roots in electrical engineering, mathematics, and linguistics. In the past Computer Science was taught as part of mathematics or engineering departments & in the recent days it has emerged as a separate engineering field.</p>
                                         </div>
                                     </div> <!-- overview description -->
                                 </div>
@@ -104,7 +111,7 @@ Computer Science engineering has roots in electrical engineering, mathematics, a
                                         echo"</table>";
                                     }
                                     else{
-                                        echo "No data here";
+                                        echo "No data here" ."<br>";
                                     }
                                     ?>
                             </div>
@@ -141,7 +148,7 @@ Computer Science engineering has roots in electrical engineering, mathematics, a
                        
                  } 
                  
-                 $query = "SELECT * FROM teacher where dept_id = 'CSE'"; 
+                 $query = "SELECT * FROM teacher where dept_id = 'EEE'"; 
                  $result = mysqli_query($conn, $query); 
                 
               if ($result) 
@@ -158,7 +165,7 @@ Computer Science engineering has roots in electrical engineering, mathematics, a
                             <div class="course-features mt-30">
                                <h4>Course Features </h4>
                                <ul>
-                                    <li><i class="fa fa-clock-o"></i>Total Courses : <span><?php echo $row_users;?></span></li>
+                                    <li><i class="fa fa-clock-o"></i>Total Courses : <span><?php echo $row_users_eee;?></span></li>
                                     <li><i class="fa fa-clone"></i>Teachers : <span><?php echo $row_users_t;?></span></li>
                                     <li><i class="fa fa-beer"></i>Quizzes : <span>00</span></li>
                                     <li><i class="fa fa-user-o"></i>Students : <span>00</span></li>

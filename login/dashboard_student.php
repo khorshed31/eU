@@ -26,11 +26,13 @@
                         <div class="block">
                             <div class="navbar navbar-inner block-header">
                                 <div id="" class="muted pull-right">
-									<?php $query = mysqli_query($conn,"select * from payment
-														LEFT JOIN subject ON subject.subject_id = payment.subject_id
-														LEFT JOIN teacher_class ON teacher_class.teacher_class_id = payment.teacher_class_id
+									<?php $query = mysqli_query($conn,"select * from teacher_class_student
+														LEFT JOIN student ON student.student_id = teacher_class_student.student_id
+														LEFT JOIN subject ON subject.subject_id = teacher_class_student.subject_id
+														LEFT JOIN teacher_class ON teacher_class.teacher_class_id = teacher_class_student.teacher_class_id
 														LEFT JOIN teacher ON teacher.teacher_id = teacher_class.teacher_id
-														where student_id = '$session_id' and pay_status = '1'");
+														LEFT JOIN payment ON payment.subject_id = subject.subject_id
+														where student.student_id = '$session_id' and pay_status = '1'");
 														$count = mysqli_num_rows($query);
 									?>
 												Number of Courses: <span class="badge badge-info"><?php echo $count; ?></span>

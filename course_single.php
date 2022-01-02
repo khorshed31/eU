@@ -1,3 +1,12 @@
+<?php include('login/dbcon.php'); ?>
+<?php
+$get_id = $_GET['id'];
+ $query = mysqli_query($conn,"SELECT * from subject 
+ LEFT JOIN teacher_class ON teacher_class.subject_id = subject.subject_id
+ LEFT JOIN teacher ON teacher.teacher_id = teacher_class.teacher_id WHERE subject.subject_id = '$get_id'");
+                               $row = mysqli_fetch_array($query);
+					?>
+
 <!doctype html>
 <html lang="en">
 
@@ -10,14 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!--====== Title ======-->
-    <title>Electrical and Electronic Engineering(EEE)</title>
-
-    <style>
-        th{
-            background-color: #f2bf07;
-            color:white;
-        }
-    </style>
+    <title><?php echo $row['subject_title'];?> | easyUniversity</title>
     
     <!--====== Favicon Icon ======-->
     <?php include('include/header.php') ?>
@@ -48,12 +50,12 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="page-banner-cont">
-                        <h2>Electrical and Electronic Engineering(EEE)</h2>
+                        <h2><?php echo $row['subject_title'];?></h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                 <li class="breadcrumb-item"><a href="#">Department</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">EEE</li>
+                                <li class="breadcrumb-item active" aria-current="page"><?php echo $row['dept_id'];?></li>
                             </ol>
                         </nav>
                     </div>  <!-- page banner cont -->
@@ -72,11 +74,11 @@
                 <div class="col-lg-8">
                     <div class="corses-singel-left mt-30">
                         <div class="title">
-                            <h3>Electrical and Electronic Engineering(EEE)</h3>
+                            <h3><?php echo $row['subject_title'];?></h3>
                         </div> <!-- title -->
                         
                         <div class="corses-singel-image pt-50">
-                            <img src="images/EEE.png" alt="Courses">
+                            <img src="images/courses.png" alt="Courses">
                         </div> <!-- corses singel image -->
                         
                         <div class="corses-tab mt-30">
@@ -86,30 +88,52 @@
                                     <div class="overview-description">
                                         <div class="singel-description pt-40">
                                             <h6>Summery</h6>
-                                            <p> <b>Electrical and Electronic Engineering(EEE)</b> ,deals with the engineering problems, opportunities and needs of electrical, electronics, computer, telecommunication systems and related industries. This branch provides students with a wide range of fundamental knowledge in core disciplines such as communications, control systems, signal processing, radio frequency design, micro-processors, micro-electronics, power generation and electrical machines. The discipline focuses on design and manufacture of electrical, electronic devised, computers and their component parts, as well as on the integration of components into complex systems.</p>
-                                        </div>
+                                            <p> <?php echo $row['description'];?></p>
+                                        </div><hr>
+                                        <?php
+                                        $query = "SELECT * from subject 
+                                        LEFT JOIN teacher_class ON teacher_class.subject_id = subject.subject_id
+                                        LEFT JOIN teacher ON teacher.teacher_id = teacher_class.teacher_id WHERE subject.subject_id = '$get_id'"; 
+                 $result = mysqli_query($conn, $query); 
+                 ?>
+                                        <h6>Teacher Information</h6>
+                                        <div class="col-lg-4 col-sm-8">
+                   <div class="singel-teachers mt-30 text-center ">
+                        <div class="image">
+                            <img src="login/admin/<?php echo $row['location'] ;?>" alt="teacher">
+                        </div>
+                        <div class="bg-white m-1 p-lg-2">
+                            <h5><?php echo $row['firstname'];?> <?php echo $row['lastname'];?></h5>
+                            
+                        </div>
+                    </div>
+                     
+               </div>
                                     </div> <!-- overview description -->
                                 </div>
-                            <h4 class="badge-warning rounded-circle text-center">Courses Are: </h4><hr>
+                            <h4 class="badge-warning rounded-circle text-center">Course Details: </h4><hr>
                             <table class="table table-hover table-dark">
                                     <tr>
                                         <th>Course Code</th>
                                         <th>Course Name</th>
                                         <th>Price</th>
+                                        <th>Teacher</th>
                                         
                                     </tr>
-                            <?php include("login/dbcon.php"); 
-                                    $sql = "SELECT * from subject WHERE dept_id='EEE'";
+                            <?php
+                                    $sql = "SELECT * from subject 
+                                    LEFT JOIN teacher_class ON teacher_class.subject_id = subject.subject_id
+                                    LEFT JOIN teacher ON teacher.teacher_id = teacher_class.teacher_id WHERE subject.subject_id = '$get_id'";
                                     $result = $conn-> query($sql);
                                     if($result-> num_rows >0){
                                         while($row = $result-> fetch_assoc()){
-                                            echo "<tr><td>". $row["subject_code"] . "</td><td>" . $row["subject_title"] . "</td><td>" . $row["price"]
-                                            . "</td></tr>";
+                                            echo "<tr><td>". $row["subject_code"] . "</td><td>" . $row["subject_title"] . "</td><td>" . $row["price"] . "</td><td>" . $row["firstname"] . " ".$row["lastname"].
+                                            "</td></tr>";
                                         }
                                         echo"</table>";
                                     }
                                     else{
-                                        echo "No data here" ."<br>";
+                                        echo "No data here";
                                     }
                                     ?>
                             </div>
@@ -146,27 +170,47 @@
                        
                  } 
                  
-                 $query = "SELECT * FROM teacher where dept_id = 'EEE'"; 
+                 $query = "SELECT * from quiz 
+                 LEFT JOIN teacher ON teacher.teacher_id = quiz.teacher_id 
+                 LEFT JOIN teacher_class ON teacher_class.teacher_id = teacher.teacher_id 
+                 LEFT JOIN subject ON subject.dept_id = teacher.dept_id WHERE subject.subject_id = '$get_id'"; 
                  $result = mysqli_query($conn, $query); 
                 
               if ($result) 
               { 
                   // it return number of rows in the table. 
-                  $row_users_t = mysqli_num_rows($result); 
+                  $row_quiz = mysqli_num_rows($result); 
                     
               } 
+              $query = "SELECT * from teacher_class_student WHERE subject_id = '$get_id'"; 
+              $result = mysqli_query($conn, $query); 
+             
+           if ($result) 
+           { 
+               // it return number of rows in the table. 
+               $row_enroll = mysqli_num_rows($result); 
+                 
+           } 
                  ?>
                 </div>
                 <div class="col-lg-4">
                     <div class="row">
                         <div class="col-lg-12 col-md-6">
                             <div class="course-features mt-30">
+                                <?php
+                            $query = mysqli_query($conn,"SELECT * from subject 
+                            LEFT JOIN teacher_class ON teacher_class.subject_id = subject.subject_id
+                            LEFT JOIN teacher ON teacher.teacher_id = teacher_class.teacher_id 
+                            LEFT JOIN quiz ON quiz.teacher_id = teacher_class.teacher_id
+                            WHERE subject.subject_id = '$get_id'");
+                               $row = mysqli_fetch_array($query);
+					?>
                                <h4>Course Features </h4>
                                <ul>
-                                    <li><i class="fa fa-clock-o"></i>Total Courses : <span><?php echo $row_users_eee;?></span></li>
-                                    <li><i class="fa fa-clone"></i>Teachers : <span><?php echo $row_users_t;?></span></li>
-                                    <li><i class="fa fa-beer"></i>Quizzes : <span>00</span></li>
-                                    <li><i class="fa fa-user-o"></i>Students : <span>00</span></li>
+                                    <li><i class="fa fa-clock-o"></i>Course Name : <span><?php echo $row['subject_title'];?></span></li>
+                                    <li><i class="fa fa-clone"></i>Teacher Name: <span><?php echo $row['firstname'];?> <?php echo $row['lastname'];?></span></li>
+                                    <li><i class="fa fa-beer"></i>Quizzes : <span><?php echo $row_quiz;?></span></li>
+                                    <li><i class="fa fa-user-o"></i>Students : <span><?php echo $row_enroll;?></span></li>
                                 </ul>
                                 <div class="price-button pt-10">
                                     <!-- <span>Price : <b>$25</b></span> -->
@@ -225,6 +269,21 @@
                             <h3>Releted Courses</h3>
                         </div>
                         <div class="row">
+                            <div class="col-md-6">
+                                <div class="singel-course mt-30">
+                                    <div class="thum">
+                                        <div class="image">
+                                            <img src="images/EEE.png" alt="Course">
+                                        </div>
+                                    
+                                    </div>
+                                    <div class="cont">
+                                        <strong>Courses</strong>
+                                        <span><?php echo $row_users_eee;?></span>
+                                        <a href="eee.php"><h4>Electrical and Electronic Engineering(EEE)</h4></a>
+                                    </div>
+                                </div> <!-- singel course -->
+                            </div>
                             <div class="col-md-6">
                                 <div class="singel-course mt-30">
                                     <div class="thum">

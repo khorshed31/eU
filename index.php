@@ -207,7 +207,7 @@
                         <h2>Welcome to easyUniversity </h2>
                     </div> <!-- section title -->
                     <div class="about-cont">
-                        <p>In this project, we will try to make an online university.
+                        <p style="text-align: justify;">In this project, we will try to make an online university.
                             We will work with all the types of work that are done in a
                             university & everybody can enroll individual course. In
                             this pandemic year all are work on online through
@@ -216,43 +216,31 @@
                         <a href="#" class="main-btn mt-55">Learn More</a>
                     </div>
                 </div> <!-- about cont -->
+                
                 <div class="col-lg-6 offset-lg-1">
                     <div class="about-event mt-50">
                         <div class="event-title">
-                            <h3>Upcoming events</h3>
+                        <a href="events.php"> <h3>Upcoming events</h3></a>
                         </div> <!-- event title -->
+                        <?php 
+                include('login/dbcon.php');
+                  $query = mysqli_query($conn,"SELECT * FROM `event` ORDER BY `event`.`date_start` DESC LIMIT 4");
+                  while($row = $query-> fetch_assoc()){ 
+                  
+                ?>
                         <ul>
                             <li>
                                 <div class="singel-event">
-                                    <span><i class="fa fa-calendar"></i> 2 December 2018</span>
-                                    <a href="events-singel.html">
-                                        <h4>Campus clean workshop</h4>
+                                    <span><i class="fa fa-calendar"></i> Start: <?php echo $row['date_start']; ?></span>
+                                    <a href="events.php">
+                                        <h4><?php echo $row['event_title']; ?></h4>
                                     </a>
-                                    <span><i class="fa fa-clock-o"></i> 10:00 Am - 3:00 Pm</span>
-                                    <span><i class="fa fa-map-marker"></i> Rc Auditorim</span>
+                                    <!-- <span><i class="fa fa-clock-o"></i> </span>
+                                    <span><i class="fa fa-map-marker"></i> Rc Auditorim</span> -->
                                 </div>
                             </li>
-                            <li>
-                                <div class="singel-event">
-                                    <span><i class="fa fa-calendar"></i> 2 December 2018</span>
-                                    <a href="events-singel.html">
-                                        <h4>Tech Summit</h4>
-                                    </a>
-                                    <span><i class="fa fa-clock-o"></i> 10:00 Am - 3:00 Pm</span>
-                                    <span><i class="fa fa-map-marker"></i> Rc Auditorim</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="singel-event">
-                                    <span><i class="fa fa-calendar"></i> 2 December 2018</span>
-                                    <a href="events-singel.html">
-                                        <h4>Enviroement conference</h4>
-                                    </a>
-                                    <span><i class="fa fa-clock-o"></i> 10:00 Am - 3:00 Pm</span>
-                                    <span><i class="fa fa-map-marker"></i> Rc Auditorim</span>
-                                </div>
-                            </li>
-                        </ul>
+                            
+                        </ul><?php } ?>
                     </div> <!-- about event -->
                 </div>
             </div> <!-- row -->
@@ -264,32 +252,7 @@
 
     <!--====== ABOUT PART ENDS ======-->
 
-    <!--====== APPLY PART START ======-->
-
-    <section id="apply-aprt" class="pb-120">
-        <div class="container">
-            <div class="apply">
-                <div class="row no-gutters">
-                    <div class="col-lg-6">
-                        <div class="apply-cont apply-color-1">
-                            <h3>Apply for fall 2019</h3>
-                            <p>Gravida nibh vel velit auctor aliquetn sollicitudirem sem quibibendum auci elit cons equat ipsutis sem nibh id elituis sed odio sit amet nibh vulputate cursus equat ipsutis.</p>
-                            <a href="#" class="main-btn">Apply Now</a>
-                        </div> <!-- apply cont -->
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="apply-cont apply-color-2">
-                            <h3>Apply for scholarship</h3>
-                            <p>Gravida nibh vel velit auctor aliquetn sollicitudirem sem quibibendum auci elit cons equat ipsutis sem nibh id elituis sed odio sit amet nibh vulputate cursus equat ipsutis.</p>
-                            <a href="#" class="main-btn">Apply Now</a>
-                        </div> <!-- apply cont -->
-                    </div>
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
-
-    <!--====== APPLY PART ENDS ======-->
+    
     <!--====== COURSE PART START ======-->
     
     <section id="course-part" class="pt-115 pb-115">
@@ -403,7 +366,7 @@
                         <h2>Meet Our teachers</h2>
                     </div> <!-- section title -->
                     <div class="teachers-cont">
-                        <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet . Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt  mauris. <br> <br> auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet . Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt  mauris</p>
+                        <p style="text-align: justify;">Our dedicated teachers are a major factor in the success of easyUniversity. Teachers are drawn to the easyUniversity family because of our robust model that emphasizes project-based learning, art and technology and a supportive environment in which everyone is accountable for helping students reach the goal of skill development.</p>
                         <a href="teachers.php" class="main-btn mt-55">Show All</a>
                     </div> <!-- teachers cont -->
                 </div>

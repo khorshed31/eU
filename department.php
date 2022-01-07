@@ -102,28 +102,7 @@
     
     <section id="courses-part" class="pt-120 pb-120 gray-bg">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="courses-top-search">
-                        <ul class="nav float-left" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="active" id="courses-grid-tab" data-toggle="tab" href="#courses-grid" role="tab" aria-controls="courses-grid" aria-selected="true"><i class="fa fa-th-large"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a id="courses-list-tab" data-toggle="tab" href="#courses-list" role="tab" aria-controls="courses-list" aria-selected="false"><i class="fa fa-th-list"></i></a>
-                            </li>
-                            <li class="nav-item">Showning 4 0f 24 Results</li>
-                        </ul> <!-- nav -->
-                        
-                        <div class="courses-search float-right">
-                            <form action="#">
-                                <input type="text" placeholder="Search">
-                                <button type="button"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div> <!-- courses search -->
-                    </div> <!-- courses top search -->
-                </div>
-            </div> <!-- row -->
+            
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="courses-grid" role="tabpanel" aria-labelledby="courses-grid-tab">
                     <div class="row">
@@ -133,19 +112,10 @@
                                     <div class="image">
                                         <img src="images/CSE.png" alt="department">
                                     </div>
-                                    <div class="price">
-                                        <span>Free</span>
-                                    </div>
+                                    
                                 </div>
                                 <div class="cont">
-                                    <ul>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                    <span>(20 Reviws)</span>
+                                    
                                     <a href="cse.php"><h4>Computer Science and Engineering(CSE)</h4></a>
                                     <div class="course-teacher">
                                 <!-- <div class="thum">
@@ -169,19 +139,10 @@
                             <div class="image">
                                 <img src="images/EEE.png" alt="Course">
                             </div>
-                            <div class="price">
-                                <span>Free</span>
-                            </div>
+                            
                         </div>
                         <div class="cont">
-                            <ul>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                            <span>(20 Reviws)</span>
+                            
                             <a href="eee.php"><h4>Electrical and Electronics Engineering(EEE)</h4></a>
                             <div class="course-teacher">
                                 <!-- <div class="thum">
@@ -205,19 +166,11 @@
                             <div class="image">
                                 <img src="images/CEN.png" alt="Course">
                             </div>
-                            <div class="price">
-                                <span>Free</span>
-                            </div>
+                            
                         </div>
                         <div class="cont">
-                            <ul>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                            <span>(20 Reviws)</span>
+                            
+                            
                             <a href="cen.php"><h4>Civil Engineering(CEN)</h4></a>
                             <div class="course-teacher">
                                 <!-- <div class="thum">

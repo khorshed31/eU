@@ -7,7 +7,7 @@
                             <div class="logo">
                                 <a href="#"><img src="images/logo-2.png" alt="Logo"width="70%"></a>
                             </div>
-                            <p>Gravida nibh vel velit auctor aliquetn quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate.</p>
+                            <p style="text-align: justify;">In this project, we will try to make an online university. We will work with all the types of work that are done in a university & everybody can enroll individual course. In this pandemic year all are work on online through internet. That’s why we will try to make this online university. </p>
                             <ul class="mt-20">
                                 <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -19,35 +19,36 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="footer-link mt-40">
                             <div class="footer-title pb-25">
-                                <h6>Sitemap</h6>
+                                <h6>Menu</h6>
                             </div>
                             <ul>
-                                <li><a href="index-2.html"><i class="fa fa-angle-right"></i>Home</a></li>
-                                <li><a href="about.html"><i class="fa fa-angle-right"></i>About us</a></li>
-                                <li><a href="courses.html"><i class="fa fa-angle-right"></i>Courses</a></li>
-                                <li><a href="blog.html"><i class="fa fa-angle-right"></i>News</a></li>
-                                <li><a href="events.html"><i class="fa fa-angle-right"></i>Event</a></li>
+                                <li><a href="index.php"><i class="fa fa-angle-right"></i>Home</a></li>
+                                <li><a href="about.php"><i class="fa fa-angle-right"></i>About us</a></li>
+                                <li><a href="department.php"><i class="fa fa-angle-right"></i>Departments</a></li>
+                                <li><a href="courses.php"><i class="fa fa-angle-right"></i>Courses</a></li>
+                                <li><a href="teachers.php"><i class="fa fa-angle-right"></i>Teachers</a></li>
+                                <li><a href="book_shop/index.php"><i class="fa fa-angle-right"></i>Shop</a></li>
+                                <li><a href="contact.php"><i class="fa fa-angle-right"></i>Contact</a></li>
                             </ul>
-                            <ul>
+                            <!-- <ul>
                                 <li><a href="#"><i class="fa fa-angle-right"></i>Gallery</a></li>
                                 <li><a href="shop.html"><i class="fa fa-angle-right"></i>Shop</a></li>
                                 <li><a href="teachers.html"><i class="fa fa-angle-right"></i>Teachers</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
                                 <li><a href="contact.html"><i class="fa fa-angle-right"></i>Contact</a></li>
-                            </ul>
+                            </ul> -->
                         </div> <!-- footer link -->
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-6">
                         <div class="footer-link support mt-40">
                             <div class="footer-title pb-25">
-                                <h6>Support</h6>
+                                <h6>Departments</h6>
                             </div>
                             <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>FAQS</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Privacy</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Policy</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Documentation</a></li>
+                                <li><a href="cse.php"><i class="fa fa-angle-right"></i>CSE</a></li>
+                                <li><a href="eee.php"><i class="fa fa-angle-right"></i>EEE</a></li>
+                                <li><a href="cen.php"><i class="fa fa-angle-right"></i>CEN</a></li>
+                                
                             </ul>
                         </div> <!-- support -->
                     </div>
@@ -62,7 +63,7 @@
                                         <i class="fa fa-home"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>143 castle road 517 district, kiyev port south Canada</p>
+                                        <p>Stamford University Bangladesh</p>
                                     </div>
                                 </li>
                                 <li>
@@ -70,7 +71,7 @@
                                         <i class="fa fa-phone"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>+3 123 456 789</p>
+                                        <p>0123456789</p>
                                     </div>
                                 </li>
                                 <li>
@@ -78,7 +79,7 @@
                                         <i class="fa fa-envelope-o"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>info@yourmail.com</p>
+                                        <p>admin@gmail.com</p>
                                     </div>
                                 </li>
                             </ul>
@@ -93,7 +94,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="copyright text-md-left text-center pt-15">
-                            <p><a target="_blank" href="https://www.templateshub.net">Created By Khorshed And Sumon</a> </p>
+                            <p><a target="_blank" href="#">Created By Khorshed And Sumon</a> </p>
                         </div>
                     </div>
                     <div class="col-md-4">

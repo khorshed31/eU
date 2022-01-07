@@ -38,7 +38,7 @@ left join student on student.student_id = payment.student_id
 					<div class="col-xs-6 col-sm-6 col-md-6 text-right">
 						<div class="receipt-right">
 							<h5>easyUniversity</h5>
-							<p>+880 123456789 <i class="fa fa-phone"></i></p>
+							<p>0123456789 <i class="fa fa-phone"></i></p>
 							<p>admin@gmail.com <i class="fa fa-envelope-o"></i></p>
 							<p>Bangladesh<i class="fa fa-location-arrow"></i></p>
 						</div>

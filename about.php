@@ -103,25 +103,21 @@
                         <div class="about-singel-items mt-30">
                             <span>01</span>
                             <h4>Why Choose us</h4>
-                            <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit sollicitudirem quibibendum auci</p>
+                            <p style="text-align: justify;">We are the most trusted online platform on others. We have so many courses to help you develop your skill. We have highly qualified teachers to teach you. Teachers can take quiz assign assignments that do not have any platform. Also, communicate with teachers and classmates.</p>
                         </div> <!-- about singel -->
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-10">
                         <div class="about-singel-items mt-30">
                             <span>02</span>
                             <h4>Our Mission</h4>
-                            <p><?php echo $mission_row['content'];?></p>
+                            <p style="text-align: justify;"><?php echo $mission_row['content'];?></p>
                         </div> <!-- about singel -->
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-10">
                         <div class="about-singel-items mt-30">
                             <span>03</span>
                             <h4>Our vission</h4>
-                            <?php
-                            include('login/dbcon.php');
-											
-											echo $mission_row1['content'];
-										?>
+                            <p style="text-align: justify;"><?php echo $mission_row1['content'];?></p>
                         </div> <!-- about singel -->
                     </div>
                 </div> <!-- row -->

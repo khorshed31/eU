@@ -27,7 +27,6 @@
 												<th>Courses</th>
                                                 <th>Teacher</th>
 												<th>Price</th>
-												<th>Payment</th>
 										   </tr>
 										</thead>
 										<tbody>
@@ -36,11 +35,10 @@
                                                     LEFT JOIN teacher_class ON teacher_class.teacher_class_id = teacher_class_student.teacher_class_id 
                                                     LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
                                                     LEFT JOIN teacher ON teacher.teacher_id = teacher_class.teacher_id
-													LEFT JOIN payment ON payment.subject_id = teacher_class_student.subject_id
                                                     where teacher_class_student.student_id = '$session_id'");
 													while($row = mysqli_fetch_array($user_query)){
 														$id = $row['teacher_class_student_id'];	
-														$pay_id = $row['payment_id'];
+														
 													?>
 									
 												<tr>
@@ -50,14 +48,8 @@
 												<td><?php echo $row['subject_title']; ?></td>
 											    <td><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?></td>
 												<td><?php echo $row['price']; ?></td>
-													
-													 <td><?php if(($row['pay_status'])==((1)))
-                                                   { ?>
-													<span class="badge badge-info">Payment Complete</span>
-													<a href="pay_status.php<?php echo '?id='.$pay_id; ?>" class="btn btn-success" target="_blank">Receipt</a>
-													<?php } else {?>
-														<a href="add_payment.php<?php echo '?id='.$pay_id; ?>" class="btn btn-success"><i class="icon-money"></i> </a>
-													<?php } ?></td>
+												
+													 
 												<!-- <td width="30"><a href="add_payment.php" class="btn btn-success"><i class="icon-money"></i> </a></td> -->
 												</tr>
                                                 

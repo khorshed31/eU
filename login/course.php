@@ -73,7 +73,7 @@
                     $id = $row['teacher_class_id'];
                     $t_id = $row['teacher_id'];
                              
-                    $sql_u = "SELECT * FROM teacher_class_student WHERE subject_id='$s_id'";
+                    $sql_u = "SELECT * FROM teacher_class_student WHERE subject_id='$s_id' AND student_id='$session_id'";
                     $res_u = mysqli_query($conn, $sql_u);
                     if (mysqli_num_rows($res_u) > 0) {
                       ?>

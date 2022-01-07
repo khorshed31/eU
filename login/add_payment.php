@@ -4,7 +4,7 @@
     <?php include('navbar_student.php'); ?>
         <div class="container-fluid">
             <div class="row-fluid">
-            <?php include('enroll_sidebar.php'); ?>
+            <?php include('pay_sidebar.php'); ?>
                 <div class="span9" id="content">
                      <div class="row-fluid">
 					    <!-- breadcrumb -->	
@@ -47,14 +47,14 @@
                                             LEFT JOIN teacher ON teacher.teacher_id = teacher_class.teacher_id
                                             where student_id = '$session_id'");
 											while($row = mysqli_fetch_array($query)){
-											
+											$s_id = $_POST['course'];
 											?>
-											<option value="<?php echo $row['subject_id']; ?>"><?php echo $row['subject_title']; ?></option>
+											<option value="<?php echo $row['subject_id']; ?>"><?php echo $row['subject_title']; ?>(<?php echo $row['price'];?>)</option>
 											<?php } ?>
                                             </select>
                                           </div>
                                         </div>
-                
+										
 					
 											<script>
 			jQuery(document).ready(function($){
@@ -70,7 +70,7 @@
 						success: function(html){
 							// console.log(html)
 							// return false
-							$.jGrowl("Student Successfully  Added", { header: 'Student Added' });
+							$.jGrowl("Student Successfully  Pay", { header: 'Payment' });
 							setTimeout(function(){
 								window.location = 'add_payment.php';
 							},2000)
@@ -98,7 +98,7 @@
 												<th>Transaction ID </th>
 												<th>Uploaded by</th>
 												<th>Show</th>
-												
+												<!-- <th>Status</th> -->
 												</tr>
 												
 										</thead>
@@ -118,7 +118,7 @@
 										 <td><?php echo $row['trans_id']; ?></td>                                    
                                          <td><?php echo $row['uploaded_by']; ?></td>                                      
                                          <td width="40">
-										 <a  data-placement="bottom" title="Download" id="<?php echo $id; ?>download" href="<?php echo $row['pay_image']; ?>" target="_blank"><i class="icon-download icon-large"></i></a>
+										 <a  data-placement="bottom" title="Show Image" id="<?php echo $id; ?>download" href="<?php echo $row['pay_image']; ?>" target="_blank"><i class="icon-download icon-large"></i></a>
 										 <?php include('delete_download_modal.php'); ?>
 										 </td>                                      
                              
@@ -130,6 +130,13 @@
 														</script>			
                                
                                 </tr>
+								<td><?php if(($row['pay_status'])==((1)))
+                                                   { ?>
+													<span class="badge badge-success">Payment Complete</span>
+													<a href="pay_status.php<?php echo '?id='.$id; ?>" class="btn btn-success" target="_blank">Receipt</a>
+													<?php } else {?>
+														<span class="badge badge-info">Panding Payment</span>
+													<?php } ?></td>
                          
 						 
 							
@@ -157,12 +164,13 @@
                         </div>
                         <!-- /block -->
                     </div>
-			
+					<img src="admin/images/bkash.png" alt="" width="20%">
 
                 </div>
 				
 	
             </div>
+			
 		<?php include('footer.php'); ?>
         </div>
 		<?php include('script.php'); ?>

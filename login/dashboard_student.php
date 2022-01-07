@@ -32,7 +32,7 @@
 														LEFT JOIN teacher_class ON teacher_class.teacher_class_id = teacher_class_student.teacher_class_id
 														LEFT JOIN teacher ON teacher.teacher_id = teacher_class.teacher_id
 														LEFT JOIN payment ON payment.subject_id = subject.subject_id
-														where student.student_id = '$session_id' and pay_status = '1'");
+														where payment.student_id = '$session_id' and student.student_id = '$session_id' and pay_status = '1'");
 														$count = mysqli_num_rows($query);
 									?>
 												Number of Courses: <span class="badge badge-info"><?php echo $count; ?></span>

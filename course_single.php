@@ -94,7 +94,7 @@ $get_id = $_GET['id'];
                                         $query = "SELECT * from subject 
                                         LEFT JOIN teacher_class ON teacher_class.subject_id = subject.subject_id
                                         LEFT JOIN teacher ON teacher.teacher_id = teacher_class.teacher_id WHERE subject.subject_id = '$get_id'"; 
-                 $result = mysqli_query($conn, $query); 
+                                        $result = mysqli_query($conn, $query); 
                  ?>
                                         <h6>Teacher Information</h6>
                                         <div class="col-lg-4 col-sm-8">

@@ -137,9 +137,6 @@
                                     <li class="nav-item">
                                         <a href="contact.php">Contact</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="contact.html">Game Center</a>
-                                    </li>
                                 </ul>
                             </div>
                         </nav> <!-- nav -->

@@ -2,7 +2,8 @@
 						<h3 class="form-signin-heading"><i class="icon-lock"></i> Sign in</h3>
 						<input type="text" class="input-block-level" id="username" name="username" placeholder="Username Or Email" required>
 						<input type="password" class="input-block-level" id="password" name="password" placeholder="Password" required>
-						<strong><a href="forgotten_p.php" style="color:red">Forgotten Password</a></strong><br>
+						<input type="checkbox" onclick="myFunction()">Show Password<br>
+						<strong><u><a href="forgotten_p.php" style="color:red">Forgotten Password</a></u></strong><br>
 						<br><button data-placement="right" title="Click Here to Sign In" id="signin" name="login" class="btn btn-info" type="submit"><i class="icon-signin icon-large"></i> Sign in</button>
 														<script type="text/javascript">
 														$(document).ready(function(){
@@ -11,6 +12,17 @@
 														});
 														</script>		
 			</form>
+
+			<script>
+						function myFunction() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+					</script>
 						<script>
 						jQuery(document).ready(function(){
 						jQuery("#login_form1").submit(function(e){

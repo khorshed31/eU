@@ -213,7 +213,7 @@
                             this pandemic year all are work on online through
                             internet. That’s why we will try to make this online
                             university.
-                        <a href="#" class="main-btn mt-55">Learn More</a>
+                        <a href="about.php" class="main-btn mt-55">Read More</a>
                     </div>
                 </div> <!-- about cont -->
                 
@@ -273,6 +273,9 @@
 								
                                 $eee = mysqli_query($conn,"select * from subject where dept_id = 'EEE' ");
 								$count_eee = mysqli_num_rows($eee);
+
+                                $cen = mysqli_query($conn,"select * from subject where dept_id = 'CEN' ");
+								$count_cen = mysqli_num_rows($cen);
 
 
 								
@@ -339,7 +342,7 @@
                                     <h6>Courses No: </h6>
                                 </div>
                                 <div class="review text-white">
-                                <strong><?php echo '0'; ?></strong>
+                                <strong><?php echo $count_cen; ?></strong>
                                 </div>
                             </div>
                         </div>

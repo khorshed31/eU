@@ -12,7 +12,7 @@
                                             <select name="teacher_id" required>
                                              	<option> Select Teacher</option>
 											<?php
-											$query = mysqli_query($conn,"select * from teacher");
+											$query = mysqli_query($conn,"select * from teacher where teacher_id='$session_id'");
 											while($row = mysqli_fetch_array($query)){
 											
 											?>

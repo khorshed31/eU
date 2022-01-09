@@ -10,7 +10,7 @@
 					    <!-- breadcrumb -->	
 									<ul class="breadcrumb">
 										<?php
-										$teacher_query = mysqli_query($conn,"select * from teacher");
+										$teacher_query = mysqli_query($conn,"select * from teacher where teacher_id='$session_id'");
 										$teacher_query_row = mysqli_fetch_array($teacher_query);
 										
 										?>

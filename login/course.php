@@ -84,7 +84,7 @@
                         </script>
                         <?php
                     }else{
-  mysqli_query($conn,"insert into teacher_class_student (student_id,teacher_class_id,teacher_id,subject_id) values('$session_id','$id','$t_id','$s_id')");
+  mysqli_query($conn,"insert into teacher_class_student (student_id,teacher_class_id,teacher_id,subject_id,enroll_status) values('$session_id','$id','$t_id','$s_id','0')");
  }
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js">
     <head>
-        <title>easyUniversity</title>
+        <title>Dashboard | easyUniversity</title>
 		<meta charset="UTF-8">
         <!-- Bootstrap -->
 		<link href="admin/images/favicon.png" rel="icon" type="image">

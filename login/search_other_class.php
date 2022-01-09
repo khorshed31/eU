@@ -12,7 +12,8 @@
                                             <select name="title"  class="span8" required>
                                              	<option></option>
 											<?php
-											$query = mysqli_query($conn,"select * from subject");
+											$query = mysqli_query($conn,"select * from subject
+                            left join teacher_class on teacher_class.subject_id = subject.subject_id where teacher_id='$session_id'");
 											while($row = mysqli_fetch_array($query)){
 											
 											?>

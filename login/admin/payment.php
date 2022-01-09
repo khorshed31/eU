@@ -87,6 +87,68 @@
                             </div>
                         </div>
                         <!-- /block -->
+
+
+                        <div id="block_bg" class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">Enroll Courses Uploaded List</div>
+                            </div>
+                            <div class="block-content collapse in">
+                                <div class="span12">
+  									<table cellpadding="0" cellspacing="0" border="0" class="table" id="example">
+						
+										<thead>
+										        <tr>
+
+												<th>Course</th>
+												<th>Student</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                   
+												</tr>
+												
+										</thead>
+										<tbody>
+											
+                              		<?php
+										$query = mysqli_query($conn,"select * from teacher_class_student
+                                        LEFT JOIN subject ON subject.subject_id = teacher_class_student.subject_id
+                                        LEFT JOIN student ON student.student_id = teacher_class_student.student_id order by teacher_class_student_id desc");
+										while($row = mysqli_fetch_array($query)){
+									?>
+
+										<tr>
+
+                                         <td><?php  echo $row['subject_title']; ?></td>
+                                         <td><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?></td>
+                                         <td>
+										<?php if(($row['enroll_status'])==((1)))
+{ ?>
+                          <span class="badge badge-info">Enroll Complete</span>
+                          <?php } else {?>
+                          <span class="badge badge-secondry">Panding</span>
+                        <?php } ?></td>
+                        <td><span class="style6">
+                          <?php if(($row['enroll_status'])==((1)))
+{ ?>
+<a href="admit_enroll.php?id=<?php echo $row['teacher_class_student_id'];?>" ><button class="btn btn-danger">Cancel</button> </a> 
+                          <?php } else {?>
+<a href="admit_enroll.php?uid=<?php echo $row['teacher_class_student_id'];?>" ><button class="btn btn-info">Admit</button> </a> 
+                         <?php } ?>
+					   <!-- <a href="delete-user.php?id=<?php //echo $row['id'];?>" onClick="return deldata('<?php //echo $row['name']; ?>');">Delete </a> -->
+
+                     </span></td>              
+
+                                </tr>
+                         
+						 <?php } ?>
+						   
+                              
+										</tbody>
+									</table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
 

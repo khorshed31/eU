@@ -8,7 +8,14 @@
                 <div class="span9" id="content">
                      <div class="row-fluid">
 					    <!-- breadcrumb -->	
-					 
+						<ul class="breadcrumb">
+								<?php
+								$teacher_query = mysqli_query($conn,"select * from teacher where teacher_id='$session_id'");
+								$teacher_query_row = mysqli_fetch_array($teacher_query);
+								?>
+								<li><a href="#"><b>Downloadable</b></a><span class="divider">/</span></li>
+								<li><a href="#">Teacher Name: <b><?php echo $teacher_query_row['firstname']; ?></b></a></li>
+						</ul>
                         <!-- block -->
                         <div class="block">
                             <div class="navbar navbar-inner block-header">

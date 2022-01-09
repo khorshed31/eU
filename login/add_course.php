@@ -27,6 +27,7 @@
 												<th>Courses</th>
                                                 <th>Teacher</th>
 												<th>Price</th>
+												<th>Status</th>
 										   </tr>
 										</thead>
 										<tbody>
@@ -48,7 +49,13 @@
 												<td><?php echo $row['subject_title']; ?></td>
 											    <td><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?></td>
 												<td><?php echo $row['price']; ?></td>
-												
+												<td>
+										<?php if(($row['enroll_status'])==((1)))
+{ ?>
+                          <span class="badge badge-info">Enroll Complete</span>
+                          <?php } else {?>
+                          <span class="badge badge-secondry">Panding</span>
+                        <?php } ?></td>
 													 
 												<!-- <td width="30"><a href="add_payment.php" class="btn btn-success"><i class="icon-money"></i> </a></td> -->
 												</tr>

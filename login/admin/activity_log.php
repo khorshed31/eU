@@ -10,7 +10,7 @@
                         <!-- block -->
                         <div id="block_bg" class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div class="muted pull-left">Assignment File Uploaded List</div>
+                                <div class="muted pull-left">Activity Log</div>
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span12">

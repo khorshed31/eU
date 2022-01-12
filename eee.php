@@ -165,8 +165,6 @@
                                <ul>
                                     <li><i class="fa fa-clock-o"></i>Total Courses : <span><?php echo $row_users_eee;?></span></li>
                                     <li><i class="fa fa-clone"></i>Teachers : <span><?php echo $row_users_t;?></span></li>
-                                    <li><i class="fa fa-beer"></i>Quizzes : <span>00</span></li>
-                                    <li><i class="fa fa-user-o"></i>Students : <span>00</span></li>
                                 </ul>
                                 <div class="price-button pt-10">
                                     <!-- <span>Price : <b>$25</b></span> -->

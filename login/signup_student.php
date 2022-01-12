@@ -7,19 +7,20 @@
 				<?php include('title_index.php'); ?>
 		</div>
 	</div>
+	
+		<div class="span6">
+			<div class="index-footer">
+				<?php include('link.php'); ?>
+			</div>
+		</div>
+	
 	<div class="span6">
 		<div class="pull-right">
 		        <?php include('add_students.php'); ?>
 		</div>
 	</div>
     </div>
-	<div class="row-fluid">
-		<div class="span12">
-			<div class="index-footer">
-				<?php include('link.php'); ?>
-			</div>
-		</div>
-	</div>
+	
 		   <!-- /container -->
 		<?php include('footer.php'); ?>
     </div> <!-- /container -->

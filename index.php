@@ -224,12 +224,13 @@
                         </div> <!-- event title -->
                         <?php 
                 include('login/dbcon.php');
-                  $query = mysqli_query($conn,"SELECT * FROM `event` ORDER BY `event`.`date_start` DESC LIMIT 4");
+                  $query = mysqli_query($conn,"SELECT * FROM `event` ORDER BY `event`.`event_id` DESC LIMIT 4");
                   while($row = $query-> fetch_assoc()){ 
                   
                 ?>
                         <ul>
                             <li>
+                                
                                 <div class="singel-event">
                                     <span><i class="fa fa-calendar"></i> Start: <?php echo $row['date_start']; ?></span>
                                     <a href="events.php">

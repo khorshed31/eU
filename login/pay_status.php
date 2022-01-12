@@ -68,7 +68,7 @@ left join student on student.student_id = payment.student_id
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Course</th>
+                            <th>Course  <i><span style="color: yellow;"><?php echo $row['subject_title']; ?></span></i></th>
                             <th>Price</th>
                         </tr>
                     </thead>

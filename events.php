@@ -71,13 +71,14 @@
   <section id="event-page" class="pt-90 pb-120 gray-bg">
   <?php
   include('login/dbcon.php');
-                  $query = mysqli_query($conn,"SELECT * FROM `event` ORDER BY `event`.`event_id` DESC limit 2");
-                  while($row1 = $query-> fetch_assoc()){
+                  $query = mysqli_query($conn,"SELECT * FROM `event` ORDER BY `event`.`event_id` DESC LIMIT 1 ");
+                  $row1 = $query-> fetch_assoc();
 					?>
         <div class="container">
-
-        <marquee><b><?php echo $row1['event_title']; ?></b></marquee>
-        <?php } ?>
+         <div class="d-flex">
+        <marquee><b>Last News: <?php echo $row1['event_title']; ?></b></marquee>
+       </div>
+        
            <div class="row">
                <?php 
                 include('login/dbcon.php');

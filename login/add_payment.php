@@ -31,8 +31,18 @@
                             </div>
                         </div>
 						<div class="control-group">
+											<label>Payment Method :</label>
                                           <div class="controls">
-                                            <input class="input focused" id="focusedInput" name="trans" type="text" placeholder = "Transaction ID">
+                                            <select name="method" required>
+                                             	<option> Select Payment Method</option>
+											    <option value="Bkash">Bkash</option>
+												<option value="Nagad">Nagad</option>
+                                            </select>
+                                          </div>
+                                        </div>
+						<div class="control-group">
+                                          <div class="controls">
+                                            <input class="input focused" id="focusedInput" name="trans" type="text" placeholder = "Transaction ID" required>
                                           </div>
                                         </div>
                         <div class="control-group">
@@ -41,10 +51,8 @@
                                             <select name="course" required>
                                              	<option> Select Course</option>
 											<?php
-											$query = mysqli_query($conn,"select * from teacher_class_student
-                                            LEFT JOIN teacher_class ON teacher_class.teacher_class_id = teacher_class_student.teacher_class_id 
-                                            LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
-                                            LEFT JOIN teacher ON teacher.teacher_id = teacher_class.teacher_id
+											$query = mysqli_query($conn,"select * from teacher_class_student 
+                                            LEFT JOIN subject ON subject.subject_id = teacher_class_student.subject_id
                                             where student_id = '$session_id'");
 											while($row = mysqli_fetch_array($query)){
 											$s_id = $_POST['course'];
@@ -96,6 +104,7 @@
 												<th>Date Upload</th>
 												<th>Course</th>
 												<th>Transaction ID </th>
+												<th>Method </th>
 												<th>Uploaded by</th>
 												<th>Show</th>
 												<!-- <th>Status</th> -->
@@ -110,12 +119,14 @@
                                         where student_id = '$session_id'");
 										while($row = mysqli_fetch_array($query)){
 										$id  = $row['payment_id'];
-									?>                              
-										<tr id="del<?php echo $id; ?>">
+									?> 
+									<?php if(($row['pay_status'])==((1))){?>                             
+										<tr id="del<?php echo $id; ?>" style="background-color: #6dc959;">
 									
 										 <td><?php echo $row['date']; ?></td>
                                          <td><?php echo $row['subject_title']; ?></td>   
-										 <td><?php echo $row['trans_id']; ?></td>                                    
+										 <td><?php echo $row['trans_id']; ?></td> 
+										 <td><?php echo $row['method']; ?></td>                                   
                                          <td><?php echo $row['uploaded_by']; ?></td>                                      
                                          <td width="40">
 										 <a  data-placement="bottom" title="Show Image" id="<?php echo $id; ?>download" href="<?php echo $row['pay_image']; ?>" target="_blank"><i class="icon-download icon-large"></i></a>
@@ -129,18 +140,50 @@
 														});
 														</script>			
                                
-                                </tr>
+                                
 								<td><?php if(($row['pay_status'])==((1)))
                                                    { ?>
-													<span class="badge badge-success">Payment Complete</span>
-													<a href="pay_status.php<?php echo '?id='.$id; ?>" class="btn btn-success" target="_blank">Receipt</a>
+													<span class="badge badge-info">Payment Complete</span>
+													<a href="pay_status.php<?php echo '?id='.$id; ?>" class="btn btn-info" target="_blank">Receipt</a>
 													<?php } else {?>
 														<span class="badge badge-info">Panding Payment</span>
 													<?php } ?></td>
-                         
+                         </tr>
 						 
 							
-						   <?php } ?>
+						   <?php }?>
+						   <?php if(($row['pay_status'])==((0))){?>                             
+										<tr id="del<?php echo $id; ?>" style="background-color: #f75e5e;">
+									
+										 <td><?php echo $row['date']; ?></td>
+                                         <td><?php echo $row['subject_title']; ?></td>   
+										 <td><?php echo $row['trans_id']; ?></td> 
+										 <td><?php echo $row['method']; ?></td>                                   
+                                         <td><?php echo $row['uploaded_by']; ?></td>                                      
+                                         <td width="40">
+										 <a  data-placement="bottom" title="Show Image" id="<?php echo $id; ?>download" href="<?php echo $row['pay_image']; ?>" target="_blank"><i class="icon-download icon-large"></i></a>
+										 <?php include('delete_download_modal.php'); ?>
+										 </td>                                      
+                             
+														<script type="text/javascript">
+														$(document).ready(function(){
+															$('#<?php echo $id; ?>download').tooltip('show');
+															$('#<?php echo $id; ?>download').tooltip('hide');
+														});
+														</script>			
+                               
+                                
+								<td><?php if(($row['pay_status'])==((1)))
+                                                   { ?>
+													<span class="badge badge-info">Payment Complete</span>
+													<a href="pay_status.php<?php echo '?id='.$id; ?>" class="btn btn-info" target="_blank">Receipt</a>
+													<?php } else {?>
+														<span class="badge badge-info">Panding Payment</span>
+													<?php } ?></td>
+                         </tr>
+						 
+							
+						   <?php } }?>
                               
 										</tbody>
 									</table>
